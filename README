@@ -1,0 +1,7 @@
+Dependencies:
+* node.js (http.//www.nodejs.org)
+* npm (curl http://npmjs.org/  ##  curl http://npmjs.org/install.sh | sh)
+* jslint (npm install jslint || modded version daethorian)
+* pyflakes (easy_install pyflakes)
+* pytest (easy_install pytest)
+* rope (easy_install rope)
