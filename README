@@ -12,4 +12,3 @@ After this. you need to setup everything
 * cd zsh && git submodule init && git submodule update
 * cd vim && git submodule init && git submodule update
 * zsh install.sh vim zsh tmux
-
