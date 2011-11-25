@@ -3,10 +3,6 @@
 #
 # <github link>
 
-# echo ""
-# echo "Welcome, Nicky"
-# echo ""
-
 # This is a file containing user specific configuration for zsh. While the
 # original intent is for .zshrc to contain all this, it becomes troublesome
 # whenever you want to share your zshrc and those you share it with make
@@ -27,6 +23,8 @@
         # space and only show the hostname instead of both the username and the
         # hostname.
         export ALIAS='nicke'
+        # Set what kind of BOX we are on
+        BOX=$(uname)
 
         # Your main remote site. Currently not widely used. Backup and connection
         # testing functions are planned.
@@ -193,10 +191,15 @@
     # User coreutils options {{{
         # It is not uncommon to always supply some arguments to common commands. ls
         # and grep needs colors, right?
-        # export LSOPTS='--color=auto --group-directories-first'
-        # export GREPOPTS='--color=auto'
-        export LSOPTS=''
-        export GREPOPTS=''
+        LSOPTS=''
+        if [ $BOX = "Darwin" ] ; then
+            LSOPTS='--color=auto'
+        elif [ $BOX = "Linux" ] ; then
+            LSOPTS='--color=auto --group-directories-first'
+        fi
+
+        export LSOPTS=$LSOPTS
+        export GREPOPTS='--color=auto'
     # }}}
 # }}}
 # Modules {{{
@@ -272,41 +275,69 @@
     # Put whatever else you want here that is specific to your setup.
     export PYLINTRC="$HOME/.config/pylint/pylintrc"
     #export DJANGO_SETTINGS_MODULE="settings"
-    # export MAILCHECK=0
-    # alias ms="rsync $REMOTE:mail/ $MAIL -a --delete &> /dev/null"
-    # alias mplayer="mplayer -msgcolor -msgmodule"
 
     # alias wpg="touch /tmp/gemma && wp"
     # alias wpn="rm /tmp/gemma &> /dev/null && wp"
-
-    # Project directories
-    #alias cdc='cd ~/config'
-    # alias cdg='cd ~/git'
-    # alias cdm='cd ~/git/django-mancx'
-    # alias cdu='cd /warez/unpack' # onoes
-    # alias cdp='cd /usr/lib/python2.7/site-packages/'
 
     lscf=$HOME/config/zsh/LS_COLORS/LS_COLORS
     if [[ -f $lscf ]] ; then
         eval $(dircolors -b $lscf)
     fi
 
+    # PMODE Helper
+    alias pt='p true'
+    alias pf='p false'
+    alias p0='p 0'
+    alias p1='p 1'
+    alias p2='p 2'
+    alias p3='p 3'
+    alias p4='p 4'
+    alias p5='p 5'
+
     # Edit configuration file
     alias zn='vim ~/cfg/nicke.zsh'
     alias vn='vim ~/cfg/nicke.vim'
 
+    # Complete parent dir on $ ..<TAB>
+    zstyle ':completion:*' special-dirs true
+
     # Development aliases
-    alias mat='sshfs at:/srv/live/ $HOME/dev/django/at -oauto_cache,reconnect,volname=at'
-    alias umat='umount at'
-    alias umfat='sudo diskutil unmount force /Users/nicke/dev/django/at'
+    if [ $BOX = "Darwin" ] ; then
+        alias mat='sshfs at:/srv/live/ $HOME/dev/django/at -oauto_cache,reconnect,volname=at'
+        alias umat='umount at'
+        alias umfat='sudo diskutil unmount force /Users/nicke/dev/django/at'
 
-    alias mnt='sshfs nt:/srv/live/ $HOME/dev/django/nt -oauto_cache,reconnect,volname=nt'
-    alias umnt='umount nt'
-    alias umfnt='sudo diskutil unmount force /Users/nicke/dev/django/nt'
+        alias mnt='sshfs nt:/srv/live/ $HOME/dev/django/nt -oauto_cache,reconnect,volname=nt'
+        alias umnt='umount nt'
+        alias umfnt='sudo diskutil unmount force /Users/nicke/dev/django/nt'
 
-    alias mvs='sshfs vs:/srv/live/ $HOME/dev/django/vs -oauto_cache,reconnect,volname=vs'
-    alias umvs='umount vs'
-    alias umfvs='sudo diskutil unmount force /Users/nicke/dev/django/vs'
+        alias mvs='sshfs vs:/srv/live/ $HOME/dev/django/vs -oauto_cache,reconnect,volname=vs'
+        alias umvs='umount vs'
+        alias umfvs='sudo diskutil unmount force /Users/nicke/dev/django/vs'
+
+    elif [ $BOX = "Linux" ] ; then
+        alias cdm='cd /srv/live'
+
+        alias nr='service nginx restart'
+        alias tna='tail -f /var/log/nginx/access.log'
+        alias tne='tail -f /var/log/nginx/error.log'
+
+        alias ar='service apache2 restart'
+        alias tae='tail -f /var/log/apache2/error.log'
+        alias taa='tail -f /var/log/apache2/access.log'
+
+        alias ej='service ejabberd'
+        alias ea='ej start'
+        alias et='ej stop'
+        alias er='ej restart'
+        alias erl='er && tee'
+        alias tem='tail -f /var/log/ejabberd/ejabberd_auth_bridge.log'
+        alias tee='tail -f /var/log/ejabberd/ejabberd.log'
+
+        alias dmmm="django-admin.py makemessages -a"
+        alias dmcm="django-admin.py compilemessages"
+
+    fi
 #}}}
 
 # vim: ft=zsh fmr={{{,}}}
