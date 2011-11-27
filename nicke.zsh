@@ -60,7 +60,7 @@
         # using numerical arguments. If you give a boolean argument (true/false),
         # the prompt will set $PKEEP. If $PKEEP is true, the prompt will not
         # try to automatically switch to the CVS prompt.
-        export PMODE=2
+        export PMODE=3
         export PKEEP=true
 
         # Force the console to use prompt #1
