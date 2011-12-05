@@ -3,7 +3,6 @@
     email = niclas.helbro@gmail.com
 [color]
     ui = true
-
 [color "diff"]
     plain = normal
     meta = bold
