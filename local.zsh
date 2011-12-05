@@ -60,7 +60,7 @@
         # using numerical arguments. If you give a boolean argument (true/false),
         # the prompt will set $PKEEP. If $PKEEP is true, the prompt will not
         # try to automatically switch to the CVS prompt.
-        export PMODE=3
+        export PMODE=4
         export PKEEP=true
 
         # Force the console to use prompt #1
@@ -97,11 +97,7 @@
         alias e=$EDITOR
     # }}}
     # User colorscheme {{{
-        if [[ $TCOLORS = 256 ]]; then
-            export ZCOLOR="frostbite"
-        else
-            export ZCOLOR="default"
-        fi
+        export ZCOLOR="default"
     # }}}
     # User directories and logs {{{
         # Your mail directory. If set and exists, the prompt will look for new mail
@@ -232,10 +228,10 @@
     _modload "install"
 
     # LOLCODE!! Mostly useless but kinda lolz.
-    _modload "lolcode"
+    # _modload "lolcode"
 
     # Mounting aliases.
-    _modload "mount"
+    # _modload "mount"
 
     # Shell syntax highlighting. Cannot be sourced by _modload
     source $ZMODDIR/syntax.zsh
