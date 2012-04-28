@@ -137,25 +137,25 @@
     #     # Your home network name.
     #     export HOMENET="ninjanet"
     # # }}}
-    # # User multiplexer {{{
-    #     # Your terminal multiplexer. If installed and you are not currently in it
-    #     # (whether you are or not is decided if $TERM is equal to $MULTITERM) the
-    #     # PWD in the prompt will be red. Unset $MULTI to disable.
-    #     export MULTI='tmux'
-    #     export MULTITERM='screen-256color'
-    # # }}}
+    # User multiplexer {{{
+        # Your terminal multiplexer. If installed and you are not currently in it
+        # (whether you are or not is decided if $TERM is equal to $MULTITERM) the
+        # PWD in the prompt will be red. Unset $MULTI to disable.
+        export MULTI='tmux'
+        export MULTITERM='screen-256color'
+    # }}}
     # User chpwd and path {{{
         # Your todo list. The defaults are specified for devtodo
         # (http://swapoff.org/DevTodo). If $TODO is installed and $TODOFILE is in
         # the current directory, $TODO is run upon chpwd().
-        export TODO='todo'
-        export TODOFILE='.todo'
+        # export TODO='todo'
+        # export TODOFILE='.todo'
 
         # When I used lscmd() (included in main zshrc) and found out that 25% of all
         # the commands I ever used in zsh was ls, I figured that it could be more
         # effective and put ls into chpwd.
         # It takes some getting used to, but it is really worth it!
-        export CHPWD=true
+        # export CHPWD=true
 
         # Your choice of chpwd() command.
         _chpwd() {
@@ -321,14 +321,6 @@
         alias ar='service apache2 restart'
         alias tae='tail -f /var/log/apache2/error.log'
         alias taa='tail -f /var/log/apache2/access.log'
-
-        alias ej='service ejabberd'
-        alias ea='ej start'
-        alias et='ej stop'
-        alias er='ej restart'
-        alias erl='er && tee'
-        alias tem='tail -f /var/log/ejabberd/ejabberd_auth_bridge.log'
-        alias tee='tail -f /var/log/ejabberd/ejabberd.log'
 
         alias dmmm="django-admin.py makemessages -a"
         alias dmcm="django-admin.py compilemessages"

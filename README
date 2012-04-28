@@ -6,10 +6,13 @@ Dependencies:
 * pytest (easy_install pytest)
 * rope (easy_install rope)
 * dircolors (port install coreutils)
+* vim (latest and greatest with python support)
 
 The no-bullshit approach:
 Download and install node.js (also installs ntp): http://www.nodejs.org
-cd ~ && npm install jslint && sudo easy_install pyflakes pytest rope && sufo port install coreutils +with_default_names
+cd ~ && npm install jslint
+sudo easy_install pyflakes pytest rope
+sudo port install coreutils +with_default_names vim +python27
 
 After this. you need to setup everything
 * cd ~ && git clone https://github.com/daethorian/config.git
