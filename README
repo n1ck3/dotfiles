@@ -1,14 +1,19 @@
 Dependencies:
-* node.js (http.//www.nodejs.org)
+* node.js (http://www.nodejs.org)
 * npm (curl http://npmjs.org/  ##  curl http://npmjs.org/install.sh | sh)
 * jslint (npm install jslint || modded version daethorian)
 * pyflakes (easy_install pyflakes)
 * pytest (easy_install pytest)
 * rope (easy_install rope)
+* dircolors (port install coreutils)
+
+The no-bullshit approach:
+Download and install node.js (also installs ntp): http://www.nodejs.org
+cd ~ && npm install jslint && sudo easy_install pyflakes pytest rope && sufo port install coreutils +with_default_names
 
 After this. you need to setup everything
-* git clone daethorian
+* cd ~ && git clone https://github.com/daethorian/config.git
 * cd ~/config && git submodule init && git submodule update
-* cd zsh && git submodule init && git submodule update
-* cd vim && git submodule init && git submodule update
-* zsh install.sh vim zsh tmux
+* cd zsh && git submodule init && git submodule update && cd ~/config
+* cd vim && git submodule init && git submodule update && cd ~/config
+* zsh install.sh -l n1ck3 vim zsh tmux
