@@ -7,8 +7,8 @@ Dependencies:
 * rope (easy_install rope)
 
 After this. you need to setup everything
-* git clone daethorian
+* git clone https://github.com/daethorian/config.git
 * cd ~/config && git submodule init && git submodule update
-* cd zsh && git submodule init && git submodule update
-* cd vim && git submodule init && git submodule update
+* cd zsh && git submodule init && git submodule update && cd ~/config
+* cd vim && git submodule init && git submodule update && cd ~/config
 * zsh install.sh vim zsh tmux
