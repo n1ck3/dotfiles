@@ -20,3 +20,4 @@ After this. you need to setup everything
 * cd zsh && git submodule init && git submodule update && cd ~/config
 * cd vim && git submodule init && git submodule update && cd ~/config
 * zsh install.sh -l n1ck3 vim zsh tmux
+
