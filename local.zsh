@@ -11,6 +11,9 @@
     # This has to be set...for now
     export PMODE=2
 
+    # Make sure we do not ls everytime we enter dirs. ;)
+    export ZSH_NO_CHPWD="cunnie-o"
+
     # Your main remote site. Currently not widely used. Backup and connection
     # testing functions are planned.
     export REMOTE='b19.dyndns.org'
