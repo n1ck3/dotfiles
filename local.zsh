@@ -8,6 +8,9 @@
     # Set what kind of BOX we are on
     BOX=$(uname)
 
+    # This has to be set...for now
+    export PMODE=2
+
     # Your main remote site. Currently not widely used. Backup and connection
     # testing functions are planned.
     export REMOTE='b19.dyndns.org'
