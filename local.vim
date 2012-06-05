@@ -2,6 +2,7 @@
 colorscheme neverland
 
 " Mappings {
+    unmap ä
     " Even easier escaping :)
     " inoremap hh <ESC> hh
     " inoremap jj <ESC> jj

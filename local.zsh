@@ -119,6 +119,21 @@
         alias dmcm="django-admin.py compilemessages"
 
     fi
+
+    # Override Lowes ridiculous dr() bs.
+    dr () {
+        if [[ ! -f "manage.py" ]]
+        then
+            _zerror "No django manager found. Exiting"
+            return 1
+        fi
+
+        echo -e "\nRemoving .pyc files"
+        rmext pyc &> /dev/null
+        echo -e "Removed .pyc files"
+        python2 manage.py runserver 0.0.0.0:8000 --traceback
+    }
+
 #}}}
 
 # vim: ft=zsh fmr={{{,}}}
