@@ -102,6 +102,10 @@
         alias umat='umount at'
         alias umfat='sudo diskutil unmount force /Users/nicke/dev/django/at'
 
+        alias mntp='sshfs nt:/home/git/ $HOME/dev/django/ntp -oauto_cache,reconnect,volname=ntp'
+        alias umntp='umount ntp'
+        alias umfntp='sudo diskutil unmount force /Users/nicke/dev/django/ntp'
+
         alias mnt='sshfs nt:/srv/live/ $HOME/dev/django/nt -oauto_cache,reconnect,volname=nt'
         alias umnt='umount nt'
         alias umfnt='sudo diskutil unmount force /Users/nicke/dev/django/nt'

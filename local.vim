@@ -1,6 +1,8 @@
 " colorscheme zenburn
 colorscheme neverland
 
+set foldlevel=0
+
 " Mappings {
     unmap ä
     " Even easier escaping :)
