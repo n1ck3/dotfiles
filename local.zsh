@@ -117,13 +117,13 @@
     elif [ $BOX = "Linux" ] ; then
         alias cdm='cd /srv/live'
 
-        alias nr='service nginx restart'
-        alias tna='tail -f /var/log/nginx/access.log'
-        alias tne='tail -f /var/log/nginx/error.log'
+        alias nr='sudo service nginx restart'
+        alias tna='sudo tail -f /var/log/nginx/access.log'
+        alias tne='sudo tail -f /var/log/nginx/error.log'
 
-        alias ar='service apache2 restart'
-        alias tae='tail -f /var/log/apache2/error.log'
-        alias taa='tail -f /var/log/apache2/access.log'
+        alias ar='sudo service apache2 restart'
+        alias tae='sudo tail -f /var/log/apache2/error.log'
+        alias taa='sudo tail -f /var/log/apache2/access.log'
 
         alias dmmm="django-admin.py makemessages -a"
         alias dmcm="django-admin.py compilemessages"
