@@ -25,6 +25,7 @@
     export EMAIL="${ALIAS}@$REMOTE"
 
     export ZCOLOR="default"
+    source $ZSHCONFDIR/colorschemes/$ZCOLOR.zsh
 
     export MAIL="$HOME/mail"
 
@@ -62,6 +63,8 @@
 
     export LSOPTS=$LSOPTS
     export GREPOPTS='--color=auto'
+
+    export EDITOR=vim
 
 # }}}
 # User zsh specifics {{{
