@@ -100,38 +100,18 @@
     zstyle ':completion:*' special-dirs true
 
     # Development aliases
-    if [ $BOX = "Darwin" ] ; then
-        alias mat='sshfs at:/srv/live/ $HOME/dev/django/at -oauto_cache,reconnect,volname=at'
-        alias umat='umount at'
-        alias umfat='sudo diskutil unmount force /Users/nicke/dev/django/at'
+    alias cdm='cd /srv/live'
 
-        alias mntp='sshfs nt:/home/git/ $HOME/dev/django/ntp -oauto_cache,reconnect,volname=ntp'
-        alias umntp='umount ntp'
-        alias umfntp='sudo diskutil unmount force /Users/nicke/dev/django/ntp'
+    alias nr='sudo service nginx restart'
+    alias tna='sudo tail -f /var/log/nginx/access.log'
+    alias tne='sudo tail -f /var/log/nginx/error.log'
 
-        alias mnt='sshfs nt:/srv/live/ $HOME/dev/django/nt -oauto_cache,reconnect,volname=nt'
-        alias umnt='umount nt'
-        alias umfnt='sudo diskutil unmount force /Users/nicke/dev/django/nt'
+    alias ar='sudo service apache2 restart'
+    alias tae='sudo tail -f /var/log/apache2/error.log'
+    alias taa='sudo tail -f /var/log/apache2/access.log'
 
-        alias mvs='sshfs vs:/srv/live/ $HOME/dev/django/vs -oauto_cache,reconnect,volname=vs'
-        alias umvs='umount vs'
-        alias umfvs='sudo diskutil unmount force /Users/nicke/dev/django/vs'
-
-    elif [ $BOX = "Linux" ] ; then
-        alias cdm='cd /srv/live'
-
-        alias nr='sudo service nginx restart'
-        alias tna='sudo tail -f /var/log/nginx/access.log'
-        alias tne='sudo tail -f /var/log/nginx/error.log'
-
-        alias ar='sudo service apache2 restart'
-        alias tae='sudo tail -f /var/log/apache2/error.log'
-        alias taa='sudo tail -f /var/log/apache2/access.log'
-
-        alias dmmm="django-admin.py makemessages -a"
-        alias dmcm="django-admin.py compilemessages"
-
-    fi
+    alias dmmm="django-admin.py makemessages -a"
+    alias dmcm="django-admin.py compilemessages"
 
     # Override Lowes ridiculous dr() bs.
     dr () {
@@ -146,6 +126,9 @@
         echo -e "Removed .pyc files"
         python2 manage.py runserver 0.0.0.0:8000 --traceback
     }
+
+    # ntpdate
+    alias ntp="sudo ntpdate pool.ntp.org"
 
 #}}}
 
