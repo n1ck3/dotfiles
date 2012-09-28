@@ -83,8 +83,10 @@
         _modload $i
     done
 
-    # Shell syntax highlighting. Cannot be sourced by _modload
-    source $ZMODDIR/syntax.zsh
+    # Shell syntax highlighting, in realtime.
+    if [[ "$TCOLORS" = 256 ]]; then
+        source $ZMODDIR/ext/zsh-syntax-highlighting-filetypes/zsh-syntax-highlighting-filetypes.zsh
+    fi
 
     # Application specific modules; loaded if they are installed
     for m in $ZMODDIR/apps/* ; do
@@ -129,6 +131,11 @@
 
     # ntpdate
     alias ntp="sudo ntpdate pool.ntp.org"
+
+    # Stupid perl :@
+    export LANGUAGE=en_US.UTF-8
+    export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
 
 #}}}
 
