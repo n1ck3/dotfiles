@@ -137,6 +137,10 @@
     export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
 
+    if [ "$TERM" = "xterm" ] ; then
+        export TERM="xterm-256color"
+    fi
+
 #}}}
 
 # vim: ft=zsh fmr={{{,}}}
