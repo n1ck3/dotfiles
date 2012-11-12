@@ -1,172 +1,195 @@
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# font -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-*-*
-font -*-montecarlo-*-*-*-*-*-*-*-*-*-*-*-*
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Use Mouse+Mod4 to drag floating windows to their wanted position
-floating_modifier Mod4
+# Globals {{{
+    # Set the global mod key
+    set $mod Mod1
 
-# Toggle tiling/floating of the current window (Mod4+Shift+Space)
-bindcode Mod4+Shift+65 floating toggle
+    # Use Mouse+$mod to drag floating windows to their wanted position
+    floating_modifier $mod
+# }}}
 
-# Go into the tiling layer / floating layer, depending on whether
-# the current window is tiling / floating (Mod4+Mod1+f)
-bindsym Mod4+Mod1+f focus mode_toggle
+# Font {{{
+    # Font for window titles. Will also be used by the bar unless a different font
+    # is used in the bar {} block below. ISO 10646 = Unicode
+    # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+    # The font above is very space-efficient, that is, it looks good, sharp and
+    # clear in small sizes. However, if you need a lot of unicode glyphs or
+    # right-to-left text rendering, you should instead use pango for rendering and
+    # chose an xft font, such as:
+    # font xft:DejaVu Sans Mono 10
 
-# Focus (Mod4+hjkl)
-bindsym Mod4+h focus left
-bindsym Mod4+j focus down
-bindsym Mod4+k focus up
-bindsym Mod4+l focus right
-bindsym Mod4+u focus parent
-#bindsym Mod4+b focus child
+    # Bender
+    # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+    # font -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-*-*
+    font -*-montecarlo-*-*-*-*-*-*-*-*-*-*-*-*
+# }}}
 
-# Splitting
-bindsym Mod4+Control+z split vertical
-bindsym Mod4+Control+s split horizontal
+# Application launchers {{{
+    # ror = run_or_raise
+    # mor = mux_or_raise
 
-# Snap (Mod4+Control+hjkl)
-bindsym Mod4+Control+h layout stacking
-bindsym Mod4+Control+j layout default
-bindsym Mod4+Control+k layout tabbed
-bindsym Mod4+Control+l fullscreen
+    # start dmenu (a program launcher)
+    bindsym $mod+d exec dmenu_run
 
-# Move (Mod4+Shift+hjkl)
-bindsym Mod4+Shift+h move left
-bindsym Mod4+Shift+j move down
-bindsym Mod4+Shift+k move up
-bindsym Mod4+Shift+l move right
+    # start a terminal
+    bindsym $mod+Return exec i3-sensible-terminal
+# }}}
 
-# Move Container (Mod4+Control+Shift+hjkl)
-bindsym Mod4+Control+Shift+h focus parent; move left
-bindsym Mod4+Control+Shift+j focus parent; move down
-bindsym Mod4+Control+Shift+k focus parent; move up
-bindsym Mod4+Control+Shift+l focus parent; move right
+# Window navigation {{{
+    # Focus ($+hjkl)
+    bindsym $mod+h focus left
+    bindsym $mod+j focus down
+    bindsym $mod+k focus up
+    bindsym $mod+l focus right
+    bindsym $mod+u focus parent
+    bindsym $mod+b focus child
 
-# Relative workspace switch (Mod4+Mod1+hl)
-#bindsym Mod4+Mod1+43 workspace prev
-#bindsym Mod4+Mod1+46 workspace next
+    # move focused window
+    bindsym $mod+Shift+h move left
+    bindsym $mod+Shift+j move down
+    bindsym $mod+Shift+k move up
+    bindsym $mod+Shift+l move right
 
-# Workspaces (Mod4+\d)
-bindsym Mod4+1 workspace 1
-bindsym Mod4+2 workspace 2
-bindsym Mod4+3 workspace 3
-bindsym Mod4+4 workspace 4
-bindsym Mod4+5 workspace 5
-bindsym Mod4+6 workspace 6
-bindsym Mod4+7 workspace 7
-bindsym Mod4+8 workspace 8
-bindsym Mod4+9 workspace 9
+    # Move Container (Mod4+Control+Shift+hjkl)
+    bindsym $mod+Control+Shift+h focus parent; move left
+    bindsym $mod+Control+Shift+j focus parent; move down
+    bindsym $mod+Control+Shift+k focus parent; move up
+    bindsym $mod+Control+Shift+l focus parent; move right
 
-# Move to Workspaces
-bindsym Mod4+Shift+1 move workspace 1
-bindsym Mod4+Shift+2 move workspace 2
-bindsym Mod4+Shift+3 move workspace 3
-bindsym Mod4+Shift+4 move workspace 4
-bindsym Mod4+Shift+5 move workspace 5
-bindsym Mod4+Shift+6 move workspace 6
-bindsym Mod4+Shift+7 move workspace 7
-bindsym Mod4+Shift+8 move workspace 8
-bindsym Mod4+Shift+9 move workspace 9
+    # Snap ($mod+Control+hjkl)
+    bindsym $mod+Control+h layout default
+    bindsym $mod+Control+j layout toggle split
+    bindsym $mod+Control+k layout stacking
+    bindsym $mod+Control+l layout tabbed
 
-# Assigning
-assign [class="float"] ~
+    # Fullscreen
+    bindsym $mod+f fullscreen
 
-# Mod4+Enter starts a new terminal
-bindcode Mod4+36 exec mor main
-bindcode Mod4+Control+36 exec mor msc
-bindcode Mod4+Mod1+36 exec urxvt
+    # Splitting
+    bindsym $mod+s split horizontal
+    bindsym $mod+z split vertical
 
-# Mod4+Mod1+k kills the current client
-bindsym Mod4+Mod1+x kill
+    # Kill focused window
+    bindsym $mod+Shift+q kill
 
-# dmenu hax.
-# Mod4+Ctrl+Space for dmenu application launcher
-bindcode Mod4+Control+65 exec dmenu_exec
+    # Resize
+    mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
 
-# Mod4+Space launches default mux; alternate with Mod1
-bindcode Mod4+65 exec dmenu_ssh
-bindcode Mod4+Mod1+65 exec dmenu_mux
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 1 px or 1 ppt
+        bindsym j resize grow height 1 px or 1 ppt
+        bindsym k resize shrink height 1 px or 1 ppt
+        bindsym l resize grow width 1 px or 1 ppt
+        bindsym Shift+h resize shrink width 10 px or 10 ppt
+        bindsym Shift+j resize grow height 10 px or 10 ppt
+        bindsym Shift+k resize shrink height 10 px or 10 ppt
+        bindsym Shift+l resize grow width 10 px or 10 ppt
 
-# Run-or-raisers
-bindsym Mod4+a exec mor alt
-bindsym Mod4+e exec mor dc
-bindsym Mod4+c exec mor conf
-bindsym Mod4+d exec mor dev
-# bindsym Mod4+e exec mor main
-bindsym Mod4+i exec mor irc
-bindsym Mod4+m exec mor msc
-bindsym Mod4+p exec mor python
-bindsym Mod4+r exec mor rs
-bindsym Mod4+t exec mor task
-bindsym Mod4+w exec mor wrz
+        # same bindings, but for the arrow keys
+        # bindsym Left resize shrink width 10 px or 10 ppt
+        # bindsym Down resize grow height 10 px or 10 ppt
+        # bindsym Up resize shrink height 10 px or 10 ppt
+        # bindsym Right resize grow width 10 px or 10 ppt
 
-bindsym Mod4+q exec ror "chromium" "Chromium" "chromium"
-bindsym Mod4+s exec ror "uzbl-browser" "Uzbl-core" "uzbl-browser $HOST.local"
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 
-# Mod4+g for dzentinel
-bindsym Mod4+g exec dzentinel
-bindsym Mod4+Control+g exec bash -c "pkill dzen"
+        # Move to center
+        bindsym $mod+c move absolute position center
+    }
+    bindsym $mod+r mode "resize"
+# }}}
 
-# LOCKDOWN (Mod4+Backspace)
-bindcode Mod4+22 exec xlock
+# Workspace navigation {{{
+    # switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
 
-# Volume mods
-bindsym Mod4+z exec amixer set Master toggle
-bindsym Mod4+Mod1+h exec amixer set PCM 10-
-bindsym Mod4+Mod1+l exec amixer set PCM 10+
+    # move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym Mod4+Mod1+1 exec amixer set PCM 10%
-bindsym Mod4+Mod1+2 exec amixer set PCM 20%
-bindsym Mod4+Mod1+3 exec amixer set PCM 30%
-bindsym Mod4+Mod1+4 exec amixer set PCM 40%
-bindsym Mod4+Mod1+5 exec amixer set PCM 50%
-bindsym Mod4+Mod1+6 exec amixer set PCM 60%
-bindsym Mod4+Mod1+7 exec amixer set PCM 70%
-bindsym Mod4+Mod1+8 exec amixer set PCM 80%
-bindsym Mod4+Mod1+9 exec amixer set PCM 90%
-bindsym Mod4+Mod1+0 exec amixer set Master toggle
+    # Relative workspace switch (Mod4+Mod1+hl)
+    #bindsym Mod4+Mod1+43 workspace prev
+    #bindsym Mod4+Mod1+46 workspace next
 
-# Simple MPD controls
-bindsym Mod4+Mod1+a exec mpc -q prev
-bindsym Mod4+Mod1+s exec mpc -q toggle
-bindsym Mod4+Mod1+d exec mpc -q next
+    # Allow for workspace togle navigation
+    workspace_auto_back_and_forth yes
+# }}}
 
-# Control screen output (Mod4+å)
-bindcode Mod4+34 exec sswitch
+# Floating options {{{
+    # toggle tiling / floating
+    bindsym $mod+Shift+space floating toggle
 
-# Hehe restart gunicorn (Mod4+.)
-bindcode Mod4+60 exec ssh nl bin/gkill
+    # change focus between tiling / floating windows
+    bindsym $mod+space focus mode_toggle
 
-# Lolz screenshot
-bindsym Mod4+Mod1+p exec ss
+    # Move to center
+    bindsym $mod+c move absolute position center
+# }}}
 
-# Rotate the screen!
-#bindsym 121 exec srotate
+# Scratchpad {{{
+    # Make the currently focused window a scratchpad
+    bindsym $mod+Shift+minus move scratchpad
 
-# Mod4+Control+e exits i3
-bind Mod4+Control+26 exit
+    # Show the first scratchpad window
+    bindsym $mod+minus scratchpad show
+# }}}
 
-# Mod4+Mod1+Control+r restarts i3 inplace
-bindsym Mod4+Mod1+Control+r restart
+# System stuff {{{
+    # reload the configuration file
+    bindsym $mod+Shift+c reload
 
-# Mod4+Control+r reloads the configuration
-bindsym Mod4+Control+r reload
+    # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+    bindsym $mod+Shift+r restart
 
-# The IPC interface allows programs like an external workspace bar
-# (i3-wsbar) or i3-msg (can be used to "remote-control" i3) to work.
-ipc-socket ~/.local/share/i3/ipc.sock
+    # exit i3 (logs you out of your X session)
+    bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# accually borders plx
-new_window 1pixel
+    # Border
+    bindsym $mod+y border normal
+    bindsym $mod+Shift+y border 1pixel
+    bindsym $mod+Control+Shift+y border none
 
-# Border togglers!
-bindsym Mod4+y border 1pixel
-bindsym Mod4+Control+y border default
-bindsym Mod4+Mod1+Control+y border none
+    # Default by default is deault
+    # workspace_layout default
 
-workspace_layout default
+    # ???
+    client.background #101010
+# }}}
 
-client.background #101010
+# Status bar {{{
+    # Start i3bar to display a workspace bar (plus the system information i3status
+    # finds out, if available)
+    bar {
+            position          top
+            tray_output primary
+            workspace_buttons   yes
 
-exec_always bash -c "pkill dzen"
-exec_always dzentinel
+            # status_command    i3status
+            status_command i3status --config ~/.i3/i3status.conf
+    }
+# }}}
