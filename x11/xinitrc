@@ -1,0 +1,11 @@
+setxkbmap se &
+xset r rate 330 45 &
+#xrdb ~/.Xresources
+feh --bg-scale $HOME/.local/share/backgrounds/A_Little_Quetzal_by_vgerasimov.jpg
+
+exec xsetroot -cursor_name left_ptr &
+exec unclutter -idle 1 -root &
+exec keynav &
+# wp &
+
+exec i3 -V &> $HOME/.logs/i3.log

@@ -159,6 +159,17 @@
     bindsym $mod+minus scratchpad show
 # }}}
 
+# Cmus {{{
+    bindsym $mod+Mod4+period exec cmus-remote -u
+    bindsym $mod+Mod4+Shift+period exec cmus-remote -p
+    bindsym $mod+Mod4+Left exec cmus-remote -r
+    bindsym $mod+Mod4+Right exec cmus-remote -n
+    bindsym $mod+Mod4+Shift+Right exec cmus-remote -k "+5"
+    bindsym $mod+Mod4+Shift+Left exec cmus-remote -k "-5"
+    bindsym $mod+Mod4+plus exec cmus-remote -v "+10%"
+    bindsym $mod+Mod4+minus exec cmus-remote -v "-10%"
+# }}}
+
 # System stuff {{{
     # reload the configuration file
     bindsym $mod+Shift+c reload
