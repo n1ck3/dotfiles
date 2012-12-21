@@ -1,0 +1,19 @@
+2012-11-16 17:39:14		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, tcl, xfer
+2012-11-16 17:43:34		irc: server irc.ninjaloot.se created (temporary server, NOT SAVED!)
+2012-11-17 15:36:53	=!=	Error: unknown command "qiot" (type /help for help)
+2012-11-17 15:36:55		fifo: pipe closed
+2012-11-17 15:36:57		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, tcl, xfer
+2012-11-17 15:37:24		irc: server localhost created (temporary server, NOT SAVED!)
+2012-11-17 15:40:00		fifo: pipe closed
+2012-11-17 15:40:02		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, tcl, xfer
+2012-11-17 15:40:09		irc: server localhost created (temporary server, NOT SAVED!)
+2012-11-17 15:40:14	=!=	Error: unknown command "identify" (type /help for help)
+2012-11-17 15:42:03	=!=	Error: unknown command "identify" (type /help for help)
+2012-11-17 15:42:10	=!=	Error: unknown command "identify" (type /help for help)
+2012-11-17 16:05:41	=!=	Error: unknown command "p" (type /help for help)
+2012-11-17 16:14:13	=!=	Error: unknown command "OPEN" (type /help for help)
+2012-11-17 17:00:28	=!=	Error: unknown command "joing" (type /help for help)
+2012-11-17 17:00:53	=!=	Error: unknown command "p" (type /help for help)
+2012-11-19 16:33:48		Message filtering enabled
+2012-11-19 16:33:48		No message filter defined
+2012-11-19 16:37:54		fifo: pipe closed

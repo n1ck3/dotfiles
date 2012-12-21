@@ -2,15 +2,15 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Globals {{{
+# Globals {
     # Set the global mod key
     set $mod Mod1
 
     # Use Mouse+$mod to drag floating windows to their wanted position
     floating_modifier $mod
-# }}}
+# }
 
-# Font {{{
+# Font {
     # Font for window titles. Will also be used by the bar unless a different font
     # is used in the bar {} block below. ISO 10646 = Unicode
     # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -24,20 +24,24 @@
     # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
     # font -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-*-*
     font -*-montecarlo-*-*-*-*-*-*-*-*-*-*-*-*
-# }}}
+# }
 
-# Application launchers {{{
+# Application launchers {
     # ror = run_or_raise
     # mor = mux_or_raise
 
     # start dmenu (a program launcher)
     bindsym $mod+d exec dmenu_run
+    bindsym $mod+space exec /usr/bin/dmenu_run
 
     # start a terminal
     bindsym $mod+Return exec i3-sensible-terminal
-# }}}
 
-# Window navigation {{{
+    # open a chrome window
+    bindsym $mod+Shift+Return exec google-chrome
+# }
+
+# Window navigation {
     # Focus ($+hjkl)
     bindsym $mod+h focus left
     bindsym $mod+j focus down
@@ -105,9 +109,9 @@
         bindsym $mod+c move absolute position center
     }
     bindsym $mod+r mode "resize"
-# }}}
+# }
 
-# Workspace navigation {{{
+# Workspace navigation {
     # switch to workspace
     bindsym $mod+1 workspace 1
     bindsym $mod+2 workspace 2
@@ -138,9 +142,9 @@
 
     # Allow for workspace togle navigation
     workspace_auto_back_and_forth yes
-# }}}
+# }
 
-# Floating options {{{
+# Floating options {
     # toggle tiling / floating
     bindsym $mod+Shift+space floating toggle
 
@@ -149,28 +153,28 @@
 
     # Move to center
     bindsym $mod+c move absolute position center
-# }}}
+# }
 
-# Scratchpad {{{
+# Scratchpad {
     # Make the currently focused window a scratchpad
     bindsym $mod+Shift+minus move scratchpad
 
     # Show the first scratchpad window
     bindsym $mod+minus scratchpad show
-# }}}
+# }
 
-# Cmus {{{
-    bindsym $mod+Mod4+period exec cmus-remote -u
-    bindsym $mod+Mod4+Shift+period exec cmus-remote -p
-    bindsym $mod+Mod4+Left exec cmus-remote -r
-    bindsym $mod+Mod4+Right exec cmus-remote -n
-    bindsym $mod+Mod4+Shift+Right exec cmus-remote -k "+5"
-    bindsym $mod+Mod4+Shift+Left exec cmus-remote -k "-5"
-    bindsym $mod+Mod4+plus exec cmus-remote -v "+10%"
-    bindsym $mod+Mod4+minus exec cmus-remote -v "-10%"
-# }}}
+# ncmpcpp {
+    bindsym $mod+Mod4+period exec mpc toggle
+    bindsym $mod+Mod4+Shift+period exec mpc stop
+    bindsym $mod+Mod4+Shift+Left exec mpc prev
+    bindsym $mod+Mod4+Shift+Right exec mpc next
+    bindsym $mod+Mod4+Left exec mpc seek -00:00:06
+    bindsym $mod+Mod4+Right exec mpc seek +00:00:05
+    bindsym $mod+Mod4+plus exec mpc volume +10
+    bindsym $mod+Mod4+minus exec mpc volume -10
+# }
 
-# System stuff {{{
+# System stuff {
     # reload the configuration file
     bindsym $mod+Shift+c reload
 
@@ -190,9 +194,9 @@
 
     # ???
     client.background #101010
-# }}}
+# }
 
-# Status bar {{{
+# Status bar {
     # Start i3bar to display a workspace bar (plus the system information i3status
     # finds out, if available)
     bar {
@@ -200,7 +204,8 @@
             tray_output primary
             workspace_buttons   yes
 
-            # status_command    i3status
+            # status_command ~/.i3/i3status_wrapper.sh
             status_command i3status --config ~/.i3/i3status.conf
+            # status_command i3status --config ~/.i3/i3status.conf | dzen2 -fg white -ta r -w 1200 -fn "-misc-fixed-medium-r-normal--13-120-75-75-C-70-iso8859-1"
     }
-# }}}
+# }

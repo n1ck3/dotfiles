@@ -1,11 +1,18 @@
-setxkbmap se &
+# Set keymap. :)
+# setxkbmap q7 &
+xkbcomp $HOME/config/local/x11/keymaps/macbook.xkb :0
+
+# Set keystroke repeats
 xset r rate 330 45 &
-#xrdb ~/.Xresources
+
+# Set background
+# wp &
 feh --bg-scale $HOME/.local/share/backgrounds/A_Little_Quetzal_by_vgerasimov.jpg
 
+# XXX: Why do I want this?
+#xrdb ~/.Xresources
 exec xsetroot -cursor_name left_ptr &
 exec unclutter -idle 1 -root &
 exec keynav &
-# wp &
 
 exec i3 -V &> $HOME/.logs/i3.log
