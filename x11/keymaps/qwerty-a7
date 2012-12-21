@@ -1,0 +1,10 @@
+partial alphanumeric_keys
+xkb_symbols "q7" {
+    include "se(basic)"
+
+    key <TLDE> { [ ö ] };
+    key <AE07> { [ 7,       slash,          backslash,      bar         ] };
+    key <AE08> { [ 8,       parenleft,      bracketleft,    braceleft   ] };
+    key <AE09> { [ 9,       parenright,     bracketright,   braceright  ] };
+};
+// vim: ft=xkb et

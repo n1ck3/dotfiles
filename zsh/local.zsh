@@ -141,6 +141,9 @@
         export TERM="xterm-256color"
     fi
 
+    alias mb="sshfs -o allow_other -o idmap=user nicke@b19.dyndns.org:/Volumes/bree/music ~/Music"
+    alias umb="sudo umount -l ~/Music"
+
 #}}}
 
 # vim: ft=zsh fmr={{{,}}}

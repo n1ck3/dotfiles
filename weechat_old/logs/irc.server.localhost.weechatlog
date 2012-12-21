@@ -1,0 +1,69 @@
+2012-11-17 15:37:24		irc: connecting to server localhost/6667...
+2012-11-17 15:37:24		irc: connected to localhost/6667 (127.0.0.1)
+2012-11-17 15:37:24	--	localhost (localhost): BitlBee-IRCd initialized, please go on
+2012-11-17 15:37:24	--	Welcome to the BitlBee gateway, nicke
+2012-11-17 15:37:24	--	Host localhost is running BitlBee 3.0.5-1.2 Linux/x86_64.
+2012-11-17 15:37:24	--	BitlBee <http://www.bitlbee.org/>
+2012-11-17 15:37:24	--	localhost 3.0.5-1.2 abiswRo ntC
+2012-11-17 15:37:24	--	PREFIX=(ohv)@%+ CHANTYPES=&# CHANMODES=,,,ntC NICKLEN=23 CHANNELLEN=23 NETWORK=BitlBee SAFELIST CASEMAPPING=rfc1459 MAXTARGETS=1 WATCH=128 FLOOD=0/9999 :are supported by this server
+2012-11-17 15:37:24	--	- localhost Message Of The Day -
+2012-11-17 15:37:24	--	- Welcome to the BitlBee server at localhost.
+2012-11-17 15:37:24	--	-
+2012-11-17 15:37:24	--	- This server is running BitlBee version 3.0.5-1.2.
+2012-11-17 15:37:24	--	- The newest version can be found on http://www.bitlbee.org/
+2012-11-17 15:37:24	--	-
+2012-11-17 15:37:24	--	- You are getting this message because the server administrator has not
+2012-11-17 15:37:24	--	- yet had the time (or need) to change it.
+2012-11-17 15:37:24	--	-
+2012-11-17 15:37:24	--	- For those who don't know it yet, this is not quite a regular Internet
+2012-11-17 15:37:24	--	- Relay Chat server. Please see the site mentioned above for more
+2012-11-17 15:37:24	--	- information.
+2012-11-17 15:37:24	--	-
+2012-11-17 15:37:24	--	-
+2012-11-17 15:37:24	--	- The developers of the Bee hope you have a buzzing time.
+2012-11-17 15:37:24	--	-
+2012-11-17 15:37:24	--	- * BitlBee development team: wilmer, jelmer, Maurits
+2012-11-17 15:37:24	--	-
+2012-11-17 15:37:24	--	- ... Buzzing, haha, get it?
+2012-11-17 15:37:24	--	End of MOTD
+2012-11-17 15:37:24	--	User mode [+s] by nicke
+2012-11-17 15:39:23	--	User mode [+R] by nicke
+2012-11-17 15:40:00		irc: disconnected from server
+2012-11-17 15:40:09		irc: connecting to server localhost/6667...
+2012-11-17 15:40:09		irc: connected to localhost/6667 (127.0.0.1)
+2012-11-17 15:40:09	--	localhost (localhost): BitlBee-IRCd initialized, please go on
+2012-11-17 15:40:09	--	Welcome to the BitlBee gateway, nicke
+2012-11-17 15:40:09	--	Host localhost is running BitlBee 3.0.5-1.2 Linux/x86_64.
+2012-11-17 15:40:09	--	BitlBee <http://www.bitlbee.org/>
+2012-11-17 15:40:09	--	localhost 3.0.5-1.2 abiswRo ntC
+2012-11-17 15:40:09	--	PREFIX=(ohv)@%+ CHANTYPES=&# CHANMODES=,,,ntC NICKLEN=23 CHANNELLEN=23 NETWORK=BitlBee SAFELIST CASEMAPPING=rfc1459 MAXTARGETS=1 WATCH=128 FLOOD=0/9999 :are supported by this server
+2012-11-17 15:40:09	--	- localhost Message Of The Day -
+2012-11-17 15:40:09	--	- Welcome to the BitlBee server at localhost.
+2012-11-17 15:40:09	--	-
+2012-11-17 15:40:09	--	- This server is running BitlBee version 3.0.5-1.2.
+2012-11-17 15:40:09	--	- The newest version can be found on http://www.bitlbee.org/
+2012-11-17 15:40:09	--	-
+2012-11-17 15:40:09	--	- You are getting this message because the server administrator has not
+2012-11-17 15:40:09	--	- yet had the time (or need) to change it.
+2012-11-17 15:40:09	--	-
+2012-11-17 15:40:09	--	- For those who don't know it yet, this is not quite a regular Internet
+2012-11-17 15:40:09	--	- Relay Chat server. Please see the site mentioned above for more
+2012-11-17 15:40:09	--	- information.
+2012-11-17 15:40:09	--	-
+2012-11-17 15:40:09	--	-
+2012-11-17 15:40:09	--	- The developers of the Bee hope you have a buzzing time.
+2012-11-17 15:40:09	--	-
+2012-11-17 15:40:09	--	- * BitlBee development team: wilmer, jelmer, Maurits
+2012-11-17 15:40:09	--	-
+2012-11-17 15:40:09	--	- ... Buzzing, haha, get it?
+2012-11-17 15:40:09	--	End of MOTD
+2012-11-17 15:40:09	--	User mode [+s] by nicke
+2012-11-17 15:43:02	--	User mode [+R] by nicke
+2012-11-17 15:48:59	=!=	irc: this buffer is not a channel!
+2012-11-17 16:04:14	=!=	irc: too few arguments for "msg" command
+2012-11-17 16:04:22	--	MSG(henrichelbro): wadup?
+2012-11-17 16:13:03	=!=	irc: too few arguments for "oper" command
+2012-11-17 16:13:08	=!=	irc: too few arguments for "oper" command
+2012-11-17 16:13:24	=!=	irc: too few arguments for "oper" command
+2012-11-17 16:13:28	=!=	irc: too few arguments for "oper" command
+2012-11-19 16:37:54		irc: disconnected from server
