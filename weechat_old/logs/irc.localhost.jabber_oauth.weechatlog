@@ -1,9 +1,0 @@
-2012-11-17 15:45:01	jabber_oauth	Open this URL in your browser to authenticate: https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/googletalk&response_type=code&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_id=783993391592.apps.googleusercontent.com
-2012-11-17 15:45:01	jabber_oauth	Respond to this message with the returned authorization token.
-2012-11-17 15:47:35	nicke	4/mju254ZHMsiNiZeqJteAoH3zFuZJ.8u4wqfVImngesNf4jSVKMpYIDbEddgI
-2012-11-17 15:47:35	--	[jabber_oauth] is away: Offline
-2012-11-17 15:48:38	nicke	acc gtalk set nick_format %full_name
-2012-11-17 15:48:38	--	jabber_oauth: No such nick/channel
-2012-11-17 15:53:00	jabber_oauth	Open this URL in your browser to authenticate: https://www.facebook.com/dialog/oauth?scope=offline_access,xmpp_login&response_type=code&redirect_uri=http://www.bitlbee.org/main.php/Facebook/oauth2.html&client_id=126828914005625
-2012-11-17 15:53:00	jabber_oauth	Respond to this message with the returned authorization token.
-2012-11-17 15:53:48	nicke	AQAtUSHOXvnhqVnj46FAntEvujkIfnjqapEGJJDuwM5vUJBREBH6gsfhrqmMdH_l5XutNo9rjnQFROsc1pN-ljniamakKElMlMmllkspuf6g44Nr9SvhsUJZl62tQLl9knR7KCfSdeWCMdSFk1fHcdLY3_7wr9nmOXh50KhIPSIJwLWIYOzHOCfyXrOwTm2mWyO7Ink6EfmLroBbQmjCiZhE
