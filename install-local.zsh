@@ -14,8 +14,9 @@ loc=$0:a:h
 typeset -A apps
 typeset -A dest
 
-a=('./mpd' './mpd/mpdconf')
+a=('./misc/mpd.conf')
 apps[mpd]=$a
+dest[./misc/mpd.conf]="$HOME/.mpdconf"
 
 a=('./misc/i3status.conf')
 apps[i3]=$a
@@ -99,3 +100,6 @@ for app in ${(ko)apps}; do
         _install ${(z)${apps[$app]}}
     fi
 done
+
+# These directories are required
+mkdir -p $HOME/mpd &> /dev/null
