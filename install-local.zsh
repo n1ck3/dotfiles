@@ -102,4 +102,4 @@ for app in ${(ko)apps}; do
 done
 
 # These directories are required
-mkdir -p $HOME/mpd &> /dev/null
+mkdir -p $HOME/.mpd &> /dev/null
