@@ -5,6 +5,7 @@ cd $HOME
 rm -rf etc
 rm -rf .mpd
 rm -rf .ncmpcpp
+rm -rf .i3
 unlink .gitconfig
 unlink .mpdconf
 unlink .terminfo
