@@ -20,7 +20,7 @@ dest[./misc/mpd.conf]="$HOME/.mpdconf"
 
 a=('./misc/i3status.conf')
 apps[i3]=$a
-dest[./misc/i3.conf]="$HOME/.i3/i3status.conf"
+dest[./misc/i3status.conf]="$HOME/.i3/i3status.conf"
 
 a=('./misc/x11/Xdefaults')
 apps[luakit]=$a
