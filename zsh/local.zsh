@@ -4,38 +4,8 @@
 # <github link>
 
 # User settings {{{
-    export ALIAS='nicke'
-    # Set what kind of BOX we are on
-    BOX=$(uname)
-
-    # This has to be set...for now
-    export PMODE=2
-
     # Make sure we do not ls everytime we enter dirs. ;)
     export ZSH_NO_CHPWD="cunnie-o"
-
-    # Your main remote site. Currently not widely used. Backup and connection
-    # testing functions are planned.
-    export REMOTE='b19.dyndns.org'
-
-    # Your full name. Used with git configurations.
-    export FULLNAME="Niclas Helbro"
-
-    # Your email adress. Used with git configurations.
-    export EMAIL="${ALIAS}@$REMOTE"
-
-    export ZCOLOR="default"
-    source $ZSHCONFDIR/colorschemes/$ZCOLOR.zsh
-
-    export MAIL="$HOME/mail"
-
-    export LOGS="$HOME/.local/logs"
-
-    HISTFILE="$LOGS/zsh.history.log"
-    HISTSIZE=100000
-    SAVEHIST=100000
-
-    export HOMEBIN="$HOME/.local/bin"
 
     # Your path. Remember to separate additional directories with a colon.
     local _PATH="$HOME/bin:$HOMEBIN"
@@ -54,6 +24,8 @@
         export MANPATH=$_MANPATH:$MANPATH
     fi
 
+    # Set what kind of BOX we are on
+    BOX=$(uname)
     LSOPTS=''
     if [ $BOX = "Darwin" ] ; then
         LSOPTS='--color=auto'
@@ -64,38 +36,6 @@
     export LSOPTS=$LSOPTS
     export GREPOPTS='--color=auto'
 
-    export EDITOR=vim
-
-# }}}
-# User zsh specifics {{{
-    export ZDUMPDIR=
-
-    # The globbing!
-    setopt extendedglob
-    umask 022
-# }}}
-# Modules {{{
-    # zsh module directory
-    export ZMODDIR="$ZSHCONFDIR/modules"
-
-    # Core modules are recommended and should most probably always be loaded.
-    for i in $ZMODDIR/*.zsh(n) ; do
-        _modload $i
-    done
-
-    # Shell syntax highlighting, in realtime.
-    if [[ "$TCOLORS" = 256 ]]; then
-        source $ZMODDIR/ext/zsh-syntax-highlighting-filetypes/zsh-syntax-highlighting-filetypes.zsh
-    fi
-
-    # Application specific modules; loaded if they are installed
-    for m in $ZMODDIR/apps/* ; do
-        app=${${m##*/}%\.*}  # Strip down to the actual executable name
-        if has $app ; then
-            _modload "apps/$app"
-        fi
-    done
-    unset m
 # }}}
 # User custom whatever {{{
     # Complete parent dir on $ ..<TAB>
