@@ -1,6 +1,6 @@
 # Set keymap. :)
 # setxkbmap q7 &
-xkbcomp $HOME/config/local/x11/keymaps/macbook.xkb :0
+xkbcomp $HOME/etc/misc/x11/keymaps/macbook.xkb :0
 
 # Set keystroke repeats
 xset r rate 330 45 &
