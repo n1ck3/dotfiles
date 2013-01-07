@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+apps[i3]="misc/i3.conf misc/i3status.conf"
+apps[mpd]="misc/mpd.conf"
+
+dest[misc/x11/xinitrc]="$HOME/.xsession"
+dest[misc/i4status.conf]="$HOME/.i3/i3status.conf"
+dest[misc/mpd.conf]="$HOME/.mpdconf"
