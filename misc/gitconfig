@@ -1,0 +1,34 @@
+[user]
+    name = Niclas Helbro
+    email = niclas.helbro@gmail.com
+[color]
+    ui = true
+[color "diff"]
+    plain = normal
+    meta = bold
+    frag = cyan
+    old = bold red
+    new = bold green
+    commit = bold yellow
+    whitespace = normal red
+[color "branch"]
+    current = bold green
+    local = normal
+    remote = bold red
+    plain = normal
+[color "status"]
+    header = normal
+    added = bold cyan
+    updated = bold green
+    changed = bold red
+    untracked = bold magenta
+    nobranch = bold red
+[color "grep"]
+    match = bold magenta
+[color "interactive"]
+    prompt = normal
+    header = normal
+    help = yellow
+    error = bold red
+[diff]
+    tool = vimdiff

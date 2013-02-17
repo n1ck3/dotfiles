@@ -1,12 +1,13 @@
 Dependencies:
 * zsh (as late as possible; >4.3.10 misses a lot of features)
 * vim (latest and greatest with python support)
+* tmux (latest and greatest for best results)
 
 Good things happens:
 * pyflakes (easy_install pyflakes)
 
 To install:
-`curl etc.ninjaloot.se | sh -s - n1ck3`
+`curl etc.ninjaloot.se | zsh -s - n1ck3`
 
 Then, to update at any time:
 Just run `update` at the command line.

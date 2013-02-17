@@ -1,6 +1,8 @@
 " colorscheme zenburn
 colorscheme neverland
 
+" Fold everything from start
 set foldlevel=0
 
-" au BufWritePost *.py :silent! !{rm ~/git/mancx/django/plugin/src/plugin/**/*.pyc ; kill -s SIGHUP `ps haux | grep -i plugin | grep -Ev '(grep)' | head -1 | awk '{print $2}'`}
+" Disable line wrapping from start
+se tw=0

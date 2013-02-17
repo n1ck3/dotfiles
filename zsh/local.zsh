@@ -41,41 +41,9 @@
     # Complete parent dir on $ ..<TAB>
     zstyle ':completion:*' special-dirs true
 
-    # Development aliases
-    alias cdm='cd /srv/live'
-
-    alias nr='sudo service nginx restart'
-    alias tna='sudo tail -f /var/log/nginx/access.log'
-    alias tne='sudo tail -f /var/log/nginx/error.log'
-
-    alias ar='sudo service apache2 restart'
-    alias tae='sudo tail -f /var/log/apache2/error.log'
-    alias taa='sudo tail -f /var/log/apache2/access.log'
-
-    alias dmmm="django-admin.py makemessages -a"
-    alias dmcm="django-admin.py compilemessages"
-
-    # Override Lowes ridiculous dr() bs.
-    dr () {
-        if [[ ! -f "manage.py" ]]
-        then
-            _zerror "No django manager found. Exiting"
-            return 1
-        fi
-
-        echo -e "\nRemoving .pyc files"
-        rmext pyc &> /dev/null
-        echo -e "Removed .pyc files"
-        python2 manage.py runserver 0.0.0.0:8000 --traceback
-    }
-
     # ntpdate
-    alias ntp="sudo ntpdate pool.ntp.org"
-
-    # Stupid perl :@
-    export LANGUAGE=en_US.UTF-8
-    export LANG=en_US.UTF-8
-    export LC_ALL=en_US.UTF-8
+    # TODO: Fix plz.
+    # alias ntp=""
 
     if [ "$TERM" = "xterm" ] ; then
         export TERM="xterm-256color"
