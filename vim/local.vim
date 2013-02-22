@@ -5,4 +5,10 @@ colorscheme neverland
 set foldlevel=0
 
 " Disable line wrapping from start
-se tw=0
+set tw=0
+
+" Show line number plz
+set number
+
+" Make mouse available and stuff
+set mouse=a

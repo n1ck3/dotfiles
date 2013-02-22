@@ -7,7 +7,7 @@ xset r rate 330 45 &
 
 # Set background
 # wp &
-feh --bg-scale $HOME/.local/share/backgrounds/A_Little_Quetzal_by_vgerasimov.jpg
+feh --bg-scale $HOME/.local/share/wallpapers/current
 
 # XXX: Why do I want this?
 #xrdb ~/.Xresources
