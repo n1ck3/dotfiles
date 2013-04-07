@@ -1,18 +1,18 @@
-# Set keymap. :)
-# setxkbmap q7 &
+# Set keymap.
 xkbcomp $HOME/etc/misc/x11/keymaps/macbook.xkb :0
 
-# Set keystroke repeats
-xset r rate 330 45 &
-
 # Set background
-# wp &
 feh --bg-scale $HOME/.local/share/wallpapers/current
 
-# XXX: Why do I want this?
-#xrdb ~/.Xresources
+# Setup some x prefs
+xset r rate 330 45 &
 exec xsetroot -cursor_name left_ptr &
 exec unclutter -idle 1 -root &
 exec keynav &
+
+# Autostart some apps
+exec ~/.dropbox-dist/dropboxd &
+exec /usr/bin/volumeicon &
+exec /usr/bin/twmnd &
 
 exec i3 -V &> $HOME/.logs/i3.log
