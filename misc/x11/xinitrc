@@ -1,8 +1,9 @@
-# Set keymap.
-xkbcomp $HOME/etc/misc/x11/keymaps/macbook.xkb :0
+# Set keymap. Choose one.
+# setxkbmap nicke
+# xkbcomp $HOME/etc/misc/x11/keymaps/macbook.xkb :0
 
 # Set background
-feh --bg-scale $HOME/.local/share/wallpapers/current
+#feh --bg-scale $HOME/.local/share/wallpapers/current
 
 # Setup some x prefs
 xset r rate 330 45 &
