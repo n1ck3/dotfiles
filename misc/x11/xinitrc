@@ -3,7 +3,7 @@
 # xkbcomp ~/.local/share/infect/misc/x11/keymaps/macbook.xkb :0
 
 # Set background
-feh --bg-scale ~/.local/share/infect/misc/x11/wallpaper
+feh --bg-scale ~/.local/share/infect/misc/x11/wallpapers/current
 
 # Setup some x prefs
 xset r rate 330 45 &
