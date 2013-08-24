@@ -1,34 +1,45 @@
 [user]
-    name = Niclas Helbro
-    email = niclas.helbro@gmail.com
+     email = niclas.helbro@gmail.com
+     name = Niclas Helbro
 [color]
-    ui = true
+     ui = auto
+
 [color "diff"]
-    plain = normal
-    meta = bold
-    frag = cyan
-    old = bold red
-    new = bold green
-    commit = bold yellow
-    whitespace = normal red
+     plain = normal
+     meta = bold
+     frag = cyan
+     old = bold red
+     new = bold green
+     commit = bold yellow
+     whitespace = normal red
 [color "branch"]
-    current = bold green
-    local = normal
-    remote = bold red
-    plain = normal
+     current = bold green
+     local = normal
+     remote = bold red
+     plain = normal
 [color "status"]
-    header = normal
-    added = bold cyan
-    updated = bold green
-    changed = bold red
-    untracked = bold magenta
-    nobranch = bold red
+     header = normal
+     added = cyan
+     updated = bold green
+     changed = bold red
+     untracked = bold magenta
+     nobranch = bold red
 [color "grep"]
-    match = bold magenta
+     match = bold magenta
 [color "interactive"]
-    prompt = normal
-    header = normal
-    help = yellow
-    error = bold red
+     prompt = normal
+     header = normal
+     help = yellow
+     error = bold red
+
 [diff]
-    tool = vimdiff
+     tool = vimdiff
+[core]
+     editor = vim
+     excludesfile = ~/.cvsignore
+[init]
+     templatedir = ~/.git_template
+[alias]
+     ctags = !.git/hooks/ctags
+[push]
+     default = simple

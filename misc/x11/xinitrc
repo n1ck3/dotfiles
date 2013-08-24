@@ -1,12 +1,16 @@
 # Set keymap. Choose one.
-setxkbmap nicke -option 'ctrl:nocaps'
-# xkbcomp $HOME/etc/misc/x11/keymaps/macbook.xkb :0
+# setxkbmap nicke -option 'ctrl:nocaps'
+# setxkbmap se-lenovo-s430 -option 'ctrl:nocaps'
+# xkbcomp ~/.x11/keymaps/macbook.xkb :0
 
 # Set background
-feh --bg-scale $HOME/.local/share/wallpapers/current
+feh --bg-scale ~/.wallpaper
 
 # Setup some x prefs
 xset r rate 330 45 &
+xset -b
+xrfb ~/.Xresources
+
 exec xsetroot -cursor_name left_ptr &
 exec unclutter -idle 1 -root &
 exec keynav &
@@ -16,4 +20,5 @@ exec ~/.dropbox-dist/dropboxd &
 exec /usr/bin/volumeicon &
 exec /usr/bin/twmnd &
 
-exec i3 -V &> $HOME/.logs/i3.log
+exec i3 -V &> ~/.local/logs/i3.log
+# exec herbstluftwm --locked &> ~/.local/logs/hlwm.log
