@@ -3,11 +3,15 @@ Dependencies:
 * vim (latest and greatest with python support)
 * tmux (latest and greatest for best results)
 
-Good things happens:
+Good things happen:
 * pyflakes (easy_install pyflakes)
+* xorg
+* i3-wm
+* py3status (aur: py3status-git)
+* herbstluftwm (aur: herbstluftwm-git)
 
 To install:
-`curl etc.ninjaloot.se | zsh -s - n1ck3`
+`curl etc.ninjaloot.se | zsh - && echo n1ck3 > ~/.local/share/infect/.local && infect`
 
 Then, to update at any time:
-Just run `update` at the command line.
+Just run `infect` at the command line.
