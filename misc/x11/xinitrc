@@ -1,10 +1,9 @@
 # Set keymap. Choose one.
-# setxkbmap nicke -option 'ctrl:nocaps'
-# setxkbmap se-lenovo-s430 -option 'ctrl:nocaps'
-# xkbcomp ~/.x11/keymaps/macbook.xkb :0
+# setxkbmap se-lenovo-s431 -option 'ctrl:nocaps'  # Copy to /usr/share/X11/xkb/symbols/
+# xkbcomp ~/.local/share/infect/misc/x11/keymaps/macbook.xkb :0
 
 # Set background
-feh --bg-scale ~/.wallpaper
+feh --bg-scale ~/.local/share/infect/misc/x11/wallpaper
 
 # Setup some x prefs
 xset r rate 330 45 &
