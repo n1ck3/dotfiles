@@ -22,5 +22,4 @@ exec ~/.dropbox-dist/dropboxd &
 exec /usr/bin/volumeicon &
 exec /usr/bin/twmnd &
 
-# exec i3 -V &> ~/.local/logs/i3.log
 exec herbstluftwm --locked -c ~/.local/share/infect/misc/x11/hlwm/autostart &> ~/.local/logs/hlwm.log
