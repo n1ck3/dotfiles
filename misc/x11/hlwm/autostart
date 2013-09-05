@@ -1,38 +1,30 @@
 #!/bin/bash
 
-# this is a simple config for herbstluftwm
-
-# function hc() {
-#     herbstclient "$@"
-# }
-
-hc() {
-    cmds="$cmds, $@"
+function hc() {
+    herbstclient "$@"
 }
 
 hc emit_hook reload
 
-# remove all existing keybindings
+## Remove all existing keybindings
 hc keyunbind --all
 
-# keybindings
+## Keybinding variables
 Mod=Mod1
 AltMod=Mod4
 
-## basics
+## Basics
 hc keybind $Mod-$AltMod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-q close
 
-##  applications
-hc keybind $Mod-d spawn dmenu_run
-hc keybind $Mod-Return spawn urxvt
-hc keybind $Mod-Shift-Return spawn firefox
-hc keybind $Mod-$AltMod-Shift-Return spawn firefox --private
+##  Applications
+hc keybind $Mod-space spawn dmenu_exec
+hc keybind $Mod-Shift-space spawn dmenu_www
 
-# tags
-TAG_NAMES=( {1..9} )
-TAG_KEYS=( {1..9} 0 )
+# Tags
+TAG_NAMES=( {1..5} )
+TAG_KEYS=( {1..5} 0 )
 
 hc rename default "${TAG_NAMES[0]}" || true
 for i in ${!TAG_NAMES[@]} ; do
@@ -44,36 +36,36 @@ for i in ${!TAG_NAMES[@]} ; do
     fi
 done
 
-# cycle through tags
+## Cycle through tags
 hc keybind $Mod-period use_index +1 --skip-visible
 hc keybind $Mod-comma  use_index -1 --skip-visible
 hc keybind $Mod-Right use_index +1 --skip-visible
 hc keybind $Mod-Left  use_index -1 --skip-visible
 
-# layouting
+## Layouting
 hc keybind $Mod-r remove
-hc keybind $Mod-space cycle_layout 1
-hc keybind $Mod-Shift-space cycle_layout -1
+hc keybind $Mod-$AltMod-space cycle_layout 1
+hc keybind $Mod-$AltMod-Shift-space cycle_layout -1
 hc keybind $Mod-u split vertical 0.5
 hc keybind $Mod-o split horizontal 0.5
-hc keybind $Mod-s floating toggle
+hc keybind $Mod-Shift-s floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
 
-# resizing
+## Rresizing
 RESIZESTEP=0.05
 hc keybind $Mod-Control-h resize left +$RESIZESTEP
 hc keybind $Mod-Control-j resize down +$RESIZESTEP
 hc keybind $Mod-Control-k resize up +$RESIZESTEP
 hc keybind $Mod-Control-l resize right +$RESIZESTEP
 
-# mouse
+## Mouse
 hc mouseunbind --all
 hc mousebind $Mod-Button1 move
 hc mousebind $Mod-Button2 resize
 hc mousebind $Mod-Button3 zoom
 
-# focus
+## Focus
 hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
@@ -82,13 +74,34 @@ hc keybind $Mod-h focus left
 hc keybind $Mod-j focus down
 hc keybind $Mod-k focus up
 hc keybind $Mod-l focus right
-hc keybind $Mod-i jumpto urgent
+hc keybind $Mod-t jumpto urgent
 hc keybind $Mod-Shift-h shift left
 hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
 
-# colors
+## Lockscreen
+hc keybind $Mod-Shift-BackSpace spawn xlock
+
+## Run-or-raisers
+# Terminals
+hc keybind $Mod-Return spawn mor main
+hc keybind $Mod-Shift-Return spawn urxvt
+hc keybind $Mod+a spawn mor alt
+hc keybind $Mod+d spawn mor dev
+
+# Browsers
+hc keybind $Mod-b spawn ror "luakit" '("luakit" "luakit")' "luakit"
+hc keybind $Mod-Shift-b spawn luakit
+
+# Browsers
+hc keybind $Mod-Shift-d spawn pcmanfm
+
+# Spotify
+hc keybind $Mod-s spawn ror "Spotify": '("spotify" "Spotify")' "spotify"
+# hc keybind $Mod-s spawn ror "spotify" '("spotify" "Spotify")' "spotify"
+
+## Colors
 # hc set frame_border_active_color '#222222'
 hc set frame_border_active_color '#9fbc00'
 hc set frame_border_normal_color '#101010'
@@ -107,7 +120,7 @@ hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 
 
-# rules
+## Rules
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
 hc rule focus=off # normally do not focus new clients
@@ -117,7 +130,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
-# unlock, just to be sure
+## Unlock, just to be sure
 hc unlock
 
 herbstclient set tree_style '╾│ ├└╼─┐'
@@ -127,12 +140,9 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # or simply:
 # hc detect_monitors
 
-herbstclient chain $cmds&
+# herbstclient chain $cmds&
 
-# find the panel
-panel=~/.local/share/infect/misc/x11/hlwm/panel.sh
-[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    $panel $monitor &
-done
+# Start the damn bar, yeah.
+pkill storm &> /dev/null
+source ~/.local/share/infect/misc/x11/storm/bin/activate
+~/.local/share/infect/misc/x11/storm/bin/storm &
