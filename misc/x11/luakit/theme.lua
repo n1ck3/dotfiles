@@ -5,7 +5,7 @@
 local theme = {}
 
 -- Default settings
-theme.font = "monospace normal 9"
+theme.font = "inconsolata 9"
 theme.fg   = "#fff"
 theme.bg   = "#000"
 
@@ -52,14 +52,16 @@ theme.ibar_fg           = "#000"
 theme.ibar_bg           = "#fff"
 
 -- Tab label
-theme.tab_fg            = "#888"
+theme.tab_fg            = "#aaa"
 theme.tab_bg            = "#222"
+theme.tab_alt_bg        = "#404040"
 theme.tab_ntheme        = "#ddd"
-theme.selected_fg       = "#fff"
-theme.selected_bg       = "#000"
+theme.selected_fg       = "#000000"
+-- theme.selected_bg       = "#004c6c"
+theme.selected_bg       = "#a8c410"
 theme.selected_ntheme   = "#ddd"
 theme.loading_fg        = "#33AADD"
-theme.loading_bg        = "#000"
+theme.loading_bg        = "#005f87"
 
 -- Trusted/untrusted ssl colours
 theme.trust_fg          = "#0F0"

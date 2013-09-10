@@ -352,6 +352,12 @@ add_binds("normal", {
     buf("^gT$", "Go to previous tab.",
         function (w) w:prev_tab() end),
 
+    buf("^zh$", "Go to previous tab.",
+        function (w) w:prev_tab() end),
+
+    buf("^zl", "Go to next tab.",
+        function (w) w:next_tab() end),
+
     buf("^gt$", "Go to next tab (or `[count]` nth tab).",
         function (w, b, m)
             if not w:goto_tab(m.count) then w:next_tab() end
