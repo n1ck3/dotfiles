@@ -142,6 +142,9 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 
 # herbstclient chain $cmds&
 
+# Pad the monitor to make space to bar.
+hc pad 0 17
+
 # Start the damn bar, yeah.
 pkill storm &> /dev/null
 source ~/.local/share/infect/misc/x11/storm/bin/activate
