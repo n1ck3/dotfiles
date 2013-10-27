@@ -2,6 +2,3 @@
 
 dest[misc/x11/xinitrc]="$HOME/.xsession"
 dest[misc/x11/xinitrc]="$HOME/.xinitrc"
-apps[i3]="misc/i3.conf misc/i3status.conf"
-dest[misc/i3status.conf]="$HOME/.i3/i3status.conf"
-dest[misc/i3status_sonar.py]="$HOME/.i3/i3status_sonar.py"
