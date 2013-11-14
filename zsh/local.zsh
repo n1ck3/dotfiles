@@ -37,6 +37,19 @@
     export GREPOPTS='--color=auto'
 
 # }}}
+# Vagrant stuff {{{
+    alias vh="vagrant ssh"
+    alias vu="vagrant up"
+    alias vs="vagrant status"
+    alias vss="vagrant suspend"
+    alias vr="vagrant resume"
+    alias ve="vagrant reload"
+    alias vp="vagrant provision"
+    alias vh="vagrant halt"
+    alias vi="vagrant init"
+    alias vd="vagrant destroy"
+    alias vb="vagrant box"
+#}}}
 # User custom whatever {{{
     # Complete parent dir on $ ..<TAB>
     zstyle ':completion:*' special-dirs true
@@ -51,6 +64,10 @@
 
     alias mb="sshfs -o allow_other -o idmap=user nicke@b19.dyndns.org:/Volumes/bree/music ~/Music"
     alias umb="sudo umount -l ~/Music"
+
+    if [ $BOX = "Linux" ] ; then
+        alias open="xdg-open"
+    fi
 
 #}}}
 
