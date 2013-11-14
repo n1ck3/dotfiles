@@ -6,12 +6,11 @@ Dependencies:
 Good things happen:
 * pyflakes (easy_install pyflakes)
 * xorg
-* i3-wm
-* py3status (aur: py3status-git)
 * herbstluftwm (aur: herbstluftwm-git)
+* Storm
 
 To install:
-`curl etc.ninjaloot.se | zsh - && echo n1ck3 > ~/.local/share/infect/.local && infect`
+`cd && curl infect.ninjaloot.se | zsh - && echo n1ck3 > ~/.local/share/infect/.local && infect`
 
 Then, to update at any time:
 Just run `infect` at the command line.

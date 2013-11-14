@@ -89,17 +89,14 @@ hc keybind $Mod-Return spawn mor main
 hc keybind $Mod-Shift-Return spawn urxvt
 hc keybind $Mod+a spawn mor alt
 hc keybind $Mod+d spawn mor dev
+hc keybind $Mod+s spawn mor sonar-server
 
 # Browsers
-hc keybind $Mod-b spawn ror "luakit" '("luakit" "luakit")' "luakit"
-hc keybind $Mod-Shift-b spawn luakit
+hc keybind $Mod-b spawn ror "firefox" "Firefox" "firefox"
+hc keybind $Mod-Shift-b spawn firefox
 
 # Browsers
 hc keybind $Mod-Shift-d spawn pcmanfm
-
-# Spotify
-hc keybind $Mod-s spawn ror "Spotify": '("spotify" "Spotify")' "spotify"
-# hc keybind $Mod-s spawn ror "spotify" '("spotify" "Spotify")' "spotify"
 
 ## Colors
 # hc set frame_border_active_color '#222222'
@@ -129,6 +126,7 @@ hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
+hc rule title="plugin-container" fullscreen=on focus=on
 
 ## Unlock, just to be sure
 hc unlock
