@@ -12,3 +12,9 @@ set number
 
 " Make mouse available and stuff
 set mouse=a
+
+" Make sure we have nice and wide tabs for arduino
+autocmd FileType arduino
+  \ setlocal sw=4 |
+  \ setlocal ts=4 |
+  \ setlocal sts=4
