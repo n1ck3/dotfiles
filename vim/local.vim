@@ -1,5 +1,5 @@
 " colorscheme zenburn
-colorscheme neverland
+" colorscheme neverland
 
 " Fold everything from start
 set foldlevel=0
@@ -18,3 +18,6 @@ autocmd FileType arduino
   \ setlocal sw=4 |
   \ setlocal ts=4 |
   \ setlocal sts=4
+
+" Fix automatic syntax highlighting for saltstack files
+au BufReadPost *.sls set syntax=yaml
