@@ -36,6 +36,17 @@
     if [[ "$BOX" == "Linux" ]] ; then
         alias open="xdg-open"
     fi
+
+    # Make sure to unbreak ls on osx boxes
+    if [[ $BOX == "Darwin" ]] ; then
+      unalias ls
+    fi
+
+    # Make sure to unbreak ls on osx boxes
+    if [[ $BOX == "Darwin" ]] ; then
+      PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+      source $HOME/.rvm/scripts/rvm
+    fi
 #}}}
 
 # vim: ft=zsh fmr={{{,}}}
