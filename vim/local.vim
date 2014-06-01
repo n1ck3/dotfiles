@@ -1,5 +1,5 @@
 " colorscheme zenburn
-colorscheme neverland
+" colorscheme neverland
 
 " Fold everything from start
 set foldlevel=0
