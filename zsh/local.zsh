@@ -8,7 +8,8 @@
     export ZSH_NO_CHPWD="cunnie-o"
     BOX=$(uname)
 # }}}
-# Vagrant stuff {{{
+
+# Vagrant aliases {{{
     alias vh="vagrant ssh"
     alias vu="vagrant up"
     alias vs="vagrant status"
@@ -20,7 +21,13 @@
     alias vi="vagrant init"
     alias vd="vagrant destroy"
     alias vb="vagrant box"
-#}}}
+# }}}
+
+# Tmux aliases {{{
+    alias tls="tmux ls"
+    alias ta="tmux attach"
+# }}}
+
 # User custom whatever {{{
     # Complete parent dir on $ ..<TAB>
     zstyle ':completion:*' special-dirs true
@@ -36,6 +43,17 @@
     if [[ "$BOX" == "Linux" ]] ; then
         alias open="xdg-open"
     fi
-#}}}
+
+    # Make sure to unbreak ls on osx boxes
+    if [[ $BOX == "Darwin" ]] ; then
+      unalias ls
+    fi
+
+    # Make sure to unbreak ls on osx boxes
+    if [[ $BOX == "Darwin" ]] ; then
+      PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+      source $HOME/.rvm/scripts/rvm
+    fi
+# }}}
 
 # vim: ft=zsh fmr={{{,}}}
