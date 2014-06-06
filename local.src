@@ -1,4 +1,0 @@
-#!/bin/zsh
-
-dest[misc/x11/xinitrc]="$HOME/.xsession"
-dest[misc/x11/xinitrc]="$HOME/.xinitrc"

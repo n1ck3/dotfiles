@@ -1,13 +1,3 @@
-#!/bin/zsh
+#!/bin/sh
 
-echo "* Stopping wifi connections"
-sudo netctl stop-all
-
-LEASE_DIR="/var/lib/dhcpcd"
-if [ ! -z `ls $LEASE_DIR` ] ; then
-  echo "* Clearing old dhcp leases"
-  sudo rm -rf $LEASE_DIR/*
-fi
-
-echo "* Connecting to $1"
-sudo netctl start $1
+sudo wifi-menu

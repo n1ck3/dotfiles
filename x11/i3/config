@@ -1,0 +1,227 @@
+# i3 config file
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# Globals {
+    # Set the global mod key
+    set $mod Mod1
+    set $modalt Mod4
+
+    # Use Mouse+$mod to drag floating windows to their wanted position
+    floating_modifier $mod
+# }
+
+# Font {
+    font pango: inconsolata 14px
+# }
+
+# Application launchers {
+    # ror = run_or_raise
+    # mor = mux_or_raise
+
+    # start dmenu (a program launcher)
+    bindsym $mod+d exec dmenu_run
+    bindsym $mod+space exec dmenu_run
+
+    # start a terminal
+    bindsym $mod+Return exec mor main
+    bindsym $mod+Shift+Return exec urxvt
+    bindsym $mod+$modalt+Return exec muxwin
+
+    # open a browser
+    bindsym $mod+Shift+b exec firefox
+
+    # open a file manager
+    bindsym $mod+Shift+d exec pcmanfm
+    bindsym $mod+$modalt+Shift+d exec pcmanfm /home/nicke/Desktop
+    bindsym $mod+$modalt+Control+Shift+d exec pcmanfm /home/nicke/Downloads
+# }
+
+# Volume control {
+    bindsym $mod+$modalt+plus exec amixer set Master 5+
+    bindsym $mod+$modalt+minus exec amixer set Master 5-
+# }
+
+# Sonar control {
+    # bindsym $mod+$modalt+space exec sonar pp
+    # bindsym $mod+$modalt+Shift+space exec sonar play
+    # bindsym $mod+$modalt+Left exec sonar prev
+    # bindsym $mod+$modalt+Right exec sonar next
+
+    # bindsym $mod+$modalt+Shift+plus exec twmnc -t "Sonar" -c "`sonar`"
+    # bindsym $mod+$modalt+Shift+minus exec twmnc -t "Sonar" -c "`sonar --short`"
+# }
+
+# Screenshots {
+    # Grab whole screen
+    bindsym $mod+$modalt+4 exec scrot '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Downloads/'
+
+    # Grab area
+    bindsym $mod+$modalt+Shift+4 exec scrot -s '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Downloads/'
+# }
+
+# Window navigation {
+    # Focus
+    bindsym $mod+h focus left
+    bindsym $mod+j focus down
+    bindsym $mod+k focus up
+    bindsym $mod+l focus right
+    bindsym $mod+u focus parent
+    bindsym $mod+b focus child
+
+    # move focused window
+    bindsym $mod+Shift+h move left
+    bindsym $mod+Shift+j move down
+    bindsym $mod+Shift+k move up
+    bindsym $mod+Shift+l move right
+
+    # Move Container
+    bindsym $mod+$modalt+Shift+h focus parent; move left
+    bindsym $mod+$modalt+Shift+j focus parent; move down
+    bindsym $mod+$modalt+Shift+k focus parent; move up
+    bindsym $mod+$modalt+Shift+l focus parent; move right
+
+    # Snap
+    bindsym $mod+$modalt+h layout default
+    bindsym $mod+$modalt+j layout toggle split
+    bindsym $mod+$modalt+k layout stacking
+    bindsym $mod+$modalt+l layout tabbed
+
+    # Fullscreen
+    bindsym $mod+f fullscreen
+
+    # Splitting
+    bindsym $mod+s split horizontal
+    bindsym $mod+z split vertical
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Resize
+    mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 3 px or 3 ppt
+        bindsym j resize grow height 3 px or 3 ppt
+        bindsym k resize shrink height 3 px or 3 ppt
+        bindsym l resize grow width 3 px or 3 ppt
+
+        bindsym Shift+h resize shrink width 10 px or 10 ppt
+        bindsym Shift+j resize grow height 10 px or 10 ppt
+        bindsym Shift+k resize shrink height 10 px or 10 ppt
+        bindsym Shift+l resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+
+        # Move to center
+        bindsym $mod+c move absolute position center
+    }
+    bindsym $mod+r mode "resize"
+# }
+
+# Workspace navigation {
+    # switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+
+    # move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+
+    # Allow for workspace togle navigation
+    workspace_auto_back_and_forth yes
+# }
+
+# Floating options {
+    # toggle tiling / floating
+    bindsym $mod+$modalt+space floating toggle
+    # change focus between tiling / floating windows
+    bindsym $mod+$modalt+f focus mode_toggle
+
+    # Move to center
+    bindsym $mod+c move absolute position center
+# }
+
+# Scratchpad {
+    # Make the currently focused window a scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the first scratchpad window
+    bindsym $mod+minus scratchpad show
+# }
+
+# System stuff {
+    # reload the configuration file
+    bindsym $mod+Shift+r reload
+
+    # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+    bindsym $mod+$modalt+Shift+r restart
+
+    # exit i3 (logs you out of your X session)
+    # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+    bindsym $mod+Shift+e exit
+
+    # Border
+    bindsym $mod+y border normal
+    bindsym $mod+Shift+y border 1pixel
+    bindsym $mod+Control+Shift+y border none
+# }
+
+# Colors and such {
+    # accually borders plx
+    new_window pixel 2
+    # workspace_layout default
+
+    set $active #47628f
+    set $inactive #333333
+    set $semiactive #414957
+    set $urgent #942C2C
+    set $indicator #979876
+    set $gray #f6f6f6
+    set $dark #707070
+    set $background #101010
+
+    client.focused          $active $active $gray $indicator
+    client.focused_inactive $semiactive $semiactive $gray $inactive
+    client.unfocused        $inactive $inactive $dark $inactive
+    client.urgent           $urgent $urgent $gray $inactive
+    client.background       $background
+# }
+
+# Status bar {
+    bar {
+        i3bar_command i3bar
+        status_command ~/.i3/conky
+        position bottom
+        mode dock
+
+        colors {
+            background $inactive
+            statusline $gray
+            separator $dark
+
+            focused_workspace  $active $active $gray
+            active_workspace   $inactive $inactive $gray
+            inactive_workspace $inactive $inactive $dark
+            urgent_workspace   $urgent $urgent $gray
+        }
+    }
+# }
+
+# vim: fdm=marker fmr={,}
