@@ -1,0 +1,125 @@
+noremap h 3h
+noremap j 3j
+noremap k 3k
+noremap l 3l
+
+highlight Hint font-size:100%;color:white;background-color:red;padding:2px;
+
+" Options {{{
+
+set runtimepath=~/.vimperator
+set titlestring="Mozilla Firefox"
+set messages=100
+set verbose=1
+set defsearch=google
+set toolbars=noaddons,nobookmarks,nomenu,nonavigation,tabs
+"set gui=tabs
+set complete=slS
+set history=1000
+set newtab=all
+set popups=tab
+"set popups=tab,resized
+"set nohlsearch
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+set nofocuscontent
+set visualbell
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+set tabnumbers
+
+let mapleader = ","
+
+colorscheme indigo-n1ck3
+highlight Bell display: none;
+
+" }}}
+
+
+" about:config {{{
+
+set! general.autoScroll=false
+set! ui.key.generalAccessKey=0
+set! browser.tabs.closeButtons=2
+set! browser.tabs.closeWindowWithLastTab=false
+set! browser.tabs.loadDivertedInBackground=true
+set! browser.urlbar.filter.javascript=false
+set! browser.urlbar.maxRichResults=20
+set! browser.sessionstore.max_tabs_undo=20
+set! browser.sessionstore.max_concurrent_tabs=0
+set! browser.startup.homepage=http://www.google.com
+set! dom.popup_maximum=200
+set! mousewheel.withnokey.numlines=6
+set! mousewheel.withnokey.sysnumlines=false
+
+" }}}
+
+
+" QMarks {{{
+
+" Google (Fyndiq)
+silent qmark c https://www.google.com/calendar/b/1/render
+silent qmark d https://drive.google.com/a/fyndiq.se/
+silent qmark m https://mail.google.com/mail/u/1/#inbox
+
+" Google (Private)
+silent qmark C http://www.google.com/calendar/b/0/render
+silent qmark M https://mail.google.com/mail/u/0/#inbox
+
+" Misc
+silent qmark f http://facebook.com
+silent qmark g https://github.com/
+silent qmark b https://bitbucket.org/
+
+" }}}
+
+" Remappingz {{{
+
+" Navigation
+nnoremap <C-l> o
+nnoremap <C-S-l> O
+nnoremap <C-t> t
+nnoremap <C-S-t> T
+
+" Scroll
+" nnoremap j 3j
+" nnoremap k 3k
+nnoremap J <C-d>
+nnoremap K <C-u>
+" nnoremap <A-j> 3j
+" nnoremap <A-k> 3k
+" nnoremap <A-h> 3h
+" nnoremap <A-l> 3l
+
+" Zoom
+nnoremap zi zI
+nnoremap zI zi
+nnoremap zm zM
+nnoremap zM zm
+nnoremap zo zO
+nnoremap zO zo
+nnoremap zr zR
+nnoremap zR zr
+nnoremap zz zZ
+nnoremap zZ zz
+
+" Misc
+noremap <silent> <Leader>s :source ~/.vimperatorrc<CR>:echo<Space>"source completed."<CR>
+
+" Tabs
+noremap d :tabclose!<CR>
+nnoremap zh gT
+nnoremap zl gt
+nnoremap zH :tabmove -1<CR>
+nnoremap zL :tabmove +1<CR>
+
+" }}}
+
+" Gmail
+:command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+:lazy fmaps -u='mail\.google\.com/mail' c / j k l n p o u e x s r a v . # [ ] ? gi gs >= gd ga gc
+:lazy fmaps -u='feedly\.com/' j k J K r n p o v V A m x s V ? gh ga gg gl
+" :lazy fmaps -u='mail\.google\.com/mail/.*/[0-9a-f]+$' c / j,n k,p n,j p,k o u e x s r a v . # [ ] ? gi gs >= gd ga gc
+
+" vim: ts=2 sw=2 sts=2 expandtab fdm=marker ft=vimperator
