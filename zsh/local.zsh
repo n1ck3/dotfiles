@@ -52,7 +52,9 @@
     # Make sure to unbreak ls on osx boxes
     if [[ $BOX == "Darwin" ]] ; then
       PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-      source $HOME/.rvm/scripts/rvm
+      if [[ -f $HOME/.rvm/scripts/rvm ]] ; then
+        source $HOME/.rvm/scripts/rvm
+      fi
     fi
 # }}}
 
