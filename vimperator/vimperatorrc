@@ -59,19 +59,19 @@ set! mousewheel.withnokey.sysnumlines=false
 " QMarks {{{
 
 " Google (Fyndiq)
+silent qmark m https://mail.google.com/mail/u/1/#inbox
 silent qmark c https://www.google.com/calendar/b/1/render
 silent qmark d https://drive.google.com/a/fyndiq.se/
-silent qmark m https://mail.google.com/mail/u/1/#inbox
+silent qmark f https://fyndiq-hq.fogbugz.com/default.asp?pgx=LF&ixFilter=69
 
 " Google (Private)
-silent qmark C http://www.google.com/calendar/b/0/render
 silent qmark M https://mail.google.com/mail/u/0/#inbox
+silent qmark C http://www.google.com/calendar/b/0/render
+silent qmark D https://drive.google.com/
 
 " Misc
-silent qmark f http://facebook.com
 silent qmark g https://github.com/
 silent qmark b https://bitbucket.org/
-
 " }}}
 
 " Remappingz {{{
