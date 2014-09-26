@@ -1,4 +1,4 @@
-# zshrc local user configuration by Lowe Thiderman (daethorian@ninjaloot.se)
+# zshrc local user configuration by Niclas Helbro (niclas.helbro@gmail.com)
 # Released under the WTFPL (http://sam.zoy.org/wtfpl/).
 #
 # <github link>
@@ -52,7 +52,9 @@
     # Make sure to unbreak ls on osx boxes
     if [[ $BOX == "Darwin" ]] ; then
       PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-      source $HOME/.rvm/scripts/rvm
+      if [[ -f $HOME/.rvm/scripts/rvm ]] ; then
+        source $HOME/.rvm/scripts/rvm
+      fi
     fi
 # }}}
 

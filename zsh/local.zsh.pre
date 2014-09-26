@@ -4,25 +4,25 @@
 # <github link>
 
 # User pre settings {{{
+    BOX=$(uname)
     # Your path. Remember to separate additional directories with a colon.
-    local _PATH="/opt/local/libexec/gnubin:$HOME/bin:$HOMEBIN"
-    _PATH+=":/opt/local/bin:/opt/local/sbin"
+    if [[ $BOX == "Darwin" ]] ; then
+      # $_PATH+="/opt/local/libexec/gnubin:$HOME/bin:$HOMEBIN:/opt/local/bin:/opt/local/sbin"
+      # $_PATH+="/usr/local/libexec/gnubin:$HOME/bin:$HOMEBIN:/usr/local/bin:/usr/local/sbin"
+      # # If $_PATH is not in $PATH, add it, but only once.
+      # if [[ -z $_PATH ]] ; then
+      #     export PATH=$_PATH:$PATH
+      # fi
 
-    # If $_PATH is not in $PATH, add it, but only once.
-    if ! [[ $PATH =~ "$_PATH" ]] ; then
-        export PATH=$_PATH:$PATH
-    fi
-
-    # Your man path. Remember to separate additional directories with a colon.
-    local _MANPATH=/opt/local/share/man
-
-    # If $_MANPATH is not in $MANPATH, add it, but only once.
-    if ! [[ $MANPATH =~ "$_MANPATH" ]] ; then
-        export MANPATH=$_MANPATH:$MANPATH
+      # $_MANPATH="/opt/local/share/man"
+      # $_MANPATH="/usr/local/share/man"
+      # # If $_MANPATH is not in $MANPATH, add it, but only once.
+      # if [[ -z $_MANPATH ]] ; then
+      #     export MANPATH=$_MANPATH:$MANPATH
+      # fi
     fi
 
     # Set what kind of BOX we are on
-    BOX=$(uname)
     LSOPTS=''
     if [ $BOX = "Darwin" ] ; then
         LSOPTS='--color=auto'
