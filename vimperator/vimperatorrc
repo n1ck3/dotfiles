@@ -63,12 +63,13 @@ silent qmark s https://fyndiq.se/staff
 silent qmark c https://www.google.com/calendar/b/1/render
 silent qmark d https://drive.google.com/a/fyndiq.se/
 silent qmark f https://fyndiq.se
-silent qmark F https://fyndiq-hq.fogbugz.com/default.asp?pgx=LF&ixFilter=69
-silent qmark G https://github.com/fyndiq/fyndiq
+silent qmark o https://fyndiq-hq.fogbugz.com/default.asp?pgx=LF&ixFilter=69
+silent qmark g https://github.com/fyndiq/fyndiq
 silent qmark m https://mail.google.com/mail/u/1/#inbox
+silent qmark a https://fyndiq.se/adminz0r
 silent qmark s https://fyndiq.se/staff
 silent qmark t https://todoist.com
-silent qmark T https://trello.com/
+silent qmark r https://trello.com/
 silent qmark 7 https://www.7geese.com/
 
 " Google (Private)
@@ -78,7 +79,6 @@ silent qmark D https://drive.google.com/
 
 " Misc
 silent qmark b https://bitbucket.org/
-silent qmark g https://github.com/
 silent qmark v http://vecka.nu/
 " }}}
 
