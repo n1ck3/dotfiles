@@ -33,4 +33,6 @@
     export LSOPTS=$LSOPTS
     export GREPOPTS='--color=auto'
 
+    export PATH="$HOME/.local/utilities:$PATH"
+
 # }}}
