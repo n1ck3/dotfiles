@@ -205,23 +205,23 @@
 # }
 
 # Status bar {
-    bar {
-        i3bar_command i3bar
-        status_command ~/.i3/conky
-        position bottom
-        mode dock
-
-        colors {
-            background $inactive
-            statusline $gray
-            separator $dark
-
-            focused_workspace  $active $active $gray
-            active_workspace   $inactive $inactive $gray
-            inactive_workspace $inactive $inactive $dark
-            urgent_workspace   $urgent $urgent $gray
-        }
-    }
+#   bar {
+#       i3bar_command i3bar
+#       # status_command ~/.i3/conky
+#       position bottom
+#       mode dock
+#
+#       colors {
+#           background $inactive
+#           statusline $gray
+#           separator $dark
+#
+#           focused_workspace  $active $active $gray
+#           active_workspace   $inactive $inactive $gray
+#           inactive_workspace $inactive $inactive $dark
+#           urgent_workspace   $urgent $urgent $gray
+#       }
+#   }
 # }
 
 # vim: fdm=marker fmr={,}

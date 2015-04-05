@@ -1,4 +1,5 @@
-Dependencies:
+D
+pendencies:
 * zsh (as late as possible; >4.3.10 misses a lot of features)
 * vim (latest and greatest with python support)
 * tmux (latest and greatest for best results)
