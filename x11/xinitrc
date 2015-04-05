@@ -3,7 +3,7 @@ setxkbmap se-lenovo-s430 -option 'ctrl:nocaps'  # Copy to /usr/share/X11/xkb/sym
 # xkbcomp ~/.local/share/infect/misc/x11/keymaps/macbook.xkb :0
 
 # Set background
-feh --bg-scale ~/.local/share/infect/misc/x11/wallpapers/current
+feh --bg-scale ~/.wallpapers/current
 
 # Setup some x prefs
 xset r rate 330 45 &
@@ -18,8 +18,9 @@ exec unclutter -idle 1 -root &
 exec keynav &
 
 # Autostart some apps
-exec ~/.dropbox-dist/dropboxd &
-exec /usr/bin/volumeicon &
+# exec ~/.dropbox-dist/dropboxd &
+# exec /usr/bin/volumeicon &
 exec /usr/bin/twmnd &
 
-exec herbstluftwm --locked -c ~/.local/share/infect/misc/x11/hlwm/autostart &> ~/.local/logs/hlwm.log
+# exec herbstluftwm --locked -c ~/.local/share/infect/misc/x11/hlwm/autostart &> ~/.local/logs/hlwm.log
+exec i3 -V &> $HOME/.local/logs/i3.log
