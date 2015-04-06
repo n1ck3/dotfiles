@@ -7,9 +7,9 @@ Dependencies:
 
 Optional dependecies:
 * yaourt (https://archlinux.fr/yaourt-en)
-* `acpi dmenu unclutter xlockmore twmn rxvt-unicode pulseadio pulseaudio-ctl xbacklight pm-utils firefox flashplugin chromium chromium-pepper-flash xorg-server xorg-server-utils i3-wm`
+```
+yaourt -S acpi dmenu unclutter xlockmore twmn-git rxvt-unicode pulseaudio pulseaudio-alsa pulseaudio-ctl xorg-xbacklight pm-utils firefox flashplugin chromium chromium-pepper-flash xorg-server xorg-server-utils i3-wm ttf-inconsolata --noconfirm
+```
 
 Installation:
 Pull, go nuts with symlinks. ...or do something more elegant with, say, puppet, salt, or ansible.
-
-
