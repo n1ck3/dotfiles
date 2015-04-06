@@ -22,5 +22,7 @@ exec keynav &
 # exec /usr/bin/volumeicon &
 exec /usr/bin/twmnd &
 
+export XORG_WM="i3"
+
 # exec herbstluftwm --locked -c ~/.local/share/infect/misc/x11/hlwm/autostart &> ~/.local/logs/hlwm.log
 exec i3 -V &> $HOME/.local/logs/i3.log

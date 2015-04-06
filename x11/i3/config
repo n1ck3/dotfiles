@@ -14,21 +14,30 @@
     font pango: inconsolata 14px
 # }
 
+# Auto movez {
+    for_window [title=".*Firefox.*"] move container to workspace www; workspace www
+    for_window [title=".*Chromium.*"] move container to workspace www; workspace www
+    for_window [title="^main@.*"] move container to workspace tmux; workspace tmux
+    for_window [title="^HipChat*"] move container to workspace hipchat; workspace hipchat
+    for_window [title="^Spotify Premium.*"] move container to workspace spotify; workspace spotify
+# }
+
 # Application launchers {
     # ror = run_or_raise
+    set $ror /home/nicke/.local/utilities/ror
     # mor = mux_or_raise
+    set $mor /home/nicke/.local/utilities/mor
 
     # start dmenu (a program launcher)
     bindsym $mod+d exec dmenu_run
     bindsym $mod+space exec dmenu_run
 
     # start a terminal
-    bindsym $mod+Return exec mor main
+    bindsym $mod+Return exec $mor main
     bindsym $mod+Shift+Return exec urxvt
-    bindsym $mod+$modalt+Return exec muxwin
 
     # open a browser
-    bindsym $mod+Shift+b exec firefox
+    bindsym $mod+Shift+b exec $mor firefox
 
     # open a file manager
     bindsym $mod+Shift+d exec pcmanfm
@@ -37,23 +46,25 @@
 # }
 
 # Volume control {
-    bindsym $mod+$modalt+plus exec amixer set Master 5+
-    bindsym $mod+$modalt+minus exec amixer set Master 5-
+    bindsym $mod+$modalt+plus exec pulseaudio-ctl up
+    bindsym $mod+$modalt+minus exec pulseaudio-ctl down
 # }
 
-# Sonar control {
-    # bindsym $mod+$modalt+space exec sonar pp
-    # bindsym $mod+$modalt+Shift+space exec sonar play
-    # bindsym $mod+$modalt+Left exec sonar prev
-    # bindsym $mod+$modalt+Right exec sonar next
-
-    # bindsym $mod+$modalt+Shift+plus exec twmnc -t "Sonar" -c "`sonar`"
-    # bindsym $mod+$modalt+Shift+minus exec twmnc -t "Sonar" -c "`sonar --short`"
+# Volume brightness {
+    bindsym $mod+$modalt+1 exec xbacklight -set 10
+    bindsym $mod+$modalt+2 exec xbacklight -set 20
+    bindsym $mod+$modalt+3 exec xbacklight -set 30
+    bindsym $mod+$modalt+4 exec xbacklight -set 40
+    bindsym $mod+$modalt+5 exec xbacklight -set 50
+    bindsym $mod+$modalt+6 exec xbacklight -set 60
+    bindsym $mod+$modalt+7 exec xbacklight -set 70
+    bindsym $mod+$modalt+8 exec xbacklight -set 80
+    bindsym $mod+$modalt+9 exec xbacklight -set 90
 # }
 
 # Screenshots {
     # Grab whole screen
-    bindsym $mod+$modalt+4 exec scrot '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Downloads/'
+    bindsym $mod+$modalt+Shift+3 exec scrot '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Downloads/'
 
     # Grab area
     bindsym $mod+$modalt+Shift+4 exec scrot -s '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Downloads/'
@@ -121,31 +132,21 @@
 
 # Workspace navigation {
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace www
+    bindsym $mod+2 workspace tmux
+    bindsym $mod+3 workspace spotify
+    bindsym $mod+4 workspace hipchat
+    bindsym $mod+5 workspace misc
 
     # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace www
+    bindsym $mod+Shift+2 move container to workspace tmux
+    bindsym $mod+Shift+3 move container to workspace spotify
+    bindsym $mod+Shift+4 move container to workspace hipchat
+    bindsym $mod+Shift+5 move container to workspace misc
 
     # Allow for workspace togle navigation
-    workspace_auto_back_and_forth yes
+    # workspace_auto_back_and_forth yes
 # }
 
 # Floating options {
@@ -180,7 +181,7 @@
     # Border
     bindsym $mod+y border normal
     bindsym $mod+Shift+y border 1pixel
-    bindsym $mod+Control+Shift+y border none
+    bindsym $mod+$modalt+Shift+y border none
 # }
 
 # Colors and such {
