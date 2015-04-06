@@ -8,6 +8,3 @@ sudo ln -s $DIR/files/se-lenovo-s430.map.gz /usr/share/kbd/keymaps/se-lenovo-s43
 
 # X11 keymaps
 sudo ln -s $DIR/files/se-lenovo-s430 /usr/share/X11/xkb/symbols/se-lenovo-s430
-
-# Sudoers
-sudo ln -s $DIR/files/se-lenovo-s430 /usr/share/X11/xkb/symbols/se-lenovo-s430
