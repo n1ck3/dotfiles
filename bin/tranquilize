@@ -1,4 +1,4 @@
 #!/bin/bash
-slimlock > /dev/null &
+xlock &
 sleep 1
 sudo pm-suspend

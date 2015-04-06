@@ -1,6 +1,0 @@
-noremap h 3h
-noremap j 3j
-noremap k 3k
-noremap l 3l
-
-highlight Hint font-size:100%;color:white;background-color:red;padding:2px;

@@ -1,0 +1,73 @@
+" Misc Settings {{{
+
+set nosmoothscroll
+set noautofocus " The opposite of autofocus; this setting stops
+                " sites from focusing on an input box when they load
+set typelinkhints
+let searchlimit = 30
+let scrollstep = 70
+let barposition = "bottom"
+
+let mapleader = ","
+
+" }}}
+
+
+" QMarks {{{
+
+" Fyndiq"
+let qmark s = ["https://fyndiq.se/staff"]
+let qmark a = ["https://fyndiq.se/adminz0r"]
+let qmark f = ["https://fyndiq.se"]
+let qmark g = ["https://github.com/fyndiq/fyndiq"]
+let qmark o = ["https://fyndiq-hq.fogbugz.com/default.asp?pgx=LF&ixFilter=69"]
+let qmark t = ["https://todoist.com"]
+let qmark r = ["https://trello.com/"]
+let qmark 7 = ["https://www.7geese.com/"]
+
+" Google (Fyndiq)
+let qmark c = ["https://calendar.google.com/calendar/a/fyndiq.se"]
+let qmark d = ["https://drive.google.com/a/fyndiq.se/"]
+let qmark m = ["https://mail.google.com/mail/a/fyndiq.se"]
+
+" Google (Private)
+let qmark M = ["https://mail.google.com/mail/u/niclas.helbro@gmail.com"]
+let qmark C = ["https:/calendar.google.com/calendar/render?authuser=niclas.helbro@gmail.com"]
+let qmark D = ["https://drive.google.com/drive/u/niclas.helbro@gmail.com"]
+
+" Misc
+let qmark b = ["https://bitbucket.org/"]
+let qmark v = ["http://vecka.nu/"]
+
+" }}}
+
+
+" Keybindings {{{
+
+" Tab management
+unmap d
+map d :closeTab<CR>
+map u :undo<CR>
+map U :restore<Space>
+map zh :previousTab<CR>
+map zl :nextTab<CR>
+map zj :firstTab<CR>
+map zk :lastTab<CR>
+map zH :moveTabLeft<CR>
+map zL :moveTabRight<CR>
+map <C-*> :lastUsedTab<CR>
+
+" Navigation
+map <C-u> :scrollPageUp<CR>
+map <C-d> :scrollPageDown<CR>
+
+" }}}
+
+
+" Mappings {{{
+
+
+" }}}
+
+
+" vim: ts=2 sw=2 sts=2 expandtab fdm=marker ft=vimperator
