@@ -1,5 +1,5 @@
 # Set keymap. Choose one.
-setxkbmap se-lenovo-s430 -option 'ctrl:nocaps'  # Ensure file at /usr/share/X11/xkb/symbols/se-lenovo-s430
+setxkbmap sv-lenovo-s430 -option 'ctrl:nocaps'  # Ensure file at /usr/share/X11/xkb/symbols/se-lenovo-s430
 # xkbcomp ~/.dotfiles-local/conf-comps/macbook/files/macbook.xkb :0
 # xkbcomp ~/.dotfiles-local/conf-comps/virtul-machines/files/virtual-machine.xkb :0
 

@@ -34,10 +34,10 @@
 
     # start a terminal
     bindsym $mod+Return exec $mor main
-    bindsym $mod+Shift+Return exec urxvt
+    bindsym $mod+$moda<=+Return exec urxvt
 
     # open a browser
-    bindsym $mod+Shift+b exec $mor firefox
+    bindsym $mod+Shift+Return exec $ror "firefox" "firefox" "firefox"
 
     # open a file manager
     bindsym $mod+Shift+d exec pcmanfm
