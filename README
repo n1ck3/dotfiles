@@ -1,17 +1,13 @@
-D
-pendencies:
+# Dotfiles-local
+
+Dependencies:
 * zsh (as late as possible; >4.3.10 misses a lot of features)
 * vim (latest and greatest with python support)
 * tmux (latest and greatest for best results)
 
-Good things happen:
-* pyflakes (easy_install pyflakes)
-* xorg
-* herbstluftwm (aur: herbstluftwm-git)
-* Storm
+Optional dependecies:
+* yaourt (https://archlinux.fr/yaourt-en)
+* `dmenu unclutter xlockmore twmn rxvt-unicode pulseadio pulseaudio-ctl xbacklight pm-utils firefox chromium xorg-server xorg-server-utils i3-wm`
 
-To install:
-`cd && curl infect.ninjaloot.se | zsh - && echo n1ck3 > ~/.local/share/infect/.local && infect`
-
-Then, to update at any time:
-Just run `infect` at the command line.
+Installation:
+Pull, go bananas with symlinks. ...or do something more elegant with, say, puppet, salt, or ansible.
