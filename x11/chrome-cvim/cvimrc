@@ -4,10 +4,11 @@ set nosmoothscroll
 set noautofocus " The opposite of autofocus; this setting stops
                 " sites from focusing on an input box when they load
 set typelinkhints
+set autoupdategist
+
 let searchlimit = 30
 let scrollstep = 70
 let barposition = "bottom"
-
 let mapleader = ","
 
 " }}}
@@ -46,20 +47,20 @@ let qmark v = ["http://vecka.nu/"]
 
 " Tab management
 unmap d
-map d :closeTab<CR>
+map d closeTab
 map u :undo<CR>
 map U :restore<Space>
-map zh :previousTab<CR>
-map zl :nextTab<CR>
-map zj :firstTab<CR>
-map zk :lastTab<CR>
-map zH :moveTabLeft<CR>
-map zL :moveTabRight<CR>
-map <C-*> :lastUsedTab<CR>
+map zh previousTab
+map zl nextTab
+map zj firstTab
+map zk lastTab
+map zH moveTabLeft
+map zL moveTabRight
+map zu lastUsedTab
 
 " Navigation
-map <C-u> :scrollPageUp<CR>
-map <C-d> :scrollPageDown<CR>
+map <C-u> scrollPageUp
+map <C-d> scrollPageDown
 
 " }}}
 
