@@ -37,7 +37,7 @@
     bindsym $mod+$moda<=+Return exec urxvt
 
     # open a browser
-    bindsym $mod+Shift+Return exec $ror "chromium" "chromium" "chromium"
+    bindsym $mod+Shift+Return exec $ror "chromium" "Chromium" "chromium"
 
     # open a file manager
     bindsym $mod+Shift+d exec pcmanfm

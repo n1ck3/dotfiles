@@ -57,6 +57,7 @@ map zk lastTab
 map zH moveTabLeft
 map zL moveTabRight
 map zu lastUsedTab
+map zp gp
 
 " Navigation
 map <C-u> scrollPageUp
