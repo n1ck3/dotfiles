@@ -12,4 +12,4 @@ yaourt -S acpi dmenu unclutter xlockmore twmn-git rxvt-unicode pulseaudio pulsea
 ```
 
 Installation:
-Pull, go nuts with symlinks. ...or do something more elegant with, say, puppet, salt, or ansible.
+Pull, go nuts with symlinks. ...or do something more elegant with, say, puppet, salt, or ansible...
