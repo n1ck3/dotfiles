@@ -44,12 +44,14 @@
         alias open="xdg-open"
     fi
 
-    # Make sure to unbreak ls on osx boxes
+    # Make sure to unbreak ls on OSX and FreeBSD boxes
     if [[ $BOX == "Darwin" ]] ; then
+      unalias ls
+    elif [[ $BOX == "FreeBSD" ]] ; then
       unalias ls
     fi
 
-    # Make sure to unbreak ls on osx boxes
+    # Fix rvm path on OSX
     if [[ $BOX == "Darwin" ]] ; then
       PATH="/usr/local/bin:/usr/local/sbin:$PATH"
       if [[ -f $HOME/.rvm/scripts/rvm ]] ; then
