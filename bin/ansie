@@ -1,3 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-ansible-playbook --ask-become-pass -c local -v /etc/ansible/site.yml
+BOX=$(uname)
+
+if [[ "$BOX" == "FreeBSD" ]] ; then
+  ansible-playbook --ask-become-pass -c local -v /usr/local/etc/ansible/site.yml
+else
+  ansible-playbook --ask-become-pass -c local -v /etc/ansible/site.yml
+fi
