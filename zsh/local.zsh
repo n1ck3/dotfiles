@@ -23,6 +23,15 @@
     alias vb="vagrant box"
 # }}}
 
+# Docker aliases {{{
+    alias dcu="docker-compose up"
+    alias dcub="docker-compose up --build"
+    alias dcd="docker-compose down"
+    alias dcdx="docker-compose down --rmi all --remove-orphans"
+    alias dcr="dcdx && dcub"
+    alias dil="docker image list"
+# }}}
+
 # Tmux aliases {{{
     alias tls="tmux ls"
     alias ta="tmux attach"

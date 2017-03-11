@@ -27,6 +27,7 @@ let s:addons += [
 let s:addons += [
   \ 'itchyny/lightline.vim',
   \ 'scrooloose/nerdtree',
+  \ 'vim-syntastic/syntastic',
 \ ]
 
 " }}}
@@ -981,7 +982,7 @@ augroup ft_vim
 
   " If in any other vimscript, source it immediately via scriptease
   au BufWritePost *.vim let fn = expand("<afile>:p") | if fn !~ '://'
-        \ | silent Runtime | endif
+        \ | silent! Runtime | endif
 
   au FileType vim setlocal foldmethod=marker
   au FileType vim setlocal omnifunc=syntaxcomplete#Complete
