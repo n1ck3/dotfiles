@@ -1,3 +1,4 @@
 *.log
 *.weechatlog
 vimperator/info*
+*.DS_Store
