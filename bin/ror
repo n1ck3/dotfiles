@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+# run-or-raise for i3/hlwm
+# Written by Lowe Thiderman (lowe.thiderman@gmail.com)
+# WTFPL
+
+grep=$1
+executable=$2
+
+# Try to raise the application
+winids=(${(f)"$(xwininfo -tree -root | grep $grep | tr -s ' ' | cut -d" " -f2 | sort)"})
+raised=false
+for winid in $winids ; do
+  if [[ $XORG_WM = 'hlwm' ]]; then
+    herbstclient raise $winid && herbstclient jumpto $winid
+  elif [[ $XORG_WM = 'i3' ]]; then
+    i3-msg "[id=\"$winid\"] focus" &> /dev/null | grep true
+  fi
+  if [[ $? == 0 ]] ; then
+    raised=true
+    break
+  fi
+done
+
+# If not able to raise the application, start it.
+# if [[ $(ps ax | grep "$grep" | grep -vEc '(xwininfo|grep)') -lt 3 ]] ; then
+if [[ "$raised" = false ]] ; then
+  exec ${(z)executable} &|
+fi

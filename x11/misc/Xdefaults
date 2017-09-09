@@ -2,8 +2,7 @@
 URxvt.scrollBar: false
 URxvt.saveLines: 100
 URxvt.urgentOnBell: true
-URxvt.perl-ext: default,url-select,matcher,searchable-scrollback<F9>,font-size
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.perl-ext: default,matcher,searchable-scrollback<F9>,font-size
 URxvt.url-select.launcher: www
 URxvt.url-select.underline: true
 URxvt.underlineURLs: true
@@ -20,8 +19,8 @@ URxvt.keysym.C-S-Down: perl:font-size:decglobal
 URxvt.font-size.step:  2
 
 ! fonts
-*.font: xft:iosevka:pixelsize=16
-*.boldFont: xft:iosevka:bold:pixelsize=16
+*.font: xft:inconsolata:pixelsize=16
+*.boldFont: xft:inconsolata:bold:pixelsize=16
 Xft.dpi: 100.0
 
 ! Colorscheme (unnamed)
