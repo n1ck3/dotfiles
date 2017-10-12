@@ -69,4 +69,21 @@
     fi
 # }}}
 
+
+# Unfuck zsh bindings {{{
+    bindkey -r "^[h"
+    bindkey -r "^[j"
+    bindkey -r "^[k"
+    bindkey -r "^[l"
+    bindkey -r "^[s"
+# }}}
+
+# Sway Env Variables {{{
+    export XKB_DEFAULT_LAYOUT=se
+    export XKB_DEFAULT_OPTIONS=ctrl:nocaps
+    export WAYLAND_WM=sway
+    export WLC_REPEAT_DELAY=330
+    export WLC_REPEAT_RATE=45
+# }}}
+
 # vim: ft=zsh fmr={{{,}}}
