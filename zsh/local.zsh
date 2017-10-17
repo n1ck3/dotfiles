@@ -9,20 +9,6 @@
     BOX=$(uname)
 # }}}
 
-# Vagrant aliases {{{
-    alias vh="vagrant ssh"
-    alias vu="vagrant up"
-    alias vs="vagrant status"
-    alias vss="vagrant suspend"
-    alias vr="vagrant resume"
-    alias ve="vagrant reload"
-    alias vp="vagrant provision"
-    alias vh="vagrant halt"
-    alias vi="vagrant init"
-    alias vd="vagrant destroy"
-    alias vb="vagrant box"
-# }}}
-
 # Docker aliases {{{
     alias dcu="docker-compose up"
     alias dcub="docker-compose up --build"
