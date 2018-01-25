@@ -1,31 +1,45 @@
 # Set keymap. Choose one.
-setxkbmap sv-lenovo-s430 -option 'ctrl:nocaps'  # Ensure file at /usr/share/X11/xkb/symbols/se-lenovo-s430
-# xkbcomp ~/.dotfiles-local/conf-comps/macbook/files/macbook.xkb :0
-# xkbcomp ~/.dotfiles-local/conf-comps/virtul-machines/files/virtual-machine.xkb :0
 
+# Lenovo s430
+# setxkbmap se-lenovo-s430 -option 'ctrl:nocaps'  # Ensure file in /usr/share/X11/xkb/symbols/
+
+# Macs (native)
+# xkbcomp ~/.dotfiles-local/conf-comps/macbook/files/macbook.xkb :0
+
+# Virtualbox Stuff
+VBoxClient-all
+setxkbmap se-mac-vbox # Ensure file in /usr/share/X11/xkb/symbols/
+
+# ------------------
 
 # Setup some x prefs
-xset r rate 330 45 &
-xset -b
-xrfb ~/.Xresources
-xbindkeys &
-xinput set-button-map 11 1 2 3 5 4 6 7 8 9 10 11 12
 
-exec xsetroot -cursor_name left_ptr &
-exec unclutter -idle 1 -root &
-exec keynav &
+xset r rate 200 40 &
+xset -b
+
+# xrfb ~/.Xresources
+# xbindkeys &
+# xinput set-button-map 11 1 2 3 5 4 6 7 8 9 10 11 12
+
+# exec xsetroot -cursor_name left_ptr &
+# exec unclutter -idle 1 -root &
+# exec keynav &
 
 # Autostart some apps
 # redshift -l 57:18 -t 5500k 4500k
-exec /usr/bin/start-pulseaudio-x11 &
-exec /usr/bin/twmnd &
+
+# exec /usr/bin/start-pulseaudio-x11 &
+# exec /usr/bin/twmnd &
 
 # Set background
 feh --bg-scale ~/.wallpapers/current
 
+# ------------------
 
 # Actually launch the WM. Choose one.
+
 # export XORG_WM="hlwm"
 # exec herbstluftwm --locked -c ~/.local/share/infect/misc/x11/hlwm/autostart &> ~/.local/logs/hlwm.log
+
 export XORG_WM="i3"
 exec i3 -V &> $HOME/.local/logs/i3.log
