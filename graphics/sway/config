@@ -1,5 +1,9 @@
 # Read `man 5 sway` for a complete reference.
 
+# Dependencies:
+# - sway-dmenu-desktop
+# - i3blocks
+
 # Variables {{{
 
     # Alt: Mod1
@@ -16,7 +20,7 @@
     set $term urxvt
 
     # Your preferred application launcher
-    set $menu dmenu_run
+    set $menu sway-dmenu-desktop
 
     # ror = run_or_raise
     set $ror ~/.local/bin/ror
@@ -36,7 +40,7 @@
 # Output configuration {{{
 
     # Default wallpaper (more resolutions are available in /usr/share/sway/)
-    output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+    # output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Font
     font pango: System San Fransisco Display 11
@@ -159,9 +163,10 @@
         for_window [title="^main@.*"] move container to workspace $workspace1; workspace $workspace1
         for_window [title=".*Firefox.*"] move container to workspace $workspace2; workspace $workspace2
         for_window [title=".*Chromium.*"] move container to workspace $workspace2; workspace $workspace2
-        for_window [class="Google-chrome"] move container to workspace $workspace2; workspace $workspace2
-        for_window [title="^Google Hangouts*"] move container to workspace $workspace3; workspace $workspace3
-        for_window [title="^Spotify Premium.*"] move container to workspace $workspace4; workspace $workspace4
+        for_window [class="Google-chrome."] move container to workspace $workspace2; workspace $workspace2
+        for_window [title="^Google Hangouts.*"] move container to workspace $workspace3; workspace $workspace3
+        for_window [title="^Franz.*"] move container to workspace $workspace3; workspace $workspace3
+        for_window [title="^Spotify.*"] move container to workspace $workspace4; workspace $workspace4
 
     # }}}
 

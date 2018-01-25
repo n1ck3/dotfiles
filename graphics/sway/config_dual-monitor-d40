@@ -1,0 +1,4 @@
+include config
+
+output DP-2 pos 0,0 res 1920x1080
+output LVDS-1 pos 160,1080 res 1600x900
