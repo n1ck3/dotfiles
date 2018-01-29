@@ -19,14 +19,17 @@
     # Your preferred terminal emulator
     set $term urxvt
 
+    # Your preferred browser
+    set $browser ~/.local/bin/i3-smart-browser
+
     # Your preferred application launcher
-    set $menu sway-dmenu-desktop
+    set $menu dmenu_run
 
     # ror = run_or_raise
-    set $ror ~/.local/bin/ror
+    set $ror ~/.local/bin/i3-ror
 
     # mor = mux_or_raise
-    set $mor ~/.local/bin/mor
+    set $mor ~/.local/bin/i3-mor
 
 # }}}
 
@@ -39,13 +42,15 @@
 
 # Key bindings {{{
 
-    # Basics {{{
+    # Basics {{K
+        # start or focus on main terminal (tmux main session)
+        bindsym $mod+Return exec $mor main > ~/.local/logs/i3.log
 
         # start a terminal
-        bindsym $mod+Return exec $mor main
+        # bindsym $mod+$alt_mod+Return exec $ror $term
 
         # open a browser
-        bindsym $mod+Shift+Return exec $ror "google-chome" "google-chrome-stable"
+        bindsym $mod+Shift+Return exec $ror "$($browser --class)" "$($browser --executable)"
 
         # open a file manager
         # bindsym $mod+Shift+e exec thunar
@@ -66,10 +71,10 @@
         # reload the configuration file
         bindsym $mod+Shift+c reload
 
-        # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
+        # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
         bindsym $mod+Shift+r restart
 
-        # exit sway (logs you out of your wayland session)
+        # exit i3 (logs you out of your wayland session)
         bindsym $mod+Shift+e exit
 
     # }}}
@@ -130,10 +135,10 @@
         bindsym $mod+Shift+0 move container to workspace $workspace0
 
         # Bind apps to workspaces
-        for_window [title="^main@.*"] move container to workspace $workspace1; workspace $workspace1
-        for_window [class="Google-chrome.*"] move container to workspace $workspace2; workspace $workspace2
+        for_window [title="main@.*"] move container to workspace $workspace1; workspace $workspace1
+        for_window [class="Chromium"] move container to workspace $workspace2; workspace $workspace2
         for_window [title="^Franz.*"] move container to workspace $workspace3; workspace $workspace3
-        for_window [title="^Spotify.*"] move container to workspace $workspace4; workspace $workspace4
+        for_window [title="^Spotify.*"] move container to workspace $workspace0; workspace $workspace0
 
     # }}}
 
@@ -247,7 +252,6 @@
 
 # Status Bar {{{
 
-    # Read `man 5 sway-bar` for more information about this section.
     bar {
         status_command i3blocks -c ~/.config/sway/i3blocks.conf
         position bottom

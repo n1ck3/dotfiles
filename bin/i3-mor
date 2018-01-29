@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+# i3 mux-or-raise
+# Uses i3 and tries to raise a given tmux session. If it
+# isn't found, it will be started.
+# Written by Niclas Helbro (niclas.helbro@gmail.com)
+
+sess=${1:-main}
+host=${2:-$HOST}
+cmd=$3
+title="${sess}@${host}"
+term="urxvt -name $title"
+tmux_sess="tmux new-session -s $sess -A"
+
+# Raise if already exist. We don't really car if success or not.
+$HOME/.local/bin/i3-ror $title
+
+# If the session is not running in a terminal, start it
+if [[ $(ps ax | grep "$tmux_sess" -c) -lt 2 ]] ; then
+  ${(z)term} -e ${(z)tmux_sess}
+fi

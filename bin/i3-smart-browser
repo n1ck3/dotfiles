@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+
+typeset -A browsers=(
+  "Chromium" "chromium"
+  "Firefox" "firefox"
+)
+browser=""
+
+for k in "${(@k)browsers}" ; do
+  which $browsers[$k]
+  if [[ $? == 0 ]] ; then
+    browser=($k $browsers[$k])
+    break
+  fi
+done
+
+if [[ "$browser" != "" ]] ; then
+  if [[ "$1" == "--class" ]] ; then
+    echo $browser[1]
+  elif [[ "$1" == "--executable" ]] ; then
+    echo $browser[2]
+  else
+    $browser[2]
+  fi
+fi
