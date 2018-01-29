@@ -1,262 +1,271 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Globals {
-    # Set the global mod key
+# Debugging {{{
+# }}}
+
+# Variables {{{
+
+    # Alt: Mod1
+    # Logo: Mod4
     set $mod Mod1
-    # set $modalt Mod4
 
-    # Use Mouse+$mod to drag floating windows to their wanted position
-    floating_modifier $mod
-# }
+    # Home row direction keys, like vim
+    set $left h
+    set $down j
+    set $up k
+    set $right l
 
-# Font {
-    font pango: System San Fransisco Display 11
-# }
+    # Your preferred terminal emulator
+    set $term urxvt
 
-# Application launchers {
+    # Your preferred application launcher
+    set $menu sway-dmenu-desktop
+
     # ror = run_or_raise
-    set $ror /home/nicke/.local/bin/ror
+    set $ror ~/.local/bin/ror
+
     # mor = mux_or_raise
-    set $mor /home/nicke/.local/bin/mor
+    set $mor ~/.local/bin/mor
 
-    # start dmenu (a program launcher)
-    # bindsym $mod+d exec dmenu_run
-    bindsym $mod+space exec dmenu_run
+# }}}
 
-    # start a terminal
-    bindsym $mod+Return exec $mor main
-    # bindsym $mod+$modalt+Return exec urxvt
+# Output configuration {{{
 
-    # open a browser
-    bindsym $mod+Shift+Return exec $ror "google-chrome" "google-chrome-stable"
+    # Font
+    font pango: System San Fransisco Display 11
 
-    # open a file manager
-    bindsym $mod+Shift+e exec pcmanfm
-    # bindsym $mod+$modalt+Shift+d exec pcmanfm /home/nicke/Desktop
-    # bindsym $mod+$modalt+Control+Shift+d exec pcmanfm /home/nicke/Downloads
-# }
+# }}}
 
-# Volume control {
-    # bindsym $mod+$modalt+plus exec pulseaudio-ctl up
-    # bindsym $mod+$modalt+minus exec pulseaudio-ctl down
-# }
+# Key bindings {{{
 
-# Volume brightness {
-    # bindsym $mod+$modalt+1 exec xbacklight -set 10
-    # bindsym $mod+$modalt+2 exec xbacklight -set 20
-    # bindsym $mod+$modalt+3 exec xbacklight -set 30
-    # bindsym $mod+$modalt+4 exec xbacklight -set 40
-    # bindsym $mod+$modalt+5 exec xbacklight -set 50
-    # bindsym $mod+$modalt+6 exec xbacklight -set 60
-    # bindsym $mod+$modalt+8 exec xbacklight -set 70
-    # bindsym $mod+$modalt+8 exec xbacklight -set 80
-    # bindsym $mod+$modalt+9 exec xbacklight -set 90
-# }
+    # Basics {{{
 
-# Screenshots {
-    # Grab whole screen
-    # bindsym $mod+Shift+3 exec scrot '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Downloads/'
+        # start a terminal
+        bindsym $mod+Return exec $mor main
 
-    # Grab area
-    # bindsym $mod+Shift+4 exec scrot -s '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Downloads/'
-# }
+        # open a browser
+        bindsym $mod+Shift+Return exec $ror "google-chome" "google-chrome-stable"
 
-# Window navigation {
-    # Focus
-    bindsym $mod+h focus left
-    bindsym $mod+j focus down
-    bindsym $mod+k focus up
-    bindsym $mod+l focus right
-    bindsym $mod+u focus parent
-    bindsym $mod+b focus child
+        # open a file manager
+        # bindsym $mod+Shift+e exec thunar
 
-    # move focused window
-    bindsym $mod+Shift+h move left
-    bindsym $mod+Shift+j move down
-    bindsym $mod+Shift+k move up
-    bindsym $mod+Shift+l move right
+        # kill focused window
+        bindsym $mod+Shift+q kill
 
-    # Move Container
-    # bindsym $mod+$modalt+Shift+h focus parent; move left
-    # bindsym $mod+$modalt+Shift+j focus parent; move down
-    # bindsym $mod+$modalt+Shift+k focus parent; move up
-    # bindsym $mod+$modalt+Shift+l focus parent; move right
+        # start your launcher
+        bindsym $mod+space exec $menu
 
-    # Snap
-    bindsym $mod+d layout default
-    bindsym $mod+s layout stacking
-    bindsym $mod+t layout tabbed
-    bindsym $mod+Shift+s layout toggle split
+        # Drag floating windows by holding down $mod and left mouse button.
+        # Resize them with right mouse button + $mod.
+        # Despite the name, also works for non-floating windows.
+        # Change normal to inverse to use left mouse button for resizing and right
+        # mouse button for dragging.
+        floating_modifier $mod
 
-    # Fullscreen
-    bindsym $mod+f fullscreen
+        # reload the configuration file
+        bindsym $mod+Shift+c reload
 
-    # Splitting
-    bindsym $mod+a split horizontal
-    bindsym $mod+z split vertical
+        # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
+        bindsym $mod+Shift+r restart
 
-    # Kill focused window
-    bindsym $mod+q kill
+        # exit sway (logs you out of your wayland session)
+        bindsym $mod+Shift+e exit
 
-    # Resize
-    mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        bindsym h resize shrink width 3 px or 3 ppt
-        bindsym j resize grow height 3 px or 3 ppt
-        bindsym k resize shrink height 3 px or 3 ppt
-        bindsym l resize grow width 3 px or 3 ppt
+    # }}}
 
-        bindsym Shift+h resize shrink width 10 px or 10 ppt
-        bindsym Shift+j resize grow height 10 px or 10 ppt
-        bindsym Shift+k resize shrink height 10 px or 10 ppt
-        bindsym Shift+l resize grow width 10 px or 10 ppt
+    # Moving around {{{
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        # Move your focus around
+        bindsym $mod+$left focus left
+        bindsym $mod+$down focus down
+        bindsym $mod+$up focus up
+        bindsym $mod+$right focus right
+
+        # _move_ the focused window with the same, but add Shift
+        bindsym $mod+Shift+$left move left
+        bindsym $mod+Shift+$down move down
+        bindsym $mod+Shift+$up move up
+        bindsym $mod+Shift+$right move right
+
+    # }}}
+
+    # Workspaces {{{
+
+        # Define workspaces
+        set $workspace1 "1:"
+        set $workspace2 "2:"
+        set $workspace3 "3:"
+        set $workspace4 "4:"
+        set $workspace5 "5:"
+        set $workspace6 "6:"
+        set $workspace7 "7:"
+        set $workspace8 "8:"
+        set $workspace9 "9:"
+        set $workspace0 "10:"
+
+        # switch to workspace
+        bindsym $mod+1 workspace $workspace1
+        bindsym $mod+2 workspace $workspace2
+        bindsym $mod+3 workspace $workspace3
+        bindsym $mod+4 workspace $workspace4
+        bindsym $mod+5 workspace $workspace5
+        bindsym $mod+6 workspace $workspace6
+        bindsym $mod+7 workspace $workspace7
+        bindsym $mod+8 workspace $workspace8
+        bindsym $mod+9 workspace $workspace9
+        bindsym $mod+0 workspace $workspace0
+        workspace_auto_back_and_forth yes
+
+        # move focused container to workspace
+        bindsym $mod+Shift+1 move container to workspace $workspace1
+        bindsym $mod+Shift+2 move container to workspace $workspace2
+        bindsym $mod+Shift+3 move container to workspace $workspace3
+        bindsym $mod+Shift+4 move container to workspace $workspace4
+        bindsym $mod+Shift+5 move container to workspace $workspace5
+        bindsym $mod+Shift+6 move container to workspace $workspace6
+        bindsym $mod+Shift+7 move container to workspace $workspace7
+        bindsym $mod+Shift+8 move container to workspace $workspace8
+        bindsym $mod+Shift+9 move container to workspace $workspace9
+        bindsym $mod+Shift+0 move container to workspace $workspace0
+
+        # Bind apps to workspaces
+        for_window [title="^main@.*"] move container to workspace $workspace1; workspace $workspace1
+        for_window [class="Google-chrome.*"] move container to workspace $workspace2; workspace $workspace2
+        for_window [title="^Franz.*"] move container to workspace $workspace3; workspace $workspace3
+        for_window [title="^Spotify.*"] move container to workspace $workspace4; workspace $workspace4
+
+    # }}}
+
+    # Layout stuff {{{
+
+        # You can "split" the current object of your focus with
+        # $mod+b or $mod+v, for horizontal and vertical splits
+        # respectively.
+        bindsym $mod+a splith
+        bindsym $mod+z splitv
+
+        # Switch the current container between different layout styles
+        bindsym $mod+d layout default
+        bindsym $mod+s layout stacking
+        bindsym $mod+t layout tabbed
+        bindsym $mod+e layout toggle split
+
+        # Make the current focus fullscreen
+        bindsym $mod+f fullscreen
+
+        # Toggle the current focus between tiling and floating mode
+        bindsym $mod+Shift+space floating toggle
+
+        # Swap focus between the tiling area and the floating area
+        # bindsym $mod+space focus mode_toggle
 
         # Move to center
-        # bindsym $mod+c move absolute position center
+        bindsym $mod+c move absolute position center
+
+        # move focus to the parent container
+        bindsym $mod+plus focus parent
+
+        # move focus to the child container
+        bindsym $mod+minus focus child
+
+    # }}}
+
+    # Scratchpad {{{
+
+        # Move the currently focused window to the scratchpad
+        bindsym $mod+Shift+p move scratchpad
+
+        # Show the next scratchpad window or hide the focused scratchpad window.
+        # If there are multiple scratchpad windows, this command cycles through them.
+        bindsym $mod+p scratchpad show
+
+    # }}}
+
+    # Resizing containers {{{
+
+        bindsym $mod+r mode "resize"
+
+        mode "resize" {
+            # left will shrink the containers width
+            # right will grow the containers width
+            # up will shrink the containers height
+            # down will grow the containers height
+            bindsym $left resize shrink width 10 px or 10 ppt
+            bindsym $down resize grow height 10 px or 10 ppt
+            bindsym $up resize shrink height 10 px or 10 ppt
+            bindsym $right resize grow width 10 px or 10 ppt
+
+            # return to default mode
+            bindsym Return mode "default"
+            bindsym Escape mode "default"
+        }
+
+
+    # }}}
+
+    # Sound {{{
+        # bindcode 122 exec amixer set 'Master' 5%- && pkill -RTMIN+10 i3blocks
+        # bindcode 123 exec amixer set 'Master' 5%+ && pkill -RTMIN+10 i3blocks
+        # bindcode 121 exec amixer set 'Master' 1+ toggle && pkill -RTMIN+10 i3blocks
+        # exec amixer set 'Master' 35%
+    # }}}
+
+    # Brightness {{{
+        # bindcode 232 exec brightnessctl s 10%-
+        # bindcode 233 exec brightnessctl s 10%+
+        # exec brightnessctl s 100%
+    # }}}
+
+# }}}
+
+# Colors {{{
+
+    # Define colors {{{
+
+        set $bg-color            #2f343f
+        # set $inactive-bg-color   #2f343f
+        set $inactive-bg-color   #16191e
+        set $text-color          #f3f4f5
+        set $inactive-text-color #676E7D
+        set $urgent-bg-color     #E53935
+        set $indicator-color     #6B768e
+
+    # }}}
+
+    # Apply colors to windows {{{
+
+        # window colors         border              background         text                 indicator
+        client.focused          $bg-color           $bg-color          $text-color          $indicator-color
+        client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
+        client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
+        client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-color
+
+    # }}}
+
+# }}}
+
+# Status Bar {{{
+
+    # Read `man 5 sway-bar` for more information about this section.
+    bar {
+        status_command i3blocks -c ~/.config/sway/i3blocks.conf
+        position bottom
+        # pango_markup: enabled
+        font pango: inconsolata 11
+
+        colors {
+            background $bg-color
+            statusline #ffffff
+            separator #757575
+
+            # Colors           border             background         text
+            focused_workspace  $bg-color          $bg-color          $text-color
+            inactive_workspace $bg-color          $bg-color          $inactive-text-color
+            urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        }
     }
-    bindsym $mod+r mode "resize"
-# }
 
-# Workspace navigation {
-    # Move to center
-    set $workspace1 "1:"
-    set $workspace2 "2:"
-    set $workspace3 "3:"
-    set $workspace4 "4:"
-    set $workspace5 "5:"
-    set $workspace6 "6:"
-    set $workspace7 "7:"
-    set $workspace8 "8:"
-    set $workspace9 "9:"
-    set $workspace0 "10:"
+# }}}
 
-    # Auto movez
-    for_window [title="^main@.*"] move container to workspace $workspace1; workspace $workspace1
-    for_window [title=".*Firefox.*"] move container to workspace $workspace2; workspace $workspace2
-    for_window [title=".*Chromium.*"] move container to workspace $workspace2; workspace $workspace2
-    for_window [class="Google-chrome"] move container to workspace $workspace2; workspace $workspace2
-    for_window [title="^Google Hangouts*"] move container to workspace $workspace3; workspace $workspace3
-    for_window [title="^Spotify Premium.*"] move container to workspace $workspace5; workspace $workspace5
-
-    # switch to workspace
-    bindsym $mod+1 workspace $workspace1
-    bindsym $mod+2 workspace $workspace2
-    bindsym $mod+3 workspace $workspace3
-    bindsym $mod+4 workspace $workspace4
-    bindsym $mod+5 workspace $workspace5
-    bindsym $mod+6 workspace $workspace6
-    bindsym $mod+7 workspace $workspace7
-    bindsym $mod+8 workspace $workspace8
-    bindsym $mod+9 workspace $workspace9
-    bindsym $mod+0 workspace $workspace0
-
-    # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $workspace1
-    bindsym $mod+Shift+2 move container to workspace $workspace2
-    bindsym $mod+Shift+3 move container to workspace $workspace3
-    bindsym $mod+Shift+4 move container to workspace $workspace4
-    bindsym $mod+Shift+5 move container to workspace $workspace5
-    bindsym $mod+Shift+6 move container to workspace $workspace6
-    bindsym $mod+Shift+7 move container to workspace $workspace7
-    bindsym $mod+Shift+8 move container to workspace $workspace8
-    bindsym $mod+Shift+9 move container to workspace $workspace9
-    bindsym $mod+Shift+0 move container to workspace $workspace0
-
-    # Allow for workspace togle navigation
-    # workspace_auto_back_and_forth yes
-# }
-
-# Floating options {
-    # toggle tiling / floating
-    bindsym $mod+Shift+f floating toggle
-
-    # change focus between tiling / floating windows
-    # bindsym $mod+$modalt+f focus mode_toggle
-
-    # Move to center
-    bindsym $mod+c move absolute position center
-# }
-
-# Scratchpad {
-    # Make the currently focused window a scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the first scratchpad window
-    bindsym $mod+minus scratchpad show
-# }
-
-# System stuff {
-    # reload the configuration file
-    bindsym $mod+Shift+c reload
-
-    # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-    # bindsym $mod+Shift+r restart
-
-    # exit i3 (logs you out of your X session)
-    # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-    bindsym $mod+Shift+Escape exit
-
-    # Border
-    bindsym $mod+y border normal
-    bindsym $mod+Shift+y border 1pixel
-    # bindsym $mod+$modalt+Shift+y border none
-# }
-
-# Colors and such {
-    # accually borders plx
-    # new_window pixel 2
-    # workspace_layout default
-
-    #set $active #47628f
-    #set $inactive #333333
-    #set $semiactive #414957
-    #set $urgent #942C2C
-    #set $indicator #979876
-    #set $gray #f6f6f6
-    #set $dark #707070
-    #set $background #101010
-
-    #client.focused          $active $active $gray $indicator
-    #client.focused_inactive $semiactive $semiactive $gray $inactive
-    #client.unfocused        $inactive $inactive $dark $inactive
-    #client.urgent           $urgent $urgent $gray $inactive
-    #client.background       $background
-
-    set $bg-color            #2f343f
-    #set $inactive-bg-color   #2f343f
-    set $inactive-bg-color   #16191e
-    set $text-color          #f3f4f5
-    set $inactive-text-color #676E7D
-    set $urgent-bg-color     #E53935
-    set $indicator-color     #6B768e
-
-    # window colors         border              background         text                 indicator
-    client.focused          $bg-color           $bg-color          $text-color          $indicator-color
-    client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
-    client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
-    client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-color
-# }
-
-# Status bar {
-  bar {
-    status_command i3blocks -c ~/.i3/i3blocks.conf
-    tray_output none
-    # strip_workspace_numbers yes
-    font pango: inconsolata 11
-    colors {
-        background $bg-color
-        separator #757575
-
-        # Colors           border             background         text
-        focused_workspace  $bg-color          $bg-color          $text-color
-        inactive_workspace $bg-color          $bg-color          $inactive-text-color
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-    }
-}
-
-# vim: fdm=marker fmr={,}
+# vim: fdm=marker fmr={{{,}}}
