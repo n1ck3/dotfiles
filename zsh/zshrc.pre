@@ -27,9 +27,12 @@ export EDITOR="vim"
 export VISUAL="vim"
 export MAIL="$HOME/var/mail"
 export HOMEBIN="$HOME/.local/bin"
+export SNAPBIN="/var/lib/snapd/snap/bin"
 export GOPATH="$HOME/var/go"
 local _PATH="$XDG_DATA_HOME/infect/util:$HOMEBIN"
 local _PATH="$_PATH:$GOPATH/bin"
+local _PATH="$_PATH:$HOME/Applications"
+local _PATH="$_PATH:$SNAPBIN"
 
 # If we're in a docker image, we want to have the special tools on the path
 if [[ -d "/docker/bin" ]]; then

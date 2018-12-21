@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+check_updates() {
+    checkupdates > /dev/null
+    yay -Qu > /dev/null
+
+}
+
+is_running() {
+    if [ `pgrep -x yay | wc -l` == 0 ] && [ `pgrep -x pacman | wc -l` == 0 ] ; then
+        echo "false"
+    else
+        echo "true"
+    fi
+}
+
+if [ $(is_running) == "true" ] ; then
+    echo "%{F#555}%{F-}"
+else
+    # Run check_updates and don't stick around for it to finish.
+    # On to the animations, yeah!
+    check_updates &
+
+    # Animate updating status
+    animation_index=0
+    while [ $(is_running) == "false" ] ; do
+        if [ $animation_index == 12 ] ; then
+            animation_index=1
+        else
+            animation_index=$(( animation_index + 1 ));
+        fi
+
+
+        if [ $(( $animation_index % 12 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 11 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 10 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 9 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 8 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 7 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 6 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 5 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 4 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 3 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 2 )) == 0 ] ; then
+            echo " "
+        elif [ $(( $animation_index % 1 )) == 0 ] ; then
+            echo " "
+        fi
+
+        sleep 0.5
+
+    done
+
+    available_updates=$(yay -Qu | wc -l)
+    if [ $available_updates == 0 ]; then
+        echo "%{F#555} $available_updates%{F-}"
+    else
+        echo "%{F#33c84a} $available_updates%{F-}"
+    fi
+
+fi

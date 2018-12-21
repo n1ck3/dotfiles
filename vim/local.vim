@@ -1,6 +1,9 @@
 " colorscheme zenburn
 " colorscheme neverland
 
+" Set relative linenumbers
+set number relativenumber
+
 " Fold everything from start
 set foldlevel=0
 
@@ -25,6 +28,10 @@ autocmd FileType arduino
   \ setlocal ts=4 |
   \ setlocal sts=4
 
+" Polybar dosini jazz ;(
+autocmd FileType dosini
+  \ setlocal commentstring=;\ %s
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -45,3 +52,10 @@ vmap ö :Commentary<CR>gv
 
 " Make sure we are loading plugins from <vim-folder>/plugin
 let &rtp.='/.vim/plugin/'
+
+" Reset default modelines parameter
+set modelines=5
+
+" Make sure to use the bg color of the running terminal
+hi Normal ctermbg=NONE
+hi NonText ctermbg=NONE

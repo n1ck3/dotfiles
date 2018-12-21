@@ -12,10 +12,10 @@ title="${sess}@${host}"
 term="urxvt -name $title"
 tmux_sess="tmux new-session -s $sess -A"
 
-# Raise if already exist. We don't really car if success or not.
+# Raise if already exist. We don't really care if success or not.
 $HOME/.local/bin/i3-ror $title
 
 # If the session is not running in a terminal, start it
-if [[ $(ps ax | grep "$tmux_sess" -c) -lt 2 ]] ; then
-  ${(z)term} -e ${(z)tmux_sess}
+if [[ $(ps ax | grep -v grep | grep "$tmux_sess" -c) -lt 2 ]] ; then
+    ${(z)term} -e ${(z)tmux_sess}
 fi

@@ -72,4 +72,7 @@
     export WLC_REPEAT_RATE=45
 # }}}
 
+# DAFUQ?
+eval "$(thefuck --alias)"
+
 # vim: ft=zsh fmr={{{,}}}

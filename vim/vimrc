@@ -318,7 +318,10 @@ let maplocalleader = "\\"
 
 " Jellybeans overrides
 " Let's appreciate that this is so overriden it is almost it's own colorscheme.
-let g:jellybeans_background_color = "151517"
+" let g:jellybeans_background_color = "151517"
+let g:jellybeans_background_color = "222222"
+" let g:jellybeans_background_color = "222D31"
+" let g:jellybeans_background_color = "222D31"
 let g:jellybeans_overrides = {
 \'ColorColumn': {'guibg': '333333', 'ctermbg': 250, 'attr': 'bold'},
 \'MatchParen':  {'guifg': 'db1515', 'guibg': '000000', 'ctermbg': "DarkCyan", 'attr': 'bold'},
@@ -344,7 +347,7 @@ let g:jellybeans_overrides = {
 \'Statement':   {'guifg': '8197bf', 'ctermfg': 'DarkBlue'},
 \'Structure':   {'guifg': '8fbfdc', 'ctermfg': 'LightCyan'},
 \"Folded":      {'guifg': "777777", 'guibg': "101010", 'ctermfg': "236", 'ctermbg': "235"},
-\"Comment":     {'guifg': "555555", 'ctermfg': "Grey", 'attr': ''},
+\"Comment":     {'guifg': "555555", 'ctermfg': "222222", 'attr': ''},
 \}
 
 syntax on

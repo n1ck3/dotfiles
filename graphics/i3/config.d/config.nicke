@@ -42,7 +42,7 @@
 
 # Key bindings {{{
 
-    # Basics {{K
+    # Basics {{
         # start or focus on main terminal (tmux main session)
         bindsym $mod+Return exec $mor main > ~/.local/logs/i3.log
 

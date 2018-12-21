@@ -1,15 +1,22 @@
 #!/usr/bin/env zsh
 
+
 typeset -A browsers=(
+  "qutebrowser" "qutebrowser"
   "Chromium" "chromium"
   "Firefox" "firefox"
 )
+browser_order=(
+  "qutebrowser"
+  "Chromium"
+  "Firefox"
+)
 browser=""
 
-for k in "${(@k)browsers}" ; do
-  which $browsers[$k]
-  if [[ $? == 0 ]] ; then
-    browser=($k $browsers[$k])
+for i in "${browser_order[@]}" ; do
+  which $browsers[$i] &> /dev/null
+  if [[ $? == "0" ]] ; then
+    browser=($i $browsers[$i])
     break
   fi
 done
@@ -20,6 +27,10 @@ if [[ "$browser" != "" ]] ; then
   elif [[ "$1" == "--executable" ]] ; then
     echo $browser[2]
   else
-    $browser[2]
+    echo "Found browser: $browser[1] - $browser[2]"
+  fi
+else
+  if [[ $1 == "" ]] ; then
+      echo "No browser found. Please install one (${browser_order[@]})"
   fi
 fi

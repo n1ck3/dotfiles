@@ -108,8 +108,8 @@ function cd () {
       builtin cd $opt $1:h
     else
       if ! builtin cd $opt $1 && [[ $#@ -eq 1 && ! -d $1 ]]; then
-        echo -En "cd: $1 doesn't exist, do you want to create it? [y/N] "
-        read -sq && mkcd $1
+        # echo -En "cd: $1 doesn't exist, do you want to create it? [y/N] "
+        # read -sq && mkcd $1
       fi
     fi
   else

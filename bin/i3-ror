@@ -12,14 +12,14 @@ executable=$2
 winids=(${(f)"$(xwininfo -tree -root | grep $grep | tr -s ' ' | cut -d" " -f2 | sort)"})
 raised=false
 for winid in $winids ; do
-  i3-msg "[id=\"$winid\"] focus" &> /dev/null | grep true
-  if [[ $? == 0 ]] ; then
-    raised=true
-    break
-  fi
+    i3-msg "[id=\"$winid\"] focus" &> /dev/null | grep true
+    if [[ $? == 0 ]] ; then
+        raised=true
+        break
+    fi
 done
 
-# If not able to raise the application, start it.
+# If not able to raise the application, start it and raise it.
 if [[ "$raised" = false && "$executable" != "" ]] ; then
-  exec ${(z)executable} &|
+    exec ${(z)executable} &|
 fi
