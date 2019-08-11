@@ -462,3 +462,6 @@ if [[ "$TERM" == "dumb" ]]; then
   prompt off
   PS1='> '
 fi
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
