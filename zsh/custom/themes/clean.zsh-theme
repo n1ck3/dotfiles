@@ -27,4 +27,4 @@ function git_branch_info {
     fi
 }
 
-PROMPT='${ret_status} ${path_info} $(git_branch_info)${jobs_info}$(prompt_char) '
+PROMPT='${ret_status} ${path_info} $(git_branch_info)${jobs_info}${prompt_char} '
