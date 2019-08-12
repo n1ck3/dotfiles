@@ -1,4 +1,0 @@
-alias sc="source ~/.zshrc"
-export EDITOR='vim'
-# alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="vim ~/.oh-my-zsh"
