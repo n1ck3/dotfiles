@@ -33,7 +33,7 @@ from logging.handlers import RotatingFileHandler
 from optparse import OptionParser
 from tempfile import NamedTemporaryFile
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 HISTORY_FILE = '~/.vimv_history'
 
@@ -85,7 +85,7 @@ def main():
         ls.sort()
 
         #ls > temp_file
-        with NamedTemporaryFile(mode='w+', delete=False) as temp_file:
+        with NamedTemporaryFile(mode='w', delete=False) as temp_file:
             temp_file.write('\n'.join(ls) + '\n') #\n at EOF for vi compat
 
         if options.verbose:
