@@ -6,5 +6,6 @@ vimperator/info*
 
 # wpgtk stuff
 wpg/.current
+wpg/samples
 wpg/wp_init.sh
 wpg/sequences
