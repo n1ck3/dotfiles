@@ -1,5 +1,3 @@
- URxvt.perl-ext-common:      default,keyboard-select
- URxvt.url-select.launcher:  google-chrome-stable
- URxvt.url-select.underline: true
- URxvt.keysym.M-Escape:      perl:keyboard-select:activate
- URxvt.keysym.M-s:           perl:keyboard-select:search
+urxvt*font: xft:Inconsolata\ Nerd\ Font:style=Medium:size=13
+URxvt.keysym.S-C-C:   perl:clipboard:copy
+URxvt.keysym.S-C-V:   perl:clipboard:paste

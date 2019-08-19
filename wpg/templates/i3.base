@@ -208,4 +208,4 @@ exec --no-startup-id wpg -s $(wpg -c)
 exec --no-startup-id urxvtd
 # exec --no-startup-id dockd --daemon
 # exec --no-startup-id urxvt -name dropdown
-exec_always --no-startup-id ~/.local/bin/launch_polybar.sh
+exec_always --no-startup-id ~/.local/scripts/launch_polybar.sh

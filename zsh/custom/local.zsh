@@ -8,6 +8,7 @@ alias sc="source ~/.zshrc"
 function yayy() {
     yay $@ --noconfirm
 }
+par="sudo pacman -Rns $(pacman -Qtdq)"
 
 # Misc exports
 export EDITOR='vim'
@@ -16,3 +17,10 @@ export LC_ALL=en_US.UTF-8
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.local/scripts
 export PATH=$PATH:$HOME/.ansie/scripts
+
+# Git aliases ammendments and overrides
+alias gs="git status"
+alias gu="git pull"
+unalias gl
+alias gl="git log"
+alias gls="git log --stat"
