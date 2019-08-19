@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# sudo pacman -Rns $(pacman -Qtdq)
-yay -Rns $(yay -Qtdq)

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/nicke/.config/wpg/wallpapers/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#322b26",
+        "foreground": "#fff0d1",
+        "cursor": "#fff0d1"
+    },
+    "colors": {
+        "color0": "#322b26",
+        "color1": "#bd6151",
+        "color2": "#6e9383",
+        "color3": "#d7b18a",
+        "color4": "#8a8f94",
+        "color5": "#bd9a81",
+        "color6": "#91a1a5",
+        "color7": "#c8b49d",
+        "color8": "#4e433b",
+        "color9": "#ff7157",
+        "color10": "#7ecfac",
+        "color11": "#ffe69c",
+        "color12": "#a0b9d2",
+        "color13": "#ffc493",
+        "color14": "#a8ddea",
+        "color15": "#fff0d1"
+    }
+}

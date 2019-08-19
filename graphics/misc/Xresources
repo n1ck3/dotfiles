@@ -1,5 +1,0 @@
- URxvt.perl-ext-common:      default,keyboard-select
- URxvt.url-select.launcher:  chromium
- URxvt.url-select.underline: true
- URxvt.keysym.M-Escape:      perl:keyboard-select:activate
- URxvt.keysym.M-s:           perl:keyboard-select:search
