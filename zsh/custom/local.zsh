@@ -1,5 +1,5 @@
 # Make sure we have nice console colors
-source ~/.local/bin/set-console-colors.sh
+# source ~/.local/bin/set-console-colors.sh
 
 # Source ZSH config
 alias sc="source ~/.zshrc"
