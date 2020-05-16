@@ -1,3 +1,41 @@
-urxvt*font: xft:Inconsolata\ Nerd\ Font:style=Medium:size=13
-URxvt.keysym.S-C-C:   perl:clipboard:copy
-URxvt.keysym.S-C-V:   perl:clipboard:paste
+! URxvt*font:             xft:UbuntuMono Nerd Font Mono:size=13
+URxvt*font:             xft:Hack Nerd Font Mono:style=Regular:size=11
+URxvt.keysym.S-C-C:     perl:clipboard:copy
+URxvt.keysym.S-C-V:     perl:clipboard:paste
+URxvt.urgentOnBell:     true
+URxvt*scrollBar:        false
+
+/* Xft.dpi: 220 */
+
+#define FOREGROUND #c2c2b0
+#define BACKGROUND #1c1c1c
+
+#define COLOR0  #1c1c1c
+#define COLOR8  #262626
+#define COLOR1  #5F8787
+#define COLOR9  #5f8787
+#define COLOR2  #424242
+#define COLOR10 #424242
+#define COLOR3  #666666
+#define COLOR11 #666666
+#define COLOR4  #808080
+#define COLOR12 #808080
+#define COLOR5  #a8a8a8
+#define COLOR13 #a8a8a8
+#define COLOR6  #cccccc
+#define COLOR14 #cccccc
+#define COLOR7  #c2c2b0
+#define COLOR15 #c2c2b0
+
+*.foreground:  FOREGROUND
+*.background:  BACKGROUND
+*.cursorColor: FOREGROUND
+*.color0:      COLOR0
+*.color1:      COLOR1
+*.color2:      COLOR2
+*.color3:      COLOR3
+*.color4:      COLOR4
+*.color5:      COLOR5
+*.color6:      COLOR6
+*.color7:      COLOR7
+*.color8:      COLOR8

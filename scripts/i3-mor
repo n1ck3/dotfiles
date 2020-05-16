@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# Raise if window is open already
+name="$1"
+session="main@`hostname`"
+count=`xdotool search --name "$session" | wc -l`
+echo $count
+if [ "$count" -ne 0 ] ; then
+
+    i3-msg "[title=(?i)$session] focus"
+else
+    urxvt -name $name -e tmux new -A -s $name &
+fi

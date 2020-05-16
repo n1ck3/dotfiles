@@ -1,22 +1,24 @@
 #!/bin/sh
+
+# Tomorrow Dark
 if [ "$TERM" = "linux" ]; then
   /bin/echo -e "
-  \e]P01d1f21
-  \e]P1cc6666
-  \e]P2b5bd68
-  \e]P3f0c674
-  \e]P481a2be
-  \e]P5b294bb
-  \e]P68abeb7
-  \e]P7c5c8c6
-  \e]P8969896
-  \e]P9cc6666
-  \e]PAb5bd68
-  \e]PBf0c674
-  \e]PC81a2be
-  \e]PDb294bb
-  \e]PE8abeb7
-  \e]PFffffff
+  \e]P0001C30
+  \e]P17E9FC0
+  \e]P296A8B6
+  \e]P3C0C0BF
+  \e]P499B1C6
+  \e]P5A9BBCA
+  \e]P6B6C5D1
+  \e]P7d6dee7
+  \e]P8959ba1
+  \e]P97E9FC0
+  \e]PA96A8B6
+  \e]PBC0C0BF
+  \e]PC99B1C6
+  \e]PDA9BBCA
+  \e]PEB6C5D1
+  \e]PFd6dee7
   "
   # get rid of artifacts
   clear

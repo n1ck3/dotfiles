@@ -1,0 +1,319 @@
+" Plugins, yeah!
+call plug#begin()
+
+" Colors scheme
+Plug 'deviantfero/wpgtk.vim'
+
+" UI and Navigation
+" Plug 'itchyny/lightline.vim'
+Plug 'mhinz/vim-signify'
+Plug 'bling/vim-bufferline'
+Plug 'tpope/vim-fugitive'
+Plug 'edkolev/tmuxline.vim' " Activate to export tmux-colors.tmux
+Plug 'vim-syntastic/syntastic'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'chrisbra/Colorizer'
+
+" Editing
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'pearofducks/ansible-vim', { 'do': 'cd ./UltiSnips; ./generate.py' }
+
+" Filetypes
+Plug 'tpope/vim-markdown'
+Plug 'elzr/vim-json'
+
+" Last loaded, as per request
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+call plug#end()
+
+set encoding=UTF-8
+
+" Colors
+syntax on
+" colorscheme wpgtk_nicke
+" colorscheme wpgtkAlt
+" colorscheme bubblegum
+colorscheme Tomorrow-Night
+
+" ######### FROM LOWE ##########
+set encoding=utf-8
+set modelines=0
+set autoindent
+set showmode
+set showcmd
+set hidden
+set novisualbell
+set t_vb=
+set updatetime=500
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set nonumber
+if exists('+relativenumber')
+  set norelativenumber
+endif
+set laststatus=2
+set history=1000
+if exists('+undofile')
+  set undofile
+  set undoreload=10000
+endif
+set list
+set listchars=tab:▸\ ,trail:¬,extends:❯,precedes:❮
+" set shell=/bin/bash\ --login
+set lazyredraw
+set matchtime=3
+set showbreak=↪
+set splitbelow
+set splitright
+set fillchars=diff:⣿,vert:│
+set autowrite
+set autoread
+set shiftround
+set title
+set linebreak
+set dictionary=/usr/share/dict/words
+set spellfile=~/.vim/spell/custom-dictionary.utf-8.add
+if exists('+colorcolumn')
+  set colorcolumn=+1
+endif
+
+" Don't try to highlight lines longer than 800 characters.
+set synmaxcol=800
+
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+" Make Vim able to edit crontab files again.
+set backupskip=/tmp/*,/private/tmp/*"
+
+" Better Completion
+set complete=.,w,b,u,t
+set completeopt=longest,menuone,preview
+
+" Kill trailing whitespace {{{
+function! KillTrailingWhitespace()
+  " Set the position. Default is that the cursor will be placed on any match.
+  let pos = getpos('.')
+
+  " Remove trailing whitespace from any row. Ingore all errors.
+  silent! %s/\s\+$//e
+
+  " Remove trailing lines. Ignore all errors.
+  silent! %s/\v\n+%$//e
+
+  " Reset to the original position.
+  call setpos('.',pos)
+endfunction
+
+augroup trailing
+  au!
+  au BufWritePre * call KillTrailingWhitespace()
+augroup END
+" }}}
+
+
+" #################################################
+
+" Set relative linenumbers
+set number relativenumber
+
+" show line number plz
+"set number
+
+" Fold everything from start
+" set foldlevel=0
+
+" Disable line wrapping from start
+set tw=0
+
+" Make mouse available and stuff
+set mouse=a
+
+" Make sure we have nice and wide tabs for arduino
+autocmd FileType python
+  \ setlocal sw=4 |
+  \ setlocal ts=4 |
+  \ setlocal sts=4
+
+" Make sure we have nice and wide tabs for arduino
+autocmd FileType arduino
+  \ setlocal sw=4 |
+  \ setlocal ts=4 |
+  \ setlocal sts=4
+
+" Polybar dosini jazz ;(
+autocmd FileType dosini
+  \ setlocal commentstring=;\ %s
+
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+
+" Fix automatic syntax highlighting for saltstack files
+au BufReadPost *.sls set syntax=yaml
+
+" Unmap ctrl z splitting
+" unmap <c-z>
+
+" Remap zR and zM for folding madness
+nnoremap zR zRzz
+nnoremap zM zMzz
+
+" Mappings for Commentary, yeah!
+nmap ö :Commentary<CR>
+vmap ö :Commentary<CR>gv
+
+" Reset default modelines parameter
+set modelines=5
+
+" Make sure to use the bg color of the running terminal
+hi Normal ctermbg=NONE
+hi NonText ctermbg=NONE
+
+" Easy buffer navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Easy tab navigation
+nnoremap zl gt
+nnoremap zh gT
+
+" Fat fingers!
+command W w
+command Q q
+
+command Wa wa
+command WA wa
+
+command Qa qa
+command QA qa
+
+command Wq wq
+command WQ wq
+
+command WQa wqa
+command WQA wqa
+
+" Easy source ~/.vimrc
+nnoremap zs :source ~/.vimrc<CR>
+
+" Plug Stuff
+let g:plug_window = 'split horizontal'
+
+" Airline Stuff {{{
+" let g:airline_powerline_fonts = 0
+" " let g:airline_skip_empty_sections = 1
+let g:airline_symbols_ascii = 1
+
+
+let g:airline_theme='wpgtk'
+" let g:airline_theme='wpgtk'
+" let g:airline_theme='bubblegum'
+" let g:airline_left_sep = '>'
+" let g:airline_right_rep = '<'
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
+let g:airline_detect_iminsert = 1
+let g:airline_powerline_fonts = 0
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols_ascii = 1
+" let g:airline_left_sep = '>'
+" let g:airline_left_alt_sep = '>'
+" let g:airline_right_sep = '<'
+" let g:airline_right_alt_sep = '<'
+" let g:airline_symbols.branch = ' '
+" let g:airline_symbols.readonly = 'RO'
+" let g:airline_symbols.linenr = 'ln'
+" let g:airline_symbols.maxlinenr = 'ln'
+" let g:airline_symbols.dirty = 'DIRTY'
+let g:airline_skip_empty_sections = 1
+let g:airline_extensions = ['branch', 'syntastic', 'ctrlp', 'whitespace', 'tabline']
+" let g:airline_extensions = ['branch', 'syntastic', 'ctrlp', 'whitespace']
+" let g:airline_statusline_ontop = 1
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#show_tab_count = 0
+let g:airline#extensions#tabline#tabs_label = ''
+" let g:airline#extensions#bufferline#enabled = 0
+let g:bufferline_echo = 0
+" Airline }}}
+
+" CtrlP Stuff
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|cache|swap)$'
+
+" Syntastic Stuff
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" NERDTree Stuff {{{
+    map <C-n> :NERDTreeToggle<CR>
+    let g:NERDTreeChDirMode = 2
+
+    " Close NERDTree if NERDTree is the only open window
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+    let g:NERDTreeShowGitStatus = 1
+    let g:NERDTreeUpdateOnWrite = 1
+    let NERDTreeMinimalUI = 1
+    let NERDTreeDirArrows = 1
+
+" }}}
+
+" NERDTree Git Stuff {{{
+    let g:NERDTreeIndicatorMapCustom = {
+        \ "Modified"  : "↪",
+        \ "Staged"    : "↗",
+        \ "Untracked" : "+",
+        \ "Renamed"   : "↻",
+        \ "Unmerged"  : "⇆",
+        \ "Deleted"   : "−",
+        \ "Dirty"     : "!",
+        \ "Clean"     : "·",
+        \ 'Ignored'   : 'x',
+        \ "Unknown"   : "?"
+    \ }
+    let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+    let g:webdevicons_enable_ctrlp = 1
+    let g:webdevicons_enable_airline_statusline = 1
+" }}}
+
+
+" Limeilight
+let g:limelight_conceal_ctermfg = 'gray'
+
+" Markdown-Preview
+let g:mkdp_browser = 'electron'
+" let g:mkdp_markdown_css = '/home/nicke/.vim/colors/markdown-preview/prism.css'
+
+" Ansible-VIM
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */roles/*.yml set filetype=yaml.ansible
+
+" if &term == "screen"
+"     set t_Co=256
+" endif

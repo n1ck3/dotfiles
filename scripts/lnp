@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+urxvtc -e $HOME/df/startlnp.sh

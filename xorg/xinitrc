@@ -1,10 +1,18 @@
-# xrandr --output eDP-2 
+# xrandr --output eDP-2
 
-setxkbmap se
-setxkbmap -option caps:escape
+setxkbmap se-mac
+# setxkbmap -option caps:escape
+setxkbmap -option 'caps:ctrl_modifier'
 
-xrandr --output eDP-1 --primary --scale .5x.5
+xbindkeys
+
+xset r rate 200 30
+
+xrandr --output eDP-1 --primary --scale 0.5x0.5
 
 [[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
 
-exec i3
+# xrandr --dpi 120
+xrdb -merge ~/.Xresources
+export XDG_SESSION_TYPE=x11
+exec i3 &> $HOME/.local/logs/i3/i3.log
