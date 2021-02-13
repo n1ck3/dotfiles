@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
 # Xresources
-xrdb -merge ~/.Xresources
+# xrdb -merge ~/.Xresources
 
 # i3
-i3-msg reload > /dev/null 2>&1 &
+# i3-msg reload > /dev/null 2>&1 &
 
 # Qutebrowser
 qutebrowser-reload > /dev/null 2>&1 &
 
 # Polybar (Not needed?)
-polybar-launch > /dev/null 2>&1 &
+# polybar-launch > /dev/null 2>&1 &
 
 # TMUX
-tmux source-file ~/.tmux.conf
+# tmux source-file ~/.tmux.conf
 
 # GTK Theme
 # gsettings set org.gnome.desktop.interface gtk-theme '' > /dev/null 2>&1

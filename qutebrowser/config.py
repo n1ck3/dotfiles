@@ -5,7 +5,7 @@
 ## OPTIONS (((
 
 # Uncomment this to still load settings configured via autoconfig.yml
-config.load_autoconfig()
+config.load_autoconfig(False)
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
@@ -70,6 +70,7 @@ c.auto_save.session = True
 # Load a restored tab as soon as it takes focus.
 # Type: Bool
 c.session.lazy_restore = True
+# c.session.lazy_restore = False
 
 # Open new windows in private browsing mode which does not record
 # visited pages.
@@ -117,6 +118,8 @@ c.editor.command = [
     'normal {line}G{column0}l'
 ]
 c.editor.encoding = 'utf-8'
+
+# c.content.host_blocking.enabled = False
 
 ## OPTIONS )))
 
@@ -191,7 +194,7 @@ c.url.searchengines = {'DEFAULT': 'https://www.google.com/search?hl=en&q={}', 'y
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-# c.url.start_pages = ['https://google.com']
+c.url.start_pages = ['https://google.com']
 
 c.scrolling.smooth = False
 c.tabs.background = True
@@ -199,25 +202,37 @@ c.tabs.background = True
 ## APPEARENCE )))
 
 ## COLORS (((
-color0 = '#001C30'
-color1 = '#7E9FC0'
-color2 = '#96A8B6'
-color3 = '#C0C0BF'
-color4 = '#99B1C6'
-color5 = '#A9BBCA'
-color6 = '#B6C5D1'
-color7 = '#d6dee7'
-color8 = '#959ba1'
-color9 = '#7E9FC0'
-color10 = '#96A8B6'
-color11 = '#C0C0BF'
-color12 = '#99B1C6'
-color13 = '#A9BBCA'
-color14 = '#B6C5D1'
-color15 = '#d6dee7'
-colora = '#647f99'
-colori = '#455769'
 
+# Loading colors from xrdb
+import subprocess
+def read_xrdb(prefix):
+    props = {}
+    x = subprocess.run(['xrdb', '-query'], stdout=subprocess.PIPE)
+    lines = x.stdout.decode().split('\n')
+    for line in filter(lambda l : l.startswith(prefix), lines):
+        prop, _, value = line.partition(':\t')
+        props[prop] = value
+    return props
+xrdb = read_xrdb('*')
+
+color0 = xrdb["*.color0"]
+color1 = xrdb["*.color1"]
+color2 = xrdb["*.color2"]
+color3 = xrdb["*.color3"]
+color4 = xrdb["*.color4"]
+color5 = xrdb["*.color5"]
+color6 = xrdb["*.color6"]
+color7 = xrdb["*.color7"]
+color8 = xrdb["*.color8"]
+color9 = xrdb["*.color9"]
+color10 = xrdb["*.color10"]
+color11 = xrdb["*.color11"]
+color12 = xrdb["*.color12"]
+color13 = xrdb["*.color13"]
+color14 = xrdb["*.color14"]
+color15 = xrdb["*.color15"]
+colora = xrdb["*.color2"]
+colori = xrdb["*.color4"]
 
 # # Background color of the statusbar in command mode.
 # # Type: QssColor
@@ -589,7 +604,7 @@ c.fonts.prompts = "12pt sans-serif"
 c.fonts.statusbar = "11pt monospace"
 
 # Font used in the tab bar.
-c.fonts.tabs = "11pt monospace"
+# c.fonts.tabs = "11pt monospace"
 
 ## FONTS )))
 

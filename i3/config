@@ -4,33 +4,52 @@
 
 set $mod Mod4
 set $alt Mod1
-set $coloract "#647f99"
-set $colorin "#455769"
 set $terminal urxvtc
-set_from_resource $color15 i3wm.color15 "#d6dee7"
-set_from_resource $split i3wm.color10 "#96A8B6"
-set_from_resource $coloru i3wm.color2 "#96A8B6"
-set_from_resource $color0 i3wm.color0 "#001C30"
-set_from_resource $color8 i3wm.color8 "#959ba1"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 13
+font pango:Hack Nerd Font Mono 11
 gaps outer 0
 gaps inner 6
 # new_window pixel 5
 default_border pixel 2
 workspace_auto_back_and_forth yes
 
+
 ######### COLORS ##########
-#
-# class                 border    backgr    text    indicator child_border
-client.focused          $coloract $coloract $color15 $split  $coloract
-client.focused_inactive $coloract $coloract $color15 $split  $colorin
-client.unfocused        $colorin  $colorin  $color15 $split  $colorin
-client.urgent           $coloru   $coloru   $color15 $coloru $coloru
-client.placeholder      $color0   $color8   $color15 $color0 $color8
-client.background       $color0
+
+# set_from_resource $color0 i3wm.color0 "#1d1f21"
+set $color0 "#1c1c1c"
+set_from_resource $color1 i3wm.color1 "#cc6666"
+set_from_resource $color2 i3wm.color2 "#b5bd68"
+set_from_resource $color3 i3wm.color3 "#f0c674"
+set_from_resource $color4 i3wm.color4 "#81a2be"
+set_from_resource $color5 i3wm.color5 "#b294bb"
+set_from_resource $color6 i3wm.color6 "#8abeb7"
+set_from_resource $color7 i3wm.color7 "#c5c8c6"
+set_from_resource $color8 i3wm.color8 "#969896"
+set_from_resource $color9 i3wm.color9 "#cc6666"
+set_from_resource $color10 i3wm.color10 "#b5bd68"
+set_from_resource $color11 i3wm.color11 "#f0c674"
+set_from_resource $color12 i3wm.color12 "#81a2be"
+set_from_resource $color13 i3wm.color13 "#b294bb"
+set_from_resource $color14 i3wm.color14 "#8abeb7"
+set_from_resource $color15 i3wm.color15 "#ffffff"
+
+set_from_resource $coloract i3wm.color4 "#81a2be"
+set_from_resource $colorin i3wm.color2 "#b5bd68"
+# set_from_resource $colorin i3wm.color4 "#81a2be"
+# set_from_resource $colorin i3wm.color0 "#1d1f21"
+set_from_resource $split i3wm.color7 "#c5c8c6"
+set_from_resource $coloru i3wm.color1 "#cc6666"
+
+# class                     border      backgr      text        indicator   child_border
+client.focused              $coloract   $coloract   $color0     $coloract   $colorin
+client.focused_inactive     $color0     $color0     $coloract   $color0     $color0
+client.unfocused            $color0     $color0     $colorin    $color0     $color0
+client.urgent               $coloru     $coloru     $colorin    $coloru     $coloru
+client.placeholder          $color0     $color1     $colorin    $color0     $color1
+client.background           $color15
 
 
 ###### KEYBINDINGS #######
@@ -51,8 +70,7 @@ bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move down bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
@@ -88,25 +106,36 @@ bindsym $mod+p focus parent
 bindsym $mod+f                  exec i3-mor ranger
 bindsym $mod+Shift+f            exec urxvtc -name ad-hoc-ranger -e ranger
 bindsym $mod+$alt+f             exec thunar
-bindsym $mod+Shift+Return       exec i3-ror class qutebrowser
-bindsym $mod+$alt+Shift+Return  exec i3-ror class google-chrome-stable
+bindsym $mod+Shift+Return       exec i3-ror class qutebrowser qutebrowser
+bindsym $mod+$alt+Shift+Return  exec i3-ror class google-chrome-stable google-chrome-stable
 # bindsym $mod+m                 exec urxvt -name music -e ncmpcpp
-# bindsym $mod+$alt+t             exec wpg --alpha 75 -s "$(wpg -c)"
-# bindsym $mod+$alt+Control+t     exec wpg --alpha 75 -m
-bindsym $mod+$alt+t             exec wpg -s "$(wpg -c)"
-bindsym $mod+$alt+Control+t     exec wpg -m
-bindsym $mod+Tab                exec rofi -show window
+bindsym $mod+$alt+t             exec wal -R
+bindsym $mod+$alt+Control+t     exec wal -a 95 -i ~/wallpapers -o wal-reload
+bindsym $mod+$alt+Return        exec i3-ror class Ferdi ferdi
 bindsym $mod+Return             exec i3-mor main
-bindsym $mod+$alt+Return        exec urxvtc -e tmux new
 bindsym $mod+Shift+q            kill
-# bindsym $alt+F2                 exec rofi -show run
+
+# ROFI, yeah!
+bindsym $mod+Tab                exec rofi -show window
 bindsym $mod+space              exec rofi -show run
 bindsym $mod+Control+space      exec rofimoji
 bindsym $mod+Control+l          exec bwmenu
 
+## DMENU, yeah!
+# set $deemenu_run dmenu_run -l 10 -fn "Hack Nerd Font Mono:size=10"
+# set $deemenu dmenu -l 10 -fn "Hack Nerd Font Mono:size=10"
+# bindsym $mod+space              exec dmenu_run -l 10 -fn "Hack Nerd Font Mono:size=10"
+# bindsym $mod+Control+l          exec bitwarden-dmenu --dmenu-args='-i -l 10 -fn "Hack Nerd Font Mono:size=20"' --clear-clipboard 30 --session-timeout 3600 --sync-vault-after 3600 --on-error 'xargs notify-send --urgency=low'
+# bindsym $mod+Control+space      exec dmenu-emoji list | dmenu -l 10 -fn "Hack Nerd Font Mono:size=12" -p "Emoji: " | dmenu-emoji paste
+
 bindsym --release Print exec scrot
 bindsym --release Shift+Print exec scrot -s
 bindsym $mod+Control+Shift+4    exec scrot_area_clipboard
+
+# Lock, suspend, hibernate
+bindsym $mod+Control+Shift+l        exec screenlock
+bindsym $mod+$alt+Shift+l   exec systemctl suspend-then-hibernate
+bindsym $mod+$alt+Control+Shift+l   exec systemctl hibernate
 
 # scratchpad terminal
 bindsym $mod+u [instance = "dropdown"] scratchpad show
@@ -134,8 +163,6 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-
-workspace_auto_back_and_forth no
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -198,21 +225,24 @@ bindsym $mod+d mode "display"
 ##### WINDOWS ######
 
 assign [class="URxvt" instance="main"] 1
-for_window [class="URxvt" instance="main"] focus
+# for_window [class="URxvt" instance="main"] focus
 
 assign [class="firefox"] 2
-for_window [class="firefox"] focus
+# for_window [class="firefox"] focus
 
 assign [class="qutebrowser"] 2
-for_window [class="qutebrowser"] focus
+# for_window [class="qutebrowser"] focus
 
 assign [class="Google-chrome"] 2
-for_window [class="Google-chrome"] focus
+# for_window [class="Google-chrome"] focus
+
+assign [class="Ferdi"] 3
+# for_window [class="Ferdi"] focus
 
 assign [title="startlnp.sh"] 9
 assign [title="PyLNP"] 9
 for_window [title="startlnp.sh"] layout tabbed
-for_window [title="PyLNP"] layout tabbed focus
+for_window [title="PyLNP"] layout tabbed # focus
 
 # assign [class = "DBeaver"] 4
 # assign [class = "zoom"] 9
@@ -225,6 +255,8 @@ for_window [class = "Wpg"] floating enable
 
 ###### STARTUP ######
 
+exec --no-startup-id "redshift -l geoclue2 -t 6500:2500"
+
 # exec --no-startup-id ~/.config/wpg/wp_init.sh
 # exec_always --no-startup-id wpg -s $(wpg -c)
 exec_always wal -R
@@ -235,9 +267,14 @@ exec_always --no-startup-id /usr/bin/dunst
 # exec --no-startup-id dockd --daemon
 # exec --no-startup-id urxvt -name dropdown
 # exec_always --no-startup-id xrdb -merge .Xresources
-exec_always --no-startup-id ~/bin/polybar-launch
+exec_always --no-startup-id "sh -c 'sleep 1 ; exec ~/bin/polybar-launch'"
 exec_always --no-startup-id compton --respect-prop-shadow --config ~/.config/compton/compton.conf
 exec_always --no-startup-id xdg-mime default qutebrowser.desktop x-scheme-handler/http
 exec_always --no-startup-id xdg-mime default qutebrowser.desktop x-scheme-handler/https
 # exec_always --no-startup-id /usr/lib/gsd-xsettings
 exec_always --no-startup-id xsettingsd
+
+###### AUTOSTART APPS ######
+exec_always i3-mor main
+exec_always i3-ror class Ferdi ferdi silent
+exec_always i3-ror class qutebrowser qutebrowser silent

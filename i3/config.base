@@ -236,6 +236,7 @@ exec_always --no-startup-id /usr/bin/dunst
 # exec --no-startup-id urxvt -name dropdown
 # exec_always --no-startup-id xrdb -merge .Xresources
 # exec_always --no-startup-id ~/bin/polybar-launch
+exec_always --no-startup-id "sh -c 'sleep 1 ; exec ~/bin/polybar-launch'"
 exec_always --no-startup-id compton --respect-prop-shadow --config ~/.config/compton/compton.conf
 exec_always --no-startup-id xdg-mime default qutebrowser.desktop x-scheme-handler/http
 exec_always --no-startup-id xdg-mime default qutebrowser.desktop x-scheme-handler/https

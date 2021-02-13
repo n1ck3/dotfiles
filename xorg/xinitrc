@@ -1,18 +1,11 @@
-# xrandr --output eDP-2
+#!/bin/sh
 
-setxkbmap se-mac
-# setxkbmap -option caps:escape
-setxkbmap -option 'caps:ctrl_modifier'
+# Make sure this is before the 'exec' command or it won't be sourced.
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
 
-xbindkeys
-
-xset r rate 200 30
-
-xrandr --output eDP-1 --primary --scale 0.5x0.5
-
-[[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
-
-# xrandr --dpi 120
-xrdb -merge ~/.Xresources
-export XDG_SESSION_TYPE=x11
 exec i3 &> $HOME/.local/logs/i3/i3.log
+
+#dwmstatus 2>&1 >/dev/null &
+#wal -a 95 -i ~/wallpapers -o wal-reload
+#exec dwm

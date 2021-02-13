@@ -1,8 +1,16 @@
+" XDG Base Directories
+set undodir=$XDG_DATA_HOME/vim/undo
+set directory=$XDG_DATA_HOME/vim/swap
+set backupdir=$XDG_DATA_HOME/vim/backup
+set viewdir=$XDG_DATA_HOME/vim/view
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
 " Plugins, yeah!
 call plug#begin()
 
 " Colors scheme
-Plug 'deviantfero/wpgtk.vim'
+Plug 'dylanaraps/wal.vim'
 
 " UI and Navigation
 " Plug 'itchyny/lightline.vim'
@@ -37,10 +45,7 @@ set encoding=UTF-8
 
 " Colors
 syntax on
-" colorscheme wpgtk_nicke
-" colorscheme wpgtkAlt
-" colorscheme bubblegum
-colorscheme Tomorrow-Night
+colorscheme wal
 
 " ######### FROM LOWE ##########
 set encoding=utf-8
@@ -95,7 +100,7 @@ set ttimeout
 set ttimeoutlen=10
 
 " Make Vim able to edit crontab files again.
-set backupskip=/tmp/*,/private/tmp/*"
+" set backupskip=/tmp/*,/private/tmp/*"
 
 " Better Completion
 set complete=.,w,b,u,t
@@ -221,11 +226,7 @@ let g:plug_window = 'split horizontal'
 let g:airline_symbols_ascii = 1
 
 
-let g:airline_theme='wpgtk'
-" let g:airline_theme='wpgtk'
-" let g:airline_theme='bubblegum'
-" let g:airline_left_sep = '>'
-" let g:airline_right_rep = '<'
+let g:airline_theme='wal'
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
 let g:airline_detect_iminsert = 1
@@ -234,18 +235,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols_ascii = 1
-" let g:airline_left_sep = '>'
-" let g:airline_left_alt_sep = '>'
-" let g:airline_right_sep = '<'
-" let g:airline_right_alt_sep = '<'
-" let g:airline_symbols.branch = ' '
-" let g:airline_symbols.readonly = 'RO'
-" let g:airline_symbols.linenr = 'ln'
-" let g:airline_symbols.maxlinenr = 'ln'
-" let g:airline_symbols.dirty = 'DIRTY'
 let g:airline_skip_empty_sections = 1
 let g:airline_extensions = ['branch', 'syntastic', 'ctrlp', 'whitespace', 'tabline']
-" let g:airline_extensions = ['branch', 'syntastic', 'ctrlp', 'whitespace']
 " let g:airline_statusline_ontop = 1
 " let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
@@ -275,7 +266,7 @@ let g:syntastic_check_on_wq = 0
     let g:NERDTreeChDirMode = 2
 
     " Close NERDTree if NERDTree is the only open window
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 
     let g:NERDTreeShowGitStatus = 1
     let g:NERDTreeUpdateOnWrite = 1
@@ -286,16 +277,16 @@ let g:syntastic_check_on_wq = 0
 
 " NERDTree Git Stuff {{{
     let g:NERDTreeIndicatorMapCustom = {
-        \ "Modified"  : "↪",
-        \ "Staged"    : "↗",
-        \ "Untracked" : "+",
-        \ "Renamed"   : "↻",
-        \ "Unmerged"  : "⇆",
-        \ "Deleted"   : "−",
-        \ "Dirty"     : "!",
-        \ "Clean"     : "·",
+        \ 'Modified'  : '↪',
+        \ 'Staged'    : '↗',
+        \ 'Untracked' : '+',
+        \ 'Renamed'   : '↻',
+        \ 'Unmerged'  : '⇆',
+        \ 'Deleted'   : '−',
+        \ 'Dirty'     : '!',
+        \ 'Clean'     : '·',
         \ 'Ignored'   : 'x',
-        \ "Unknown"   : "?"
+        \ 'Unknown'   : '?'
     \ }
     let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
     let g:webdevicons_enable_ctrlp = 1
@@ -314,6 +305,6 @@ let g:mkdp_browser = 'electron'
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 au BufRead,BufNewFile */roles/*.yml set filetype=yaml.ansible
 
-" if &term == "screen"
+" if &term == 'screen'
 "     set t_Co=256
 " endif

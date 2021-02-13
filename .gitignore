@@ -4,8 +4,5 @@
 vimperator/info*
 *.DS_Store
 
-# wpgtk stuff
-wpg/.current
-wpg/samples
-wpg/wp_init.sh
-wpg/sequences
+# Vim Plugins
+vim/plugged

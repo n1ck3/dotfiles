@@ -16,12 +16,11 @@
     # set -g pane-active-border-style fg=colour134
 # }
 
-%if "#{==:#{TERM},linux}"
-    set -g default-terminal "screen"
-%else
-    set -g default-terminal "screen-256color"
-    # set -ga terminal-overrides ",*256col*:Tc"
-%endif
+# %if "#{==:#{TERM},linux}"
+#     set -g default-terminal "screen"
+# %else
+#     set -g default-terminal "screen-256color"
+# %endif
 
 # VIM style selection
 # bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
@@ -45,14 +44,30 @@ set -g mouse on
 # set -g mouse-select-pane on
 set -g @yank_selection_mouse 'clipboard'
 
-unbind r
-bind-key r source-file ~/.tmux.conf \; display 'Config reloaded!'
-bind-key R command-prompt -p rename: "rename-window %%"
+set -g display-time 1000
 
-source-file ~/.tmux/local-colors.tmux
-# set -g  default-terminal "screen-255color"
-# set -ga  default-terminal "xterm-256color"
-# set -ga terminal-overrides ",xterm-256color:Tc"
-# set-option -sa terminal-overrides ",xterm*:Tc"
-# needed for proper nvim/tmux/base16 colors
-# set -ga terminal-overrides ",xterm-256color:Tc"
+# if-shell "tmux show-environment -g TERM | grep 256color" \
+#     'set -g default-terminal "screen-256color"' \
+#     'set -g default-terminal "screen"'
+
+# unbind r
+bind-key C-e show-environment -g
+
+# bind-key r command-prompt -p rename: "rename-window %%"
+bind-key ^R source-file $XDG_CONFIG_HOME/tmux/tmux.conf \; display 'Config reloaded!'
+
+source-file $XDG_CONFIG_HOME/tmux/local-colors.tmux
+
+unbind C-t
+# set-environment -gu SHOW_WORLD_TIME
+bind-key C-t if-shell "tmux show-environment -g SHOW_WORLD_TIME" \
+    'set-environment -gu SHOW_WORLD_TIME ; refresh-client -S' \
+    'set-environment -g SHOW_WORLD_TIME YES ; refresh-client -S'
+
+unbind C-p
+# set-environment -gu SHOW_PALETTE
+bind-key C-p if-shell "tmux show-environment -g SHOW_PALETTE" \
+    'set-environment -gu SHOW_PALETTE ; refresh-client -S' \
+    'set-environment -g SHOW_PALETTE YES ; refresh-client -S'
+
+setenv -g AAA_TMUXLOCAL "hehe"

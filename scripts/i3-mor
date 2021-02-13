@@ -1,13 +1,26 @@
 #!/usr/bin/env sh
 
-# Raise if window is open already
 name="$1"
-session="main@`hostname`"
-count=`xdotool search --name "$session" | wc -l`
-echo $count
-if [ "$count" -ne 0 ] ; then
 
+if command -v st > /dev/null ; then
+    run_command="st -t $name -e"
+elif command -v urxvt > /dev/null ; then
+    run_command="urxvt -name $name -e"
+else
+    echo "No suitable terminal detected. Exiting..."
+    exit 1
+fi
+
+# Raise if window is open already
+session="$name@`hostname`"
+count=`xdotool search --name "$session" | wc -l`
+if [ "$count" -ne 0 ] ; then
     i3-msg "[title=(?i)$session] focus"
 else
-    urxvt -name $name -e tmux new -A -s $name &
+    ($run_command zsh -c "source $XDG_CONFIG_HOME/zsh/zshrc ; tmux new -A -s $name" &)
+    if [ "$2" != silent ] ; then
+        sleep 0.2
+        # i3-msg "[class=(?i)URxvt title=(?i)$session] focus"
+        i3-msg "[title=(?i)$session] focus"
+    fi
 fi
