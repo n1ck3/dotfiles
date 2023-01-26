@@ -103,3 +103,4 @@ export BORG_RSH="ssh -i ~/.ssh/borg"
 export BORG_LOCAL="root@10.0.1.10:/mnt/backups/$HOST"
 export BORG_REMOTE="nhelbrouser1@deepstore.lima-labs.com:/home/nhelbrouser1/backups/$HOST"
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.ansie/scripts:$PATH
+export XDG_CONFIG_HOME=$HOME/.config
