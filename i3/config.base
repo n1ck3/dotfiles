@@ -2,11 +2,13 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
-set $alt Mod1
+# set $mod Mod4
+# set $alt Mod1
+set $mod Mod1
+set $alt Mod4
 set $coloract "{active}"
 set $colorin "{inactive}"
-set $terminal urxvtc
+set $terminal alacritty
 set_from_resource $color15 i3wm.color15 "{color15}"
 set_from_resource $split i3wm.color10 "{color10}"
 set_from_resource $coloru i3wm.color2 "{color2}"
@@ -96,7 +98,8 @@ bindsym $mod+$alt+Shift+Return  exec i3-ror class google-chrome-stable
 bindsym $mod+$alt+t             exec wpg -s "$(wpg -c)"
 bindsym $mod+$alt+Control+t     exec wpg -m
 bindsym $mod+Tab                exec rofi -show window
-bindsym $mod+Return             exec i3-mor main
+# bindsym $mod+Return             exec i3-mor main
+bindsym $mod+Return             exec $terminal
 bindsym $mod+$alt+Return        exec urxvtc -e tmux new
 bindsym $mod+Shift+q            kill
 # bindsym $alt+F2                 exec rofi -show run

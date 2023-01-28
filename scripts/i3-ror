@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Usage:
-# i3-mor
+# i3-mor [class,instance,name] identifier executable
 
 case "$1" in
     "class" )
