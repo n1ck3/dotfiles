@@ -77,6 +77,9 @@ c.session.lazy_restore = True
 # Type: Bool
 c.content.private_browsing = False
 
+# Do not autoplay videos (in YouTube for example).
+c.content.autoplay = False
+
 # Editor (and arguments) to use for the `open-editor` command. The
 # following placeholders are defined: * `{file}`: Filename of the file
 # to be edited. * `{line}`: Line in which the caret is found in the
@@ -201,411 +204,60 @@ c.tabs.background = True
 
 ## APPEARENCE )))
 
-## COLORS (((
-
-# Loading colors from xrdb
-import subprocess
-def read_xrdb(prefix):
-    props = {}
-    x = subprocess.run(['xrdb', '-query'], stdout=subprocess.PIPE)
-    lines = x.stdout.decode().split('\n')
-    for line in filter(lambda l : l.startswith(prefix), lines):
-        prop, _, value = line.partition(':\t')
-        props[prop] = value
-    return props
-xrdb = read_xrdb('*')
-
-color0 = xrdb["*.color0"]
-color1 = xrdb["*.color1"]
-color2 = xrdb["*.color2"]
-color3 = xrdb["*.color3"]
-color4 = xrdb["*.color4"]
-color5 = xrdb["*.color5"]
-color6 = xrdb["*.color6"]
-color7 = xrdb["*.color7"]
-color8 = xrdb["*.color8"]
-color9 = xrdb["*.color9"]
-color10 = xrdb["*.color10"]
-color11 = xrdb["*.color11"]
-color12 = xrdb["*.color12"]
-color13 = xrdb["*.color13"]
-color14 = xrdb["*.color14"]
-color15 = xrdb["*.color15"]
-colora = xrdb["*.color2"]
-colori = xrdb["*.color4"]
-
-# # Background color of the statusbar in command mode.
-# # Type: QssColor
-# c.colors.statusbar.command.bg = color8
-# c.colors.statusbar.command.fg = color15
-
-# c.colors.statusbar.normal.bg = color8
-# c.colors.statusbar.normal.fg = color15
-
-# c.colors.statusbar.insert.bg = color14
-# c.colors.statusbar.insert.fg = color0
-
-# c.colors.statusbar.caret.bg = color11
-# c.colors.statusbar.caret.fg = color0
-
-# c.colors.statusbar.url.success.http.fg = color15
-# c.colors.statusbar.url.success.https.fg = color7
-# c.colors.statusbar.url.error.fg = color9
-
-# # Tabs Colors
-# c.colors.tabs.bar.bg = color8
-
-# c.colors.tabs.pinned.odd.bg = color8
-# c.colors.tabs.pinned.odd.fg = color7
-
-# c.colors.tabs.pinned.even.bg = color8
-# c.colors.tabs.pinned.even.fg = color7
-
-# c.colors.tabs.odd.bg = color8
-# c.colors.tabs.odd.fg = color7
-
-# c.colors.tabs.even.bg = color8
-# c.colors.tabs.even.fg = color7
-
-# c.colors.tabs.pinned.selected.odd.bg = color13
-# c.colors.tabs.pinned.selected.odd.fg = color0
-
-# c.colors.tabs.pinned.selected.even.bg = color13
-# c.colors.tabs.pinned.selected.even.fg = color0
-
-# c.colors.tabs.selected.odd.bg = color13
-# c.colors.tabs.selected.odd.fg = color0
-
-# c.colors.tabs.selected.even.bg = color13
-# c.colors.tabs.selected.even.fg = color0
-
-# c.tabs.indicator.width = 2
-
-# # Panel Colors
-# c.colors.completion.odd.bg = color0
-# c.colors.completion.even.bg = color8
-# c.colors.completion.fg = color7
-
-# c.colors.completion.item.selected.bg = color13
-# c.colors.completion.item.selected.fg = color0
-# c.colors.completion.item.selected.border.top = color13
-# # c.colors.completion.item.selected.border.right = color13
-# c.colors.completion.item.selected.border.bottom = color13
-# # c.colors.completion.item.selected.border.left = color13
-
-# # Color for the tab indicator on errors.
-# c.colors.tabs.indicator.error = 'red'
-
-# # Color gradient start for the tab indicator.
-# c.colors.tabs.indicator.start = 'green'
-
-# # Color gradient end for the tab indicator.
-# # Type: QtColor
-# c.colors.tabs.indicator.stop = 'green'
-
-# set qutebrowser colors
-
-# Text color of the completion widget. May be a single color to use for
-# all columns or a list of three colors, one for each column.
-c.colors.completion.fg = color5
-
-# Background color of the completion widget for odd rows.
-# c.colors.completion.odd.bg = color8
-c.colors.completion.odd.bg = color0
-
-# Background color of the completion widget for even rows.
-c.colors.completion.even.bg = color0
-
-# Foreground color of completion widget category headers.
-c.colors.completion.category.fg = color10
-
-# Background color of the completion widget category headers.
-c.colors.completion.category.bg = color0
-
-# Top border color of the completion widget category headers.
-c.colors.completion.category.border.top = color0
-
-# Bottom border color of the completion widget category headers.
-c.colors.completion.category.border.bottom = color0
-
-# Foreground color of the selected completion item.
-c.colors.completion.item.selected.fg = color0
-
-# Background color of the selected completion item.
-c.colors.completion.item.selected.bg = color10
-
-# Top border color of the completion widget category headers.
-c.colors.completion.item.selected.border.top = color10
-
-# Bottom border color of the selected completion item.
-c.colors.completion.item.selected.border.bottom = color10
-
-# Foreground color of the matched text in the completion.
-c.colors.completion.match.fg = color11
-
-# Color of the scrollbar handle in the completion view.
-c.colors.completion.scrollbar.fg = color5
-
-# Color of the scrollbar in the completion view.
-c.colors.completion.scrollbar.bg = color0
-
-# Background color for the download bar.
-c.colors.downloads.bar.bg = color0
-
-# Color gradient start for download text.
-c.colors.downloads.start.fg = color0
-
-# Color gradient start for download backgrounds.
-c.colors.downloads.start.bg = color13
-
-# Color gradient end for download text.
-c.colors.downloads.stop.fg = color0
-
-# Color gradient stop for download backgrounds.
-c.colors.downloads.stop.bg = color12
-
-# Foreground color for downloads with errors.
-c.colors.downloads.error.fg = color8
-
-# Font color for hints.
-c.colors.hints.fg = color0
-
-# Background color for hints. Note that you can use a `rgba(...)` value
-# for transparency.
-c.colors.hints.bg = color10
-
-# Font color for the matched part of hints.
-c.colors.hints.match.fg = color5
-
-# Text color for the keyhint widget.
-c.colors.keyhint.fg = color5
-
-# Highlight color for keys to complete the current keychain.
-c.colors.keyhint.suffix.fg = color5
-
-# Background color of the keyhint widget.
-c.colors.keyhint.bg = color0
-
-# Foreground color of an error message.
-c.colors.messages.error.fg = color9
-
-# Background color of an error message.
-c.colors.messages.error.bg = color8
-
-# Border color of an error message.
-c.colors.messages.error.border = color8
-
-# Foreground color of a warning message.
-c.colors.messages.warning.fg = color0
-
-# Background color of a warning message.
-c.colors.messages.warning.bg = color14
-
-# Border color of a warning message.
-c.colors.messages.warning.border = color14
-
-# Foreground color of an info message.
-c.colors.messages.info.fg = color5
-
-# Background color of an info message.
-c.colors.messages.info.bg = color0
-
-# Border color of an info message.
-c.colors.messages.info.border = color0
-
-# Foreground color for prompts.
-c.colors.prompts.fg = color5
-
-# Border used around UI elements in prompts.
-c.colors.prompts.border = color0
-
-# Background color for prompts.
-c.colors.prompts.bg = color0
-
-# Background color for the selected item in filename prompts.
-c.colors.prompts.selected.bg = color10
-
-# Foreground color of the statusbar.
-c.colors.statusbar.normal.fg = color11
-
-# Background color of the statusbar.
-c.colors.statusbar.normal.bg = color0
-
-# Foreground color of the statusbar in insert mode.
-c.colors.statusbar.insert.fg = color0
-
-# Background color of the statusbar in insert mode.
-c.colors.statusbar.insert.bg = color13
-
-# Foreground color of the statusbar in passthrough mode.
-c.colors.statusbar.passthrough.fg = color0
-
-# Background color of the statusbar in passthrough mode.
-c.colors.statusbar.passthrough.bg = color12
-
-# Foreground color of the statusbar in private browsing mode.
-c.colors.statusbar.private.fg = color0
-
-# Background color of the statusbar in private browsing mode.
-c.colors.statusbar.private.bg = color3
-
-# Foreground color of the statusbar in command mode.
-c.colors.statusbar.command.fg = color5
-
-# Background color of the statusbar in command mode.
-c.colors.statusbar.command.bg = color0
-
-# Foreground color of the statusbar in private browsing + command mode.
-c.colors.statusbar.command.private.fg = color5
-
-# Background color of the statusbar in private browsing + command mode.
-c.colors.statusbar.command.private.bg = color0
-
-# Foreground color of the statusbar in caret mode.
-c.colors.statusbar.caret.fg = color0
-
-# Background color of the statusbar in caret mode.
-c.colors.statusbar.caret.bg = color14
-
-# Foreground color of the statusbar in caret mode with a selection.
-c.colors.statusbar.caret.selection.fg = color0
-
-# Background color of the statusbar in caret mode with a selection.
-c.colors.statusbar.caret.selection.bg = color13
-
-# Background color of the progress bar.
-c.colors.statusbar.progress.bg = color13
-
-# Default foreground color of the URL in the statusbar.
-c.colors.statusbar.url.fg = color5
-
-# Foreground color of the URL in the statusbar on error.
-c.colors.statusbar.url.error.fg = color8
-
-# Foreground color of the URL in the statusbar for hovered links.
-c.colors.statusbar.url.hover.fg = color5
-
-# Foreground color of the URL in the statusbar on successful load
-# (http).
-c.colors.statusbar.url.success.http.fg = color12
-
-# Foreground color of the URL in the statusbar on successful load
-# (https).
-c.colors.statusbar.url.success.https.fg = color11
-
-# Foreground color of the URL in the statusbar when there's a warning.
-c.colors.statusbar.url.warn.fg = color9
-
-# Background color of the tab bar.
-c.colors.tabs.bar.bg = color0
-
-# Color gradient start for the tab indicator.
-c.colors.tabs.indicator.start = color13
-
-# Color gradient end for the tab indicator.
-c.colors.tabs.indicator.stop = color12
-
-# Color for the tab indicator on errors.
-c.colors.tabs.indicator.error = color9
-
-# Foreground color of unselected odd tabs.
-c.colors.tabs.odd.fg = colora
-
-# Background color of unselected odd tabs.
-# c.colors.tabs.odd.bg = color8
-c.colors.tabs.odd.bg = color0
-
-# Foreground color of unselected even tabs.
-c.colors.tabs.even.fg = colora
-
-# Background color of unselected even tabs.
-c.colors.tabs.even.bg = color0
-
-# Foreground color of pinned unselected odd tabs.
-c.colors.tabs.pinned.odd.fg = colora
-
-# Background color of pinned unselected odd tabs.
-# c.colors.tabs.pinned.odd.bg = color8
-c.colors.tabs.pinned.odd.bg = color0
-
-# Foreground color of pinned unselected even tabs.
-c.colors.tabs.pinned.even.fg = colora
-
-# Background color of pinned unselected even tabs.
-c.colors.tabs.pinned.even.bg = color0
-
-# Foreground color of selected odd tabs.
-# c.colors.tabs.selected.odd.fg = color8
-c.colors.tabs.selected.odd.fg = color0
-
-# Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = colora
-
-# Foreground color of selected even tabs.
-c.colors.tabs.selected.even.fg = color0
-
-# Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = colora
-
-# Foreground color of pinned selected odd tabs.
-c.colors.tabs.pinned.selected.odd.fg = color0
-
-# Background color of pinned selected odd tabs.
-c.colors.tabs.pinned.selected.odd.bg = colora
-
-# Foreground color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.fg = color0
-
-# Background color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.bg = colora
-
-# Background color for webpages if unset (or empty to use the theme's
-# color).
-# c.colors.webpage.bg = color0<Paste>
-
-## COLORS )))
-
 ## FONTS (((
 
 # Font used in the completion categories.
-c.fonts.completion.category = "bold 11pt monospace"
+c.fonts.completion.category = "bold 13pt DroidSansMonoForPowerline"
 
 # Font used in the completion widget.
-c.fonts.completion.entry = "11pt monospace"
+c.fonts.completion.entry = "13pt DroidSansMonoForPowerline"
 
 # Font used for the debugging console.
-c.fonts.debug_console = "11pt monospace"
+c.fonts.debug_console = "13pt DroidSansMonoForPowerline"
 
 # Font used for the downloadbar.
-c.fonts.downloads = "11pt monospace"
+c.fonts.downloads = "13pt DroidSansMonoForPowerline"
 
 # Font used for the hints.
-c.fonts.hints = "bold 11pt monospace"
+c.fonts.hints = "bold 13pt DroidSansMonoForPowerline"
 
 # Font used in the keyhint widget.
-c.fonts.keyhint = "11pt monospace"
+c.fonts.keyhint = "13pt DroidSansMonoForPowerline"
 
 # Font used for error messages.
-c.fonts.messages.error = "11pt monospace"
+c.fonts.messages.error = "13pt DroidSansMonoForPowerline"
 
 # Font used for info messages.
-c.fonts.messages.info = "11pt monospace"
+c.fonts.messages.info = "13pt DroidSansMonoForPowerline"
 
 # Font used for warning messages.
-c.fonts.messages.warning = "11pt monospace"
+c.fonts.messages.warning = "13pt DroidSansMonoForPowerline"
 
 # Default monospace fonts.
 # c.fonts.monospace = '"Inconsolata Nerd Font Mono", Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+# c.fonts.monospace = '"DroidSansMonoForPowerline"'
 
 # Font used for prompts.
-c.fonts.prompts = "12pt sans-serif"
+c.fonts.prompts = "13pt sans-serif"
 
 # Font used in the statusbar.
-c.fonts.statusbar = "11pt monospace"
+# c.fonts.statusbar = "12pt monosace"
+c.fonts.statusbar = "12pt DroidSansMonoForPowerline"
 
 # Font used in the tab bar.
-# c.fonts.tabs = "11pt monospace"
+# c.fonts.tabs = "13pt monospace"
+
+# c.fonts.tabs.selected = '13pt monospace'
+# c.fonts.tabs.unselected = '13pt monospace'
+c.fonts.tabs.selected = 'bold 12pt DroidSansMonoForPowerline'
+c.fonts.tabs.unselected = '12pt DroidSansMonoForPowerline'
 
 ## FONTS )))
+
+## COLORS (((
+
+config.source('themes/xresources.py')
+
+## COLORS )))
 
 # vim:foldmethod=marker:foldmarker=(((,))):foldlevel=0:

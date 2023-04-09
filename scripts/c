@@ -1,0 +1,50 @@
+#!/usr/bin/env sh
+
+config_item="$1"
+config_path="$HOME"
+config_file=""
+
+if [ -d "$XDG_CONFIG_HOME/$1" ] ; then
+    echo "Found $1 directory at $XDG_CONFIG_HOME/$1" 
+    config_path="$XDG_CONFIG_HOME/$1"
+elif [ -d $HOME/.$1] ; then
+    echo "Found $1 directory at $HOME/.$1"
+    config_path="$HOME/$1"
+fi
+
+if [ -f "$config_path/config" ] ; then
+    config_file="config"
+elif [ -f "$config_path/.config" ] ; then
+    config_file=".config"
+elif [ -f "$config_path/config.yml" ] ; then
+    config_file="config.yml"
+elif [ -f "$config_path/.config.yml" ] ; then
+    config_file=".config.yml"
+elif [ -f "$config_path/config.yaml" ] ; then
+    config_file="config.yaml"
+elif [ -f "$config_path/.config.yaml" ] ; then
+    config_file=".config.yaml"
+elif [ -f "$config_path/$1" ] ; then
+    config_file="$1"
+elif [ -f "$config_path/.$1" ] ; then
+    config_file=".$1"
+elif [ -f "$config_path/$1rc" ] ; then
+    config_file="$1rc"
+elif [ -f "$config_path/.$1rc" ] ; then
+    config_file=".$1rc"
+elif [ -f "$config_path/$1.conf" ] ; then
+    config_file="$1.conf"
+elif [ -f "$config_path/.$1.conf" ] ; then
+    config_file=".$1.conf"
+elif [ -f "$configj" ] ; then
+    config_file=""
+elif [ -f "$config_path/." ] ; then
+    config_file=""
+elif [ -f "$config_path/" ] ; then
+    config_file=""
+elif [ -f "$config_path/." ] ; then
+    config_file=""
+elif [ -f "$config_path/" ] ; then
+    config_file=""
+elif [ -f "$config_path/." ] ; then
+    config_file=""

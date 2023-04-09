@@ -3,7 +3,7 @@
 name="$1"
 run_cmd="$2"
 
-# session="$name@`hostnamectl hostname`"
+session="$name@`hostnamectl hostname`"
 count=`xdotool search --name "$name" | wc -l`
 if [ "$count" -ne 0 ] ; then
     ## Raise if window is open already.
@@ -13,11 +13,11 @@ else
     
     # Determine appropriate terminal emulator.
     if command -v alacritty > /dev/null ; then
-        terminal_cmd="alacritty -t $name -e"
+        terminal_cmd="alacritty -t $session --class=alacritty-$name -e"
     elif command -v st > /dev/null ; then
-        terminal_cmd="st -t $name -e"
+        terminal_cmd="st -t $session -e"
     elif command -v urxvt > /dev/null ; then
-        terminal_cmd="urxvt -name $name -e"
+        terminal_cmd="urxvt -name $session -e"
     else
         echo "No suitable terminal detected. Exiting..."
         exit 1
@@ -44,5 +44,5 @@ else
     ($terminal_cmd $shell_cmd "$tmux_cmd" &)
     sleep 0.2
     # i3-msg "[title=(?i)$session] focus"
-    i3-msg "[title=(?i)$name] focus" > /dev/null
+    i3-msg "[title=(?i)$session] focus" > /dev/null
 fi
