@@ -1,0 +1,14 @@
+# Read `man 5 sway` for a complete reference.
+
+include ~/.i3/config
+
+# Extends ~/.i3/config {{{
+
+    bindsym $mod+space exec $menu
+    floating_modifier $mod normal
+
+# }}}
+
+include /etc/sway/config.d/*
+
+# vim: fdm=marker fmr={{{,}}}

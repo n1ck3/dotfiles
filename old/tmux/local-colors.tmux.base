@@ -1,0 +1,48 @@
+# This tmux statusbar config was created by tmuxline.vim
+# Modified by Niclas Helbro
+# <niclas dot helbro at gmail dot com
+
+# USING 8 COLORS
+set -g status-justify "left"
+set -g status "on"
+set -g status-left-style "none"
+set -g message-command-style "fg={color4},bg={color0}"
+set -g status-right-style "none"
+set -g pane-border-style "fg={color0}"
+set -g pane-active-border-style "fg={color3}"
+set -g status-style "none,bg={color0}"
+set -g message-style "fg={color4},bg={color0}"
+set -g status-right-length "100"
+set -g status-left-length "100"
+setw -g window-status-activity-style "none"
+setw -g window-status-separator ""
+setw -g window-status-style "BOLD,fg={color4},bg={color0}"
+
+# 'LEFTARROW=""'\
+# 'LEFTARROW="◀"'
+# 'RIGHTARROW=""'\
+# 'RIGHTARROW="▶"'
+if-shell '[ "$(echo $TERM | grep 256color)" ]'\
+    'LEFTARROW=""'\
+    'LEFTARROW=""'
+if-shell '[ "$(echo $TERM | grep 256color)" ]'\
+    'RIGHTARROW=""'\
+    'RIGHTARROW=""'
+
+# If $TERM contains 256 colors, add nice powerline stuff else don't.
+set -g status-left "\
+#[fg={color0},bg={color5},BOLD] #S@#H \
+#[fg={color5},bg={color0},nobold,nounderscore,noitalics]$RIGHTARROW"
+setw -g window-status-current-format "\
+#[fg={color0},bg={color4},nobold,nounderscore,noitalics]$RIGHTARROW\
+#[fg={color0},bg={color4},nobold,nounderscore,noitalics] #I:\
+#[fg={color0},bg={color4},BOLD] #W \
+#[fg={color4},bg={color0},nobold,nounderscore,noitalics]$RIGHTARROW"
+setw -g window-status-format "\
+#[fg={color4},bg={color0},nobold,nounderscore,noitalics] #I: #W "
+set -g status-right "\
+#[fg={color4},bg={color0},nobold,nounderscore,noitalics]$LEFTARROW\
+#[fg={color0},bg={color4}] %Y-%m-%d \
+#[fg={color0},bg={color4},nobold,nounderscore,noitalics]$LEFTARROW\
+#[fg={color5},bg={color0},nobold,nounderscore,noitalics]$LEFTARROW\
+#[fg={color0},bg={color5}] %H:%M "

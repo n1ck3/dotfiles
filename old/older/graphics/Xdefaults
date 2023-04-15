@@ -1,0 +1,50 @@
+! urxvt
+URxvt.scrollBar: false
+URxvt.saveLines: 100
+URxvt.urgentOnBell: true
+URxvt.perl-ext: default,matcher,searchable-scrollback<F9>,font-size
+URxvt.url-select.launcher: www
+URxvt.url-select.underline: true
+URxvt.underlineURLs: true
+URxvt.transparent: true
+URxvt.shading: 40
+URxvt.fading: 0
+URxvt.iso14755: false
+URxvt.meta8: false
+
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.font-size.step:  2
+
+! fonts
+*.font: xft:inconsolata:pixelsize=16
+*.boldFont: xft:inconsolata:bold:pixelsize=16
+Xft.dpi: 100.0
+
+! Colorscheme (unnamed)
+URxvt.foreground: #dbdbdb
+URxvt.background: #151515
+URxvt.color0: #222229
+URxvt.color1: #8e2b2e
+URxvt.color2: #45702c
+URxvt.color3: #986f43
+URxvt.color4: #25717a
+URxvt.color5: #875C8D
+URxvt.color6: #32a78a
+URxvt.color7: #888888
+URxvt.color8: #555555
+URxvt.color9: #ff464b
+URxvt.color10: #9dbf60
+URxvt.color11: #e2a564
+URxvt.color12: #5495DC
+URxvt.color13: #E41F66
+URxvt.color14: #41dbb5
+URxvt.color15: #ffffff
+
+!emacs
+emacs.Background: #151515
+emacs.Foreground: #dcdcdc
+emacs.FontBackend: xft
+emacs.Font: Iosevka-10

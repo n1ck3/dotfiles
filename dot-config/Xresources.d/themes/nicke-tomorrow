@@ -1,0 +1,31 @@
+! black
+#define C0       #282a2e
+#define C8       #373b41
+
+! red
+#define C1       #a54242
+#define C9       #cc6666
+
+! green
+#define C2       #8c9440
+#define C10      #b5bd68
+
+! yellow
+#define C3       #de935f
+#define C11      #f0c674
+
+! blue
+#define C4       #5f819d
+#define C12      #81a2be
+
+! magenta
+#define C5       #85678f
+#define C13      #b294bb
+
+! cyan
+#define C6       #5e8d87
+#define C14      #8abeb7
+
+! white
+#define C7       #707880
+#define C15      #c5c8c6

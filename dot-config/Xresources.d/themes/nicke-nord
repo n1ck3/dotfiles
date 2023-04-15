@@ -1,0 +1,17 @@
+/* #define C0             #3B4252 */
+#define C0             #2E3440
+#define C1             #BF616A
+#define C2             #A3BE8C
+#define C3             #EBCB8B
+#define C4             #81A1C1
+#define C5             #B48EAD
+#define C6             #88C0D0
+#define C7             #E5E9F0
+#define C8             #4C566A
+#define C9             #BF616A
+#define C10            #A3BE8C
+#define C11            #EBCB8B
+#define C12            #81A1C1
+#define C13            #B48EAD
+#define C14            #8FBCBB
+#define C15            #ECEFF4

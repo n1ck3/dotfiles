@@ -1,0 +1,9 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export PATH="$HOME/.local/bin:$HOME/.local/scripts:$PATH"
+
+# Run xrdb and ensure that it has finished running before moving on to start the WM/DE.
+xrdb -merge $HOME/.Xresources
+# while [ -e /proc/$PID ] ; do sleep 0.1 ; done
+# [ -n "$xrdbpids" ] && wait "$xrdbpid" 2>&1
+

@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+
+# Usage:
+# i3-mor [class,instance,name] identifier executable
+
+case "$1" in
+    "class" )
+        # count=`xdotool search --limit 1 --class "$2" | wc -l`
+        i3wm_criteria="class";;
+    "instance" )
+        # count=`xdotool search --limit 1 --classname "$2" | wc -l`
+        i3wm_criteria="instance";;
+    "name" )
+        # count=`xdotool search --limit 1 --name "$2" | wc -l`
+        i3wm_criteria="title";;
+esac
+
+count=`xdotool search --limit 1 --"$i3wm_criteria" "$2" | wc -l`
+
+if [ "$count" -eq 0 ]; then
+    ($3 &)
+    if [ "$4" != silent ] ; then
+        echo "NOT SILENT"
+        for i in `seq 1 5` ; do
+            i3-msg "[$i3wm_criteria=(?i)$2] focus"
+            if [ "$?" == 0 ] ; then
+                break
+            fi
+            sleep 1
+        done
+    else
+        # for i in {0..10}; do
+        #     sleep $i
+        #     count=`xdotool search --limit 1 --"$i3wm_criteria" "$2" | wc -l`
+        #     if [ "$count" -gt 0 ]; then
+        #         break
+        #     fi
+        # done
+        sleep 2
+        xdotool search --"$i3wm_criteria" "$2" set_window --urgency 0 %@
+    fi
+else
+    i3-msg "[$i3wm_criteria=(?i)$2] focus"
+fi

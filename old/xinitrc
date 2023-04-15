@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Make sure this is before the 'exec' command or it won't be sourced.
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
+
+exec i3 &> $HOME/.local/logs/i3/i3.log
+
+#dwmstatus 2>&1 >/dev/null &
+#wal -a 95 -i ~/wallpapers -o wal-reload
+#exec dwm

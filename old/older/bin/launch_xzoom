@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+xzoom -geometry 300x400-350+80

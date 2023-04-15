@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-xlock &
-sleep 1
-sudo pm-suspend

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+nb="#222D31"
+nf="#dfdfdf"
+sb="#16A085"
+
+clipmenu -i -nb $nb -nf $nf -sb $sb -p "Clipmenu:"
+# clipmenu -i -fn Terminus:size=8 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'

@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-echo "dmenu_run" | sh

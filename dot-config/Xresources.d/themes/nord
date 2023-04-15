@@ -1,0 +1,55 @@
+#define C0             #3B4252
+#define C1             #BF616A
+#define C2             #A3BE8C
+#define C3             #EBCB8B
+#define C4             #81A1C1
+#define C5             #B48EAD
+#define C6             #88C0D0
+#define C7             #E5E9F0
+#define C8             #4C566A
+#define C9             #BF616A
+#define C10            #A3BE8C
+#define C11            #EBCB8B
+#define C12            #81A1C1
+#define C13            #B48EAD
+#define C14            #8FBCBB
+#define C15            #ECEFF4
+
+*.foreground:   C15
+*.background:   C0
+*.cursorColor:  C7
+*fading:        35
+*fadeColor:     C8
+
+/* *.color0: #3B4252 */
+/* *.color1: #BF616A */
+/* *.color2: #A3BE8C */
+/* *.color3: #EBCB8B */
+/* *.color4: #81A1C1 */
+/* *.color5: #B48EAD */
+/* *.color6: #88C0D0 */
+/* *.color7: #E5E9F0 */
+/* *.color8: #4C566A */
+/* *.color9: #BF616A */
+/* *.color10: #A3BE8C */
+/* *.color11: #EBCB8B */
+/* *.color12: #81A1C1 */
+/* *.color13: #B48EAD */
+/* *.color14: #8FBCBB */
+/* *.color15: #ECEFF4 */
+*.color0:     C0
+*.color1:     C1
+*.color2:     C2
+*.color3:     C3
+*.color4:     C4
+*.color5:     C5
+*.color6:     C6
+*.color7:     C7
+*.color8:     C8
+*.color9:     C9
+*.color10:    C10
+*.color11:    C11
+*.color12:    C12
+*.color13:    C13
+*.color14:    C14
+*.color15:    C15

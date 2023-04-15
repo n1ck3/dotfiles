@@ -4,5 +4,13 @@
 vimperator/info*
 *.DS_Store
 
-# Vim Plugins
-vim/plugged
+# vim plugins
+**/vim/**/plugged
+**/vim/**/*addons
+*vim-addons*
+
+# zsh modules
+**/zsh/**/modules
+
+#zsh modules
+# **/tmux/**/tpm

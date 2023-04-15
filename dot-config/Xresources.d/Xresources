@@ -1,0 +1,85 @@
+!#include "/home/nicke/.config/Xresources.d/themes/catppuccin-latte"
+!#include "/home/nicke/.config/Xresources.d/themes/catppuccin-frappe"
+!#include "/home/nicke/.config/Xresources.d/themes/catppuccin-machiato"
+! #include "/home/nicke/.config/Xresources.d/themes/catppuccin-mocha"
+! #include "/home/nicke/.config/Xresources.d/themes/nicke-frappe"
+! #include "/home/nicke/.config/Xresources.d/themes/nicke-tomorrow"
+#include "/home/nicke/.config/Xresources.d/themes/nicke-nord"
+
+*.foreground:                    C15
+*.background:                    C0
+*.cursorColor:                   C7
+*fading:                         35
+*fadeColor:                      C8
+
+*.color0:              C0
+*.color1:              C1
+*.color2:              C2
+*.color3:              C3
+*.color4:              C4
+*.color5:              C5
+*.color6:              C6
+*.color7:              C7
+*.color8:              C8
+*.color9:              C9
+*.color10:             C10
+*.color11:             C11
+*.color12:             C12
+*.color13:             C13
+*.color14:             C14
+*.color15:             C15
+
+! dwm
+dwm.c000000:                     C0 // placeholder value
+
+dwm.normfgcolor:                 C7
+dwm.normbgcolor:                 C0
+dwm.normbordercolor:             C0
+dwm.normfloatcolor:              C0
+
+dwm.selfgcolor:                  C15
+dwm.selbgcolor:                  C0
+dwm.selbordercolor:              C6
+dwm.selfloatcolor:               C0
+
+dwm.titlenormfgcolor:            C7
+dwm.titlenormbgcolor:            C0
+dwm.titlenormbordercolor:        C8
+dwm.titlenormfloatcolor:         C5
+
+dwm.titleselfgcolor:             C6
+dwm.titleselbgcolor:             C0
+dwm.titleselbordercolor:         C6
+dwm.titleselfloatcolor:          C0
+
+dwm.tagsnormfgcolor:             C7
+dwm.tagsnormbgcolor:             C0
+dwm.tagsnormbordercolor:         C8
+dwm.tagsnormfloatcolor:          C13
+
+dwm.tagsselfgcolor:              C8
+dwm.tagsselbgcolor:              C6
+dwm.tagsselbordercolor:          C6
+dwm.tagsselfloatcolor:           C6
+
+dwm.hidnormfgcolor:              C14
+dwm.hidselfgcolor:               C6
+dwm.hidnormbgcolor:              C0
+dwm.hidselbgcolor:               C0
+
+dwm.urgfgcolor:                  C15
+dwm.urgbgcolor:                  C0
+dwm.urgbordercolor:              C1
+dwm.urgfloatcolor:               C1
+
+! dmenu
+dmenu.font:                      "DroidSansMonoForPowerline:pixelsize=18:antialias=true:autohint=true"
+dmenu.bordercolor:               C6
+dmenu.background:                C0
+dmenu.foreground:                C7
+dmenu.selbackground:             C6
+dmenu.selforeground:             C8
+dmenu.outbackground:             C7
+dmenu.outforeground:             C0
+
+:vim ft=Xresources

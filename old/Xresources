@@ -1,0 +1,71 @@
+URxvt*font:             xft:UbuntuMono Nerd Font Mono:size=13
+! URxvt*font:             xft:Hack Nerd Font Mono:style=Regular:size=11
+URxvt.keysym.S-C-C:     perl:clipboard:copy
+URxvt.keysym.S-C-V:     perl:clipboard:paste
+URxvt.urgentOnBell:     true
+URxvt*scrollBar:        false
+URxvt.intensityStyles:  false
+
+/* Xft.dpi: 220 */
+
+#define COLOR0  #1d1f21
+#define COLOR1  #cc6666
+#define COLOR2  #b5bd68
+#define COLOR3  #f0c674
+#define COLOR4  #81a2be
+#define COLOR5  #b294bb
+#define COLOR6  #8abeb7
+#define COLOR7  #c5c8c6
+#define COLOR8  #969896
+#define COLOR9  #cc6666
+#define COLOR10 #b5bd68
+#define COLOR11 #f0c674
+#define COLOR12 #81a2be
+#define COLOR13 #b294bb
+#define COLOR14 #8abeb7
+#define COLOR15 #ffffff
+
+#define FOREGROUND COLOR7
+#define BACKGROUND COLOR0
+
+! special
+*.foreground:   FOREGROUND
+*.background:   BACKGROUND
+*.cursorColor:  FOREGROUND
+
+! black
+*.color0:       COLOR0
+*.color8:       COLOR8
+
+! red
+*.color1:       COLOR1
+*.color9:       COLOR9
+
+! green
+*.color2:       COLOR2
+*.color10:      COLOR10
+
+! yellow
+*.color3:       COLOR3
+*.color11:      COLOR11
+
+! blue
+*.color4:       COLOR4
+*.color12:      COLOR12
+
+! magenta
+*.color5:       COLOR5
+*.color13:      COLOR13
+
+! cyan
+*.color6:       COLOR6
+*.color14:      COLOR13
+
+! white
+*.color7:       COLOR7
+*.color15:      COLOR15
+
+! BASE OVERRIDES
+*.ok:           #B5BD68
+*.warning:      #F0C674
+*.urgent:       #CC6666

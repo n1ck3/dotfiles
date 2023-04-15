@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ `uname -s` == "Linux" ]] ; then
+  xdg-open $@
+else
+  open $@
+fi

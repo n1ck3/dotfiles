@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/nicke/tmp/dotfiles/xorg/fonts'
+let g:netrw_dirhist_1='/home/nicke/tmp/dotfiles/.git'
+let g:netrw_dirhist_0='/home/nicke/.icons'
+let g:netrw_dirhist_9='/home/nicke/.config/qutebrowser'
+let g:netrw_dirhist_8='/home/nicke/.config/autostart'
+let g:netrw_dirhist_7='/home/nicke/.config/vim/plugged/wal.vim/autoload/lightline/colorscheme'
+let g:netrw_dirhist_6='/home/nicke/.config/vim/plugged/wal.vim/autoload/lightline'
+let g:netrw_dirhist_5='/home/nicke/.config/vim/plugged/wal.vim/autoload'
+let g:netrw_dirhist_4='/home/nicke/.config/vim/plugged/wal.vim'
+let g:netrw_dirhist_3='/home/nicke/.config/vim/plugged'

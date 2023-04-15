@@ -1,0 +1,50 @@
+# Source .profile -- env variables and the like
+source ~/.xprofile
+
+# Source ZSH config
+alias sso="source $XDG_CONFIG_HOME/zsh/zshrc"
+
+function yayy() {
+    yay $@ --noconfirm
+}
+function par() {
+    sudo pacman -Rns $(pacman -Qtdq)
+}
+
+# Git aliases ammendments and overrides
+alias gs="git status"
+alias gu="git pull"
+alias gl="git log"
+alias gp="git push origin master"
+alias gls="git log --stat"
+
+# Systemctl stuff
+alias sc="sudo systemctl"
+alias scs="sc status"
+alias sct="sc start"
+alias sco="sc stop"
+alias scr="sc restart"
+alias scw="scr netctl-auto@wlp4s0.service"
+
+# Hehe vim
+alias :q="exit"
+
+# Hehe nvim
+# alias vim="nvim"
+
+# Bell
+alias bell="echo '\a'"
+
+
+test -r "$HOME/.dir_colors" && eval $(dircolors ~/.dir_colors)
+alias ls="ls --color=auto"
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+alias yu="yay -Suy --noconfirm"
+
+export FZF_DEFAULT_COMMAND='find .'
+
+neofetch
+

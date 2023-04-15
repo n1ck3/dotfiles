@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+
+# run-or-raise for i3
+# Written by Lowe Thiderman (lowe.thiderman@gmail.com)
+# Modified by Niclas Helbro (niclas.helbro@gmail.com)
+# WTFPL
+
+grep=$1
+executable=$2
+
+# Try to raise the application
+winids=(${(f)"$(xwininfo -tree -root | grep $grep | tr -s ' ' | cut -d" " -f2 | sort)"})
+raised=false
+for winid in $winids ; do
+    i3-msg "[id=\"$winid\"] focus" &> /dev/null | grep true
+    if [[ $? == 0 ]] ; then
+        raised=true
+        break
+    fi
+done
+
+# If not able to raise the application, start it and raise it.
+if [[ "$raised" = false && "$executable" != "" ]] ; then
+    exec ${(z)executable} &|
+fi

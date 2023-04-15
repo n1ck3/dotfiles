@@ -1,0 +1,122 @@
+call plug#begin()
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'arcticicestudio/nord-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-commentary'
+" Plug 'BourgeoisBear/clrzr'
+Plug 'christoomey/vim-tmux-navigator'
+" Plug 'vim-scripts/CSApprox'
+" Plug 'vim-scripts/AnsiEsc.vim'
+" Plug 'dylanaraps/wal.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'ervandew/supertab'
+call plug#end()
+
+set laststatus=2
+
+" colorscheme catppuccin_mocha
+" let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+
+" colorscheme nord
+" let g:lightline = {'colorscheme': 'nord'}
+
+" colorscheme wal
+" let g:lightline = {'colorscheme': 'wal'}
+
+colorscheme xrdb-cterm
+
+
+"  clrzr
+ " sets foreground color (ANSI, true-color mode)
+let &t_8f = "\e[38;2;%lu;%lu;%lum"
+" sets background color (ANSI, true-color mode)
+let &t_8b = "\e[48;2;%lu;%lu;%lum"
+set termguicolors
+
+let mapleader = " "
+nnoremap <space> <Nop>
+set updatetime=500
+set showcmd
+
+map <leader>h :set hlsearch<CR>
+map <leader><BS> :noh<CR>
+map <leader>r :source /home/nicke/.config/vim/vimrc<CR>
+
+" From old config
+set encoding=utf-8
+set modelines=0
+set autoindent
+"set showmode
+"set hidden
+set novisualbell
+"set t_vb=
+"set ttyfast
+set ruler
+set backspace=indent,eol,start
+"set nonumber
+" if exists('+relativenumber')
+"   set norelativenumber
+" endif
+set relativenumber
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+
+" Fat fingers!
+" command W w
+" command Q q
+
+" command Wa wa
+" command WA wa
+
+" command Qa qa
+" command QA qa
+
+" command Wq wq
+" command WQ wq
+
+" command WQa wqa
+" command WQA wqa
+
+" Remap zR and zM for folding madness
+nnoremap zR zRzz
+nnoremap zM zMzz
+
+" Mappings for Commentary, yeah!
+nmap ö :Commentary<CR>
+vmap ö :Commentary<CR>gv
+" Vim Plug
+
+" Plug maps
+nmap <leader>ps :PlugStatus<CR>
+nmap <leader>pi :PlugInstall<CR>
+nmap <leader>pu :PlugUpdate<CR>
+nmap <leader>pc :PlugClean<CR>
+
+
+" Suckless, yeah
+nmap <leader>i :!./install.sh<CR>
+
+" tmux-vim-navigator
+let g:tmux_navigator_no_mappings = 1
+
+noremap <silent> <C-a>h :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <C-a>j :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <C-a>k :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <C-a>l :<C-U>TmuxNavigateRight<cr>
+" noremap <silent> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>
+
+autocmd FileType xdefaults set commentstring=!\ %s
+
+" Vimwiki
+nmap <leader>x :VimwikiToggleListItem<CR>
+nmap <leader>- :VimwikiListToggle<CR>
+
+" FZF
+nmap <leader>f :Files ~<CR>
+" nmap <C-p> :Files ~<CR>
+nmap <leader>b :Buffers<CR>
