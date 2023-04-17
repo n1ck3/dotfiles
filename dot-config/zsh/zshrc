@@ -46,5 +46,7 @@ alias yu="yay -Suy --noconfirm"
 
 export FZF_DEFAULT_COMMAND='find .'
 
+export PATH="$HOME/.local/bin:$PATH"
+
 neofetch
 
